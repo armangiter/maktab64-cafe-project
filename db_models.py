@@ -7,6 +7,16 @@ engine = create_engine('postgres://lkfrpdyj:hhUJANbdSKxjUZFbO1Ph0E_R4D4wBhT0@cas
 session = sessionmaker(bind=engine)()
 
 
+class Cashier(Base):
+    __tablename__ = 'cashier'
+    id = Column('id', Integer, unique=True, primary_key=True)
+    firstname = Column('firstname', String)
+    lastname = Column('lastname', String)
+    phone = Column('phone', String, unique=True)
+    email = Column('email', String, unique=True)
+    password = Column('password', String)
+
+
 class Menu_Items(Base):
     __tablename__ = 'menu'
     id = Column('Id', Integer, unique=True, primary_key=True)
