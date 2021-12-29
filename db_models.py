@@ -27,5 +27,11 @@ class Menu_Items(Base):
     serv_time = Column('ServTime', Integer, unique=False)
     st_cooking_time = Column('StCookingTime', Integer)
 
+class Table(Base):
+    __tablename__ = 'Table'
+    id = Column('id', Integer, unique=True, primary_key=True)
+    table_number = Column('table number', Integer, unique=True)
+    cafe_position = Column('lastname', String)
+    capacity = Column('capacity', Integer, unique=True)
 
 Base.metadata.create_all(engine)
