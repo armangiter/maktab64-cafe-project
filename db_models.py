@@ -22,7 +22,7 @@ class Menu_Items(Base):
     id = Column('Id', Integer, unique=True, primary_key=True)
     name = Column('Name', String, unique=True)
     price = Column('Price', Integer, unique=False)
-    category = Column('Category', String, unique=False, foreign_key='category.id')
+    category = Column('Category', String, unique=False, foreign_key='Category.id')
     discount = Column('discount', Integer, unique=False, default=0)
     serv_time = Column('ServTime', Integer, unique=False, default=10)
     st_cooking_time = Column('StCookingTime', Integer, default=10)
@@ -42,6 +42,14 @@ class Category(Base):
     title = Column('title', String)
     root = Column('root', String, default=None)
 
+
+class Orders(Base):
+    __tablename__ = "Orders"
+    id = Column('id', Integer, unique=True, primary_key=True)
+    table_id = Column('table_id', Integer, unique=True, foreign_key='Table.id')
+    number = Column('number', Integer)
+    status = Column('status', String)
+    time_stamp = Column('time_stamp', DateTime)
 
 
 Base.metadata.create_all(engine)
