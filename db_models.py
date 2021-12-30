@@ -61,5 +61,11 @@ class Receipts(Base):
     time_stamp = Column('time_stamp', DateTime)
 
 
+class Order_items(Base):
+    __tablename__ = 'Order_items'
+    id = Column('id', Integer, unique=True, primary_key=True)
+    item_id = Column('item_id', Integer, ForeignKey('Menu_Items.id', ondelete='CASCADE'))
+    order_items = Column('order_items', Integer, ForeignKey('Orders.id', ondelete='CASCADE'))
+
 
 Base.metadata.create_all(engine)
