@@ -8,7 +8,7 @@ session = sessionmaker(bind=engine)()
 
 
 class Cashier(Base):
-    __tablename__ = 'cashier'
+    __tablename__ = 'Cashier'
     id = Column('id', Integer, unique=True, primary_key=True)
     firstname = Column('firstname', String)
     lastname = Column('lastname', String)
@@ -18,14 +18,14 @@ class Cashier(Base):
 
 
 class Menu_Items(Base):
-    __tablename__ = 'menu'
+    __tablename__ = 'Menu'
     id = Column('Id', Integer, unique=True, primary_key=True)
     name = Column('Name', String, unique=True)
     price = Column('Price', Integer, unique=False)
     category = Column('Category', String, unique=False, foreign_key='category.id')
-    discount = Column('discount', Integer, unique=False)
-    serv_time = Column('ServTime', Integer, unique=False)
-    st_cooking_time = Column('StCookingTime', Integer)
+    discount = Column('discount', Integer, unique=False, default=0)
+    serv_time = Column('ServTime', Integer, unique=False, default=10)
+    st_cooking_time = Column('StCookingTime', Integer, default=10)
 
 
 class Table(Base):
@@ -33,7 +33,15 @@ class Table(Base):
     id = Column('id', Integer, unique=True, primary_key=True)
     table_number = Column('table number', Integer, unique=True)
     cafe_position = Column('lastname', String)
-    capacity = Column('capacity', Integer, unique=True)
+    capacity = Column('capacity', Integer, unique=True, default=2)
+
+
+class Category(Base):
+    __tablename__ = "Category"
+    id = Column('id', Integer, unique=True, primary_key=True)
+    title = Column('title', String)
+    root = Column('root', String, default=None)
+
 
 
 Base.metadata.create_all(engine)
