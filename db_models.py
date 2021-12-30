@@ -28,6 +28,4 @@ class Menu_Items(Base):
     st_cooking_time = Column('StCookingTime', Integer)
 
 
-
-
 Base.metadata.create_all(engine)
