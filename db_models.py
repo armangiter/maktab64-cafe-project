@@ -26,7 +26,7 @@ class Category(Base):
 
 class Menu_Items(Base):
     __tablename__ = 'Menu'
-    id = Column('Id', Integer, unique=True, primary_key=True)
+    id = Column('id', Integer, unique=True, primary_key=True)
     name = Column('Name', String, unique=True)
     price = Column('Price', Integer, unique=False)
     category = Column('Category', Integer, ForeignKey('Category.id', ondelete='CASCADE'))
@@ -64,7 +64,7 @@ class Receipts(Base):
 class Order_items(Base):
     __tablename__ = 'Order_items'
     id = Column('id', Integer, unique=True, primary_key=True)
-    item_id = Column('item_id', Integer, ForeignKey('Menu_Items.id', ondelete='CASCADE'))
+    item_id = Column('item_id', Integer, ForeignKey('Menu.id', ondelete='CASCADE'))
     order_items = Column('order_items', Integer, ForeignKey('Orders.id', ondelete='CASCADE'))
 
 
