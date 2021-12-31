@@ -1,9 +1,16 @@
 from db_models import *
 
 
-class Table:
+class Table_models:
 
-    def __init__(self, table_number, cafe_position, capacity):
+    def __init__(self, id, table_number, cafe_position, capacity):
+        self.id = id
         self.table_number = table_number
         self.cafe_position = cafe_position
         self.capacity = capacity
+
+    def create(self):
+        new_row = Table(id=self.id, table_number=self.table_number, cafe_position=self.cafe_position,
+                        capacity=self.capacity)
+        session.add(new_row)
+        session.commit()
