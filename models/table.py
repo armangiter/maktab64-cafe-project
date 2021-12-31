@@ -14,3 +14,8 @@ class Table_models:
                         capacity=self.capacity)
         session.add(new_row)
         session.commit()
+
+    @classmethod
+    def delete(cls, table_number):
+        delete = session.query(Table).filter(Table.table_number == table_number).delete()
+        session.commit()
