@@ -39,7 +39,7 @@ class Table(Base):
     __tablename__ = 'Table'
     id = Column('id', Integer, unique=True, primary_key=True)
     table_number = Column('table number', Integer, unique=True)
-    cafe_position = Column('lastname', String)
+    cafe_position = Column('cafe_position', String)
     capacity = Column('capacity', Integer, unique=True, default=2)
 
 
