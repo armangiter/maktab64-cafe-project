@@ -9,6 +9,8 @@ class CashierError(Exception):
         self.msg = msg
         self.field = field
         self.data = data
+    def __str__(self):
+        return f"error on field `{self.field}` (invalid data: `{self.data}`): {self.msg}"
 
 class Cashier(db_models.Base):
     def __init__(self, first_name, last_name, phone_number, password, email=None, **extra_information):
