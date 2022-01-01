@@ -14,3 +14,13 @@ class Cashier(Base):
                                     ,password=self.password,email=self.email)
         session.add(cashier)
         session.commit()
+
+    def __repr__(self) -> str:
+            return f"""
+        ID: {self.number}
+        First Name: {self.first_name}
+        Last Name: {self.last_name}
+        Phone Number: 09{self.phone_number}
+        Email Address: {self.email if self.email else '-'}
+    """
+    def delete(self):
