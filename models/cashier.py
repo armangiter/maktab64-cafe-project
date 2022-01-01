@@ -23,4 +23,9 @@ class Cashier(Base):
         Phone Number: 09{self.phone_number}
         Email Address: {self.email if self.email else '-'}
     """
-    def delete(self):
+    @classmethod
+    def delete(cls,id):
+        cashier = session.query(Cashier).filter(Cashier.id == id).delete()
+        for i in cashier:
+            session.delete(i)
+            session.commit()
