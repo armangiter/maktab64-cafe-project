@@ -23,16 +23,16 @@ class Cashier(Base):
         Email Address: {self.email if self.email else '-'}
     """
     @classmethod
-    def delete(cls,id):
-        cashier = session.query(Cashier).filter(Cashier.id == id).delete()
+    def delete(cls,phone):
+        cashier = session.query(Cashier).filter(Cashier.id == phone).delete()
         for i in cashier:
             session.delete(i)
             session.commit()
-    @classmethod
-    def all_cashiers(cls):
+
+    def all_cashiers(self):
         cashiers = Cashier.query.all()
-        for i in cashiers:
-            print(i)
+        for c in cashiers:
+            return c.firstname + c.lastname
 
     @classmethod
     def check_user(cls, phone_number: str, password: str) :
