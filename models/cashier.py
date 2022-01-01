@@ -2,7 +2,7 @@ import db_models
 from db_models import *
 
 class Cashier(Base):
-    def __init__(self, first_name, last_name, phone_number, password, email=None, **extra_information):
+    def __init__(self, first_name, last_name, phone_number, password, email=None):
 
         self.first_name = first_name
         self.last_name = last_name
@@ -17,7 +17,6 @@ class Cashier(Base):
 
     def __repr__(self) -> str:
             return f"""
-        ID: {self.number}
         First Name: {self.first_name}
         Last Name: {self.last_name}
         Phone Number: 09{self.phone_number}
@@ -34,3 +33,9 @@ class Cashier(Base):
         cashiers = Cashier.query.all()
         for i in cashiers:
             print(i)
+
+    @classmethod
+    def check_user(cls, phone_number: str, password: str) :
+        if session.query(Cashier).fliter(Cashier.phone == phone_number and Cashier.password == password):
+            return True
+        return False
