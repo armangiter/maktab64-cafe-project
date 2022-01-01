@@ -1,5 +1,6 @@
-from .. import db_models
-from json import dumps, loads
+import db_models
+from db_models import *
+from json import dumps
 
 
 
@@ -12,7 +13,7 @@ class CashierError(Exception):
     def __str__(self):
         return f"error on field `{self.field}` (invalid data: `{self.data}`): {self.msg}"
 
-class Cashier(db_models.Base):
+class Cashier(Base):
     def __init__(self, first_name, last_name, phone_number, password, email=None, **extra_information):
 
         self.first_name = first_name
@@ -21,3 +22,6 @@ class Cashier(db_models.Base):
         self.email = email
         self.password = password
         self.extra_information = dumps(extra_information)
+
+        cashier = db_models.Cashier(first_name=self.first_name,last_name=self.last_name,phone_number=self.phone_number
+                                    ,password=self.password,email=self.email)
