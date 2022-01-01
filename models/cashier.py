@@ -29,3 +29,8 @@ class Cashier(Base):
         for i in cashier:
             session.delete(i)
             session.commit()
+    @classmethod
+    def all_cashiers(cls):
+        cashiers = Cashier.query.all()
+        for i in cashiers:
+            print(i)
