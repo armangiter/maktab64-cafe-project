@@ -13,7 +13,7 @@ class Cashier(Base):
     firstname = Column('firstname', String)
     lastname = Column('lastname', String)
     phone = Column('phone', String, unique=True)
-    email = Column('email', String, unique=True)
+    email = Column('email', String, unique=True, nullable=True)
     password = Column('password', String)
 
 
