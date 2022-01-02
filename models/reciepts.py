@@ -15,7 +15,7 @@ class Receipts:
         session.commit()
 
     @classmethod
-    def show_all(cls):
+    def all_receipts(cls):
         receipts = session.query(Receipts).all()
         receipts_dict = {}
         for i in receipts:
