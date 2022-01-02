@@ -9,8 +9,6 @@ class Receipts:
         self.total_price = total_price
         self.final_price = final_price
         self.time_stamp = time_stamp
-
-    def create(self):
         new_row = Receipts(table_id=self.table_id, total_price=self.total_price, final_price=self.final_price,
                            time_stamp=self.time_stamp)
         session.add(new_row)
@@ -30,10 +28,7 @@ class Receipts:
         return receipts_dict
 
     @classmethod
-    def delete(cls, table_id):
-        session.query(Receipts).filter(Receipts.table_id == table_id).delete()
+    def delete(cls, receipt_id):
+        session.query(Receipts).filter(Receipts.table_id == receipt_id).delete()
         session.commit()
 
-    @classmethod
-    def update(cls):
-        pass
