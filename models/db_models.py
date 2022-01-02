@@ -65,7 +65,7 @@ class Order_items(Base):
     __tablename__ = 'Order_items'
     id = Column('id', Integer, unique=True, primary_key=True)
     item_id = Column('item_id', Integer, ForeignKey('Menu.id', ondelete='CASCADE'))
-    order_items = Column('order_items', Integer, ForeignKey('Orders.id', ondelete='CASCADE'))
+    order_id = Column('order_items', Integer, ForeignKey('Orders.id', ondelete='CASCADE'))
 
 
 Base.metadata.create_all(engine)

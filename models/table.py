@@ -1,7 +1,7 @@
 from db_models import *
 
 
-class Table_models:
+class TableModels:
 
     def __init__(self, id, table_number, cafe_position, capacity):
         self.id = id
