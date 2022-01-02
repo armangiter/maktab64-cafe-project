@@ -1,4 +1,5 @@
 from db_models import *
+from datetime import datetime
 
 
 class Orders:
@@ -8,4 +9,4 @@ class Orders:
         self.table_id = table_id
         self.number = number
         self.status = status
-        self.time_stamp=
+        self.time_stamp = datetime.now()
