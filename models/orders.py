@@ -10,7 +10,7 @@ class Order:
         self.time_stamp = time_stamp
         self.__status = 'ordered'
         new_row = Orders(table_id=self.table_id, number=self.number,
-                         status=self.get_status, time_stamp=datetime.now())
+                         status=self.get_status, time_stamp=self.time_stamp)
         session.add(new_row)
         session.commit()
 
