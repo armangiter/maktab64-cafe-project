@@ -6,10 +6,7 @@ class CategoryModels:
     def __init__(self, title, root=None):
         self.title = title
         self.root = root
-
-    def create_category(self):
         new_row = Category(title=self.title, root=self.root)
-
         session.add(new_row)
         session.commit()
 
