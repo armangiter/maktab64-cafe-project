@@ -34,7 +34,14 @@ class CashierModels:
         cashiers = Cashier.query.all()
         cashier_dict = {}
         for c in cashiers:
-            cashier_dict[c.id] = c.firstname + c.lastname
+            c: Cashier
+            cashier_dict[c.id] = {
+                'firstname': c.firstname,
+                'lastname': c.lastname,
+                'phone': c.phone,
+                'email': c.email,
+                'password': c.password
+            }
         return cashier_dict
 
     @classmethod
@@ -42,4 +49,3 @@ class CashierModels:
         if session.query(Cashier).fliter(Cashier.phone == phone_number and Cashier.password == password):
             return True
         return False
-
