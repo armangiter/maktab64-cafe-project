@@ -8,5 +8,9 @@ class Orders:
         self.id = id
         self.table_id = table_id
         self.number = number
-        self.status = status
+        self.__status = status
         self.time_stamp = datetime.now()
+
+    def change_status(self, stat="ordered"):
+        self.__status = stat
+
