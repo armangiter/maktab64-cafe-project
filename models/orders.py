@@ -12,7 +12,8 @@ class Orders:
         self.time_stamp = datetime.now()
 
     def change_status(self, stat="ordered"):
-        self.__status = stat
+        if self.__status:
+            self.__status = stat
 
     def finish(self):
         self.__status = False
