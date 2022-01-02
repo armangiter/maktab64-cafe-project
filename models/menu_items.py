@@ -13,3 +13,8 @@ class MenuItems:
                              discount=self.discount, serv_time=self.serv_time, st_cooking_time=self.st_cooking_time)
         session.add(new_row)
         session.commit()
+
+    @classmethod
+    def delete_item(cls, item_id):
+        session.query(Menu_Items).filter(Menu_Items.id == item_id).delete()
+        session.commit()
