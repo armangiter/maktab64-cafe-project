@@ -20,3 +20,5 @@ class Order:
     def finish(self):
         self.__status = False
 
+    def get_status(self):
+        return self.__status
