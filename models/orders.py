@@ -4,8 +4,7 @@ from datetime import datetime
 
 class Orders:
 
-    def __init__(self, id, table_id, number):
-        self.id = id
+    def __init__(self, table_id, number):
         self.table_id = table_id
         self.number = number
         self.__status = 'ordered'
