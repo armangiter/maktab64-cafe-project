@@ -16,14 +16,6 @@ class CashierModels:
         session.add(cashier)
         session.commit()
 
-    def __repr__(self) -> str:
-        return f"""
-        First Name: {self.first_name}
-        Last Name: {self.last_name}
-        Phone Number: 09{self.phone_number}
-        Email Address: {self.email if self.email else '-'}
-    """
-
     @classmethod
     def delete(cls, user_id):
         session.query(Cashier).filter(Cashier.id == user_id).delete()
