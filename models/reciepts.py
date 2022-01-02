@@ -16,10 +16,18 @@ class Receipts:
         session.add(new_row)
         session.commit()
 
-    def show_all(self):
+    @classmethod
+    def show_all(cls):
         receipts = session.query(Receipts).all()
+        receipts_dict = {}
         for i in receipts:
-            return i
+            receipts_dict[i.id] = {
+                'table_id': i.table_id,
+                'total_price': i.total_price,
+                'final_price': i.final_price,
+                'time_stamp': i.time_stamp
+            }
+        return receipts_dict
 
     @classmethod
     def delete(cls, table_id):
