@@ -4,9 +4,10 @@ from datetime import datetime
 
 class Order:
 
-    def __init__(self, table_id, number):
+    def __init__(self, table_id, number, time_stamp=datetime.now()):
         self.table_id = table_id
         self.number = number
+        self.time_stamp = time_stamp
         self.__status = 'ordered'
         new_row = Orders(table_id=self.table_id, number=self.number,
                          status=self.get_status, time_stamp=datetime.now())
