@@ -13,3 +13,6 @@ class Orders:
 
     def change_status(self, stat="ordered"):
         self.__status = stat
+
+    def finish(self):
+        self.__status = False
