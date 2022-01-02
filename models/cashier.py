@@ -32,8 +32,10 @@ class CashierModels:
     @classmethod
     def all_cashiers(cls):
         cashiers = Cashier.query.all()
+        cashier_dict = {}
         for c in cashiers:
-            return c.firstname + c.lastname
+            cashier_dict[c.id] = c.firstname + c.lastname
+        return cashier_dict
 
     @classmethod
     def check_user(cls, phone_number: str, password: str):
@@ -41,5 +43,3 @@ class CashierModels:
             return True
         return False
 
-# c = Cashier_Models('ali', 'reza', '09376051315', 'ali', 'ali')
-# c.create()
