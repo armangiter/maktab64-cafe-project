@@ -28,3 +28,4 @@ class TableModels:
                 'cafe_position': i.cafe_position,
                 'capacity': i.capacity
             }
+        return table_dict
