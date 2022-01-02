@@ -2,7 +2,7 @@ import db_models
 from db_models import *
 
 
-class Cashier_Models:
+class CashierModels:
     def __init__(self, first_name, last_name, phone_number, password, email=None):
         self.first_name = first_name
         self.last_name = last_name
@@ -30,7 +30,7 @@ class Cashier_Models:
         session.commit()
 
     @classmethod
-    def AllCashiers(cls):
+    def all_cashiers(cls):
         cashiers = Cashier.query.all()
         for c in cashiers:
             return c.firstname + c.lastname
