@@ -9,3 +9,7 @@ class MenuItems:
         self.discount = discount
         self.serv_time = serv_time
         self.st_cooking_time = st_cooking_time
+        new_row = Menu_Items(name=self.name, price=self.price, category=self.category,
+                             discount=self.discount, serv_time=self.serv_time, st_cooking_time=self.st_cooking_time)
+        session.add(new_row)
+        session.commit()
