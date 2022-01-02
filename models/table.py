@@ -17,3 +17,14 @@ class TableModels:
         session.query(Table).filter(Table.table_number == table_id).delete()
         session.commit()
 
+    @classmethod
+    def all_table(cls):
+        tables = session.query(Table).all()
+        table_dict = {}
+        for i in tables:
+            i: Table
+            table_dict[i.id] = {
+                'table_number': i.table_number,
+                'cafe_position': i.cafe_position,
+                'capacity': i.capacity
+            }
