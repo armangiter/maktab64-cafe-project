@@ -4,7 +4,7 @@ from datetime import datetime
 
 class Receipts:
 
-    def __init__(self, table_id, total_price: dict, final_price=0, time_stamp=datetime.now()):
+    def __init__(self, table_id, total_price=None, final_price=0, time_stamp=datetime.now()):
         self.table_id = table_id
         self.total_price = total_price
         self.final_price = final_price

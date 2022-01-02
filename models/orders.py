@@ -23,3 +23,17 @@ class Order:
 
     def get_status(self):
         return self.__status
+
+    @classmethod
+    def all_orders(cls):
+        orders = session.query(Orders).all()
+        orders_dict = {}
+        for i in orders:
+            i: Orders
+            orders_dict[i.id] = {
+                'table_id': i.table_id,
+                'number': i.number,
+                'time_stamp': i.time_stamp,
+                'status': i.status
+            }
+        return orders_dict
