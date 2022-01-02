@@ -36,8 +36,4 @@ class CashierModels:
             }
         return cashier_dict
 
-    @classmethod
-    def check_user(cls, phone_number: str, password: str):
-        if session.query(Cashier).fliter(Cashier.phone == phone_number and Cashier.password == password):
-            return True
-        return False
+
