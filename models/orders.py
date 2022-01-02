@@ -14,12 +14,20 @@ class Order:
         session.add(new_row)
         session.commit()
 
-    def change_status(self, stat="ordered"):
-        if self.__status:
-            self.__status = stat
+    @classmethod
+    def change_status(cls, stat="ordered"):
+        '''
+        todo : update query
+        :param stat:
+        :return:
+        '''
 
-    def finish(self):
-        self.__status = False
+    @classmethod
+    def finish(cls):
+        '''
+        Todo:update
+        :return:
+        '''
 
     def get_status(self):
         return self.__status
