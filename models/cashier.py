@@ -9,8 +9,6 @@ class CashierModels:
         self.phone_number = phone_number
         self.email = email
         self.password = password
-
-    def create(self):
         cashier = db_models.Cashier(firstname=self.first_name, lastname=self.last_name, phone=self.phone_number
                                     , password=self.password, email=self.email)
         session.add(cashier)
@@ -35,5 +33,3 @@ class CashierModels:
                 'password': c.password
             }
         return cashier_dict
-
-
