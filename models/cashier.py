@@ -25,8 +25,8 @@ class CashierModels:
     """
 
     @classmethod
-    def delete(cls, phone):
-        session.query(Cashier).filter(Cashier.phone == phone).delete()
+    def delete(cls, user_id):
+        session.query(Cashier).filter(Cashier.id == user_id).delete()
         session.commit()
 
     @classmethod
