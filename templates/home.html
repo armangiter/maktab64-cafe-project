@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel=" stylesheet
+    " href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-color: bisque;
+        }
+        #box{
+            background-color: white;
+            margin: 3vh;
+            height: 90%;
+        }
+        #navbar {
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        #navbar li {
+            list-style-type: none;
+            border-bottom: 4px solid transparent;
+            transition: all 1s;
+        }
+
+        #navbar li:hover {
+            background-color: whitesmoke;
+            border-color: dodgerblue;
+        }
+
+        #navbar li > a {
+            display: block;
+            padding: 20px 30px;
+            text-decoration: none;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div class="container-fluid">
+        <div class="row" id="navbar">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">About</a></li>
+        </div>
+        <div class="row" id="body">
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
