@@ -1,20 +1,19 @@
-
 from db_models import *
 
-class Calegory_models:
 
-    def __init__(self,title,root=None):
-        self.title=title
-        self.root=root
+class CategoryModels:
 
-    def craete_category(self):
-        new_row= Category(title=self.title, root=self.root)
+    def __init__(self, title, root=None):
+        self.title = title
+        self.root = root
+
+    def create_category(self):
+        new_row = Category(title=self.title, root=self.root)
 
         session.add(new_row)
         session.commit()
 
     @classmethod
-    def delete(cls, title):
-        session.query(Calegory_models).filter(Calegory_models.title == title).delete()
+    def delete(cls, category_id):
+        session.query(Category).filter(Category.id == category_id).delete()
         session.commit()
-
