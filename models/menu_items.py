@@ -34,3 +34,9 @@ class MenuItems:
                 'st_cook_time': i.st_cooking_time
             }
         return menu_dict
+
+    @classmethod
+    def update(cls, attr, i_id, value):
+        session.query(Menu_Items).filter(Menu_Items.id == i_id).update({attr: value})
+        session.commit()
+
