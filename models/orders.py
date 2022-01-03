@@ -8,9 +8,9 @@ class Order:
         self.table_id = table_id
         self.number = number
         self.time_stamp = time_stamp
-        self.__status = 'ordered'
+        self.status = 'ordered'
         new_row = Orders(table_id=self.table_id, number=self.number,
-                         status=self.get_status, time_stamp=self.time_stamp)
+                         status=self.status, time_stamp=self.time_stamp)
         session.add(new_row)
         session.commit()
 
@@ -18,9 +18,6 @@ class Order:
     def change_status(cls, stat="ordered", o_id=None):
         session.query(Orders).filter(Orders.id == o_id).update({'status': stat})
         session.commit()
-
-    def get_status(self):
-        return self.__status
 
     @classmethod
     def all_orders(cls):
