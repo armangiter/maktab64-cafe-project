@@ -46,3 +46,10 @@ def order():
         order_item_dict = order_item.OrderItem.all_order_items()
         return render_template('orders', menu_dict=menu_dict, order_dict=order_dict, order_item_dict=order_item_dict)
     return None
+
+
+def receipt():
+    if request.method == 'GET':
+        receipts_dict = reciepts.Receipts.all_receipts()
+        return render_template('receipt', receipts_dict=receipts_dict)
+    return None
