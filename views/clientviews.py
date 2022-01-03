@@ -20,3 +20,8 @@ def home():
     data = base_variables
     data['page']['title'] = "home page !"
     return render_template("home.html", data=data)
+
+def about():
+    data = base_variables
+    data['page']['title'] = "About page !"
+    return render_template("about.html", data=data)
