@@ -16,7 +16,9 @@ def login():
 
 
 def register():
-    if request.method == 'POST':
+    if request.method == 'GET':
+        return render_template('register')
+    elif request.method == 'POST':
         cashier.CashierModels(escape(request.form.get('firstname')), escape(request.form.get('lastname')),
                               escape(request.form.get('phone')),
                               escape(request.form.get('password')), escape(request.form.get('email')))
@@ -43,3 +45,4 @@ def order():
         order_dict = orders.Order.all_orders()
         order_item_dict = order_item.OrderItem.all_order_items()
         return render_template('orders', menu_dict=menu_dict, order_dict=order_dict, order_item_dict=order_item_dict)
+    return None
