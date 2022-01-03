@@ -10,3 +10,8 @@ base_variables = {
 
     "links": ["INDEX","HOME", "ABOUT", "MENU", "TEAM"]
 }
+
+def index():
+    data = base_variables
+    data['page']['title'] = "index page !"
+    return render_template("index.html", data=data)
