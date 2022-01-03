@@ -68,6 +68,7 @@
             padding-left: 30px;
             padding-right: 30px;
         }
+
         #navbar {
             justify-content: space-around;
             align-items: center;
@@ -92,11 +93,13 @@
             text-decoration: none;
             color: gray;
         }
+
         #menu-box {
             margin-top: 8rem;
             margin-left: 2rem;
             margin-right: 4rem;
         }
+
         h3 {
             margin-left: 3rem;
         }
@@ -128,7 +131,14 @@
                                     <p><b> {{ menu.price }} </b></p>
                                 </div>
                             </div>
+                            <form action="#">
+                                <div class="row" id="Button">
+                                    <button class="form-control col-4" type="submit"></button>
+                                    <button class="form-control col-4" type="submit"></button>
+                                </div>
+                            </form>
                         </div>
+
                     {% endfor %}
                 </div>
                 <div class="col-lg-4">
