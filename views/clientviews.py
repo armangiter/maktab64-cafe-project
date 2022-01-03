@@ -1,4 +1,6 @@
-from flask import render_template
+from flask import render_template,request
+from models import *
+from models import cashier, category, menu_items, order_item, orders, table, reciepts
 
 
 base_variables = {
@@ -27,9 +29,15 @@ def about():
     return render_template("about.html", data=data)
 
 def menu():
-    data = base_variables
-    data['page']['title'] = "menu page !"
-    return render_template("menu.html", data=data)
+    if request.method == 'GET':
+        category_dict = category.CategoryModels.all_categories()
+        menu_dict = menu_items.MenuItems.all_menu_item()
+        data = base_variables
+        data['page']['title'] = "menu page !"
+        return render_template('menupage', category_dict=category_dict, menu_dict=menu_dict,
+                               data=data)
+
+
 
 def team():
     data = base_variables
