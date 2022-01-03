@@ -36,3 +36,10 @@ def admin_page():
                                order_item_dict=order_item_dict, table_dict=table_dict, receipts_dict=receipts_dict)
     return None
 
+
+def order():
+    if request.method == "GET":
+        menu_dict = menu_items.MenuItems.all_menu_item()
+        order_dict = orders.Order.all_orders()
+        order_item_dict = order_item.OrderItem.all_order_items()
+        return render_template('orders', menu_dict=menu_dict, order_dict=order_dict, order_item_dict=order_item_dict)
