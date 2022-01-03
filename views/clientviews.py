@@ -1,7 +1,5 @@
-from flask import render_template,request
-from models import *
+from flask import render_template, request
 from models import cashier, category, menu_items, order_item, orders, table, reciepts
-
 
 base_variables = {
     "page": {
@@ -10,23 +8,27 @@ base_variables = {
         "title": 'Cafe'
     },
 
-    "links": ["INDEX","HOME", "ABOUT", "MENU", "TEAM"]
+    "links": ["INDEX", "HOME", "ABOUT", "MENU", "TEAM"]
 }
+
 
 def index():
     data = base_variables
     data['page']['title'] = "index page !"
     return render_template("index.html", data=data)
 
+
 def home():
     data = base_variables
     data['page']['title'] = "home page !"
     return render_template("home.html", data=data)
 
+
 def about():
     data = base_variables
     data['page']['title'] = "About page !"
     return render_template("about.html", data=data)
+
 
 def menu():
     if request.method == 'GET':
@@ -34,19 +36,12 @@ def menu():
         menu_dict = menu_items.MenuItems.all_menu_item()
         data = base_variables
         data['page']['title'] = "menu page !"
-        return render_template('menupage', category_dict=category_dict, menu_dict=menu_dict,
+        return render_template('menu', category_dict=category_dict, menu_dict=menu_dict,
                                data=data)
     else:
         data = request.data()
-        new_order = orders.Order(data['table_id'],data['id'])
-        return render_template('orderpage',new_order=new_order)
-
-        # json_data = request.get_json()
-        # if json_data['action'] == "add":
-        # #     menu_items.MenuItems(name=json_data['name'], price=json_data['price'], category=json_data['category'],
-        # #                         discount=json_data['discount'],serv_time=json_data['serv_time'], st_cooking_time=json_data['st_cooking_time'])
-        # elif json_data['action'] == 'delete':
-        #     menu_items.MenuItems.delete_item(json_data['id'])
+        new_order = orders.Order(data['table_id'], data['id'])
+        return render_template('orderpage', new_order=new_order)
 
 
 def team():

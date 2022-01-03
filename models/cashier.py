@@ -1,5 +1,4 @@
-import db_models
-from db_models import *
+from models.DB_MODELS.db_models import *
 
 
 class CashierModels:
@@ -9,8 +8,8 @@ class CashierModels:
         self.phone_number = phone_number
         self.email = email
         self.password = password
-        cashier = db_models.Cashier(firstname=self.first_name, lastname=self.last_name, phone=self.phone_number
-                                    , password=self.password, email=self.email)
+        cashier = Cashier(firstname=self.first_name, lastname=self.last_name, phone=self.phone_number
+                          , password=self.password, email=self.email)
         session.add(cashier)
         session.commit()
 
@@ -33,3 +32,8 @@ class CashierModels:
                 'password': c.password
             }
         return cashier_dict
+
+    @classmethod
+    def update(cls, attr, c_id, value):
+        session.query(Cashier).filter(Cashier.id == c_id).Update({attr: value})
+        session.commit()

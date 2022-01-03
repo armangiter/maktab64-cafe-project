@@ -1,12 +1,9 @@
 from flask import Flask
+from views import clientviews, admin
 
 app = Flask(__name__)
 
-
-@app.route('/')
-def hello_world():  # put application's code here
-    return 'Hello World!'
-
-
+app.add_url_rule('/', 'home', clientviews.home)
+app.add_url_rule('/menu', 'menu', clientviews.menu)
 if __name__ == '__main__':
     app.run()

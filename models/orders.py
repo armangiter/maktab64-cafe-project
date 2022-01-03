@@ -1,4 +1,4 @@
-from db_models import *
+from models.DB_MODELS.db_models import *
 from datetime import datetime
 
 
@@ -8,29 +8,16 @@ class Order:
         self.table_id = table_id
         self.number = number
         self.time_stamp = time_stamp
-        self.__status = 'ordered'
+        self.status = 'ordered'
         new_row = Orders(table_id=self.table_id, number=self.number,
-                         status=self.get_status, time_stamp=self.time_stamp)
+                         status=self.status, time_stamp=self.time_stamp)
         session.add(new_row)
         session.commit()
 
     @classmethod
-    def change_status(cls, stat="ordered"):
-        '''
-        todo : update query
-        :param stat:
-        :return:
-        '''
-
-    @classmethod
-    def finish(cls):
-        '''
-        Todo:update
-        :return:
-        '''
-
-    def get_status(self):
-        return self.__status
+    def change_status(cls, stat="ordered", o_id=None):
+        session.query(Orders).filter(Orders.id == o_id).update({'status': stat})
+        session.commit()
 
     @classmethod
     def all_orders(cls):
