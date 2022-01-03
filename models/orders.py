@@ -15,12 +15,8 @@ class Order:
         session.commit()
 
     @classmethod
-    def change_status(cls, stat="ordered"):
-        '''
-        todo : update query
-        :param stat:
-        :return:
-        '''
+    def change_status(cls, stat="ordered", o_id=None):
+        session.query(Orders).filter(Orders.id == o_id).update({'status': stat})
 
     @classmethod
     def finish(cls):
