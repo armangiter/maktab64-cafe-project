@@ -12,7 +12,7 @@ def login():
                     escape(request.form.get('password')) == c['password']:
                 return render_template('admin_page', data=c)
     elif request.method == 'GET':
-        return render_template('register')
+        return render_template('login')
 
 
 def register():
@@ -25,3 +25,14 @@ def register():
 
 
 def admin_page():
+    if request.method == 'GET':
+        category_dict = category.CategoryModels.all_categories()
+        menu_dict = menu_items.MenuItems.all_menu_item()
+        order_dict = orders.Order.all_orders()
+        order_item_dict = order_item.OrderItem.all_order_items()
+        table_dict = table.TableModels.all_table()
+        receipts_dict = reciepts.Receipts.all_receipts()
+        return render_template('admin_page', category_dict=category_dict, menu_dict=menu_dict, order_dict=order_dict,
+                               order_item_dict=order_item_dict, table_dict=table_dict, receipts_dict=receipts_dict)
+    return None
+
