@@ -43,13 +43,6 @@ def menu():
         new_order = orders.Order(data['table_id'], data['id'])
         return render_template('orderpage', new_order=new_order)
 
-        # json_data = request.get_json()
-        # if json_data['action'] == "add":
-        # #     menu_items.MenuItems(name=json_data['name'], price=json_data['price'], category=json_data['category'],
-        # #                         discount=json_data['discount'],serv_time=json_data['serv_time'], st_cooking_time=json_data['st_cooking_time'])
-        # elif json_data['action'] == 'delete':
-        #     menu_items.MenuItems.delete_item(json_data['id'])
-
 
 def team():
     data = base_variables

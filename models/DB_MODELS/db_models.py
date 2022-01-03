@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 engine = create_engine('postgres://postgres:123456@localhost/postgres')
-session = sessionmaker(bind=engine)()
+session = sessionmaker(engine)()
 
 
 class Cashier(Base):

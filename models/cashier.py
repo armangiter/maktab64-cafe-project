@@ -1,4 +1,4 @@
-from db_models import *
+from models.DB_MODELS.db_models import *
 
 
 class CashierModels:
@@ -36,3 +36,7 @@ class CashierModels:
     @classmethod
     def update(cls, attr, c_id, value):
         session.query(Cashier).filter(Cashier.id == c_id).Update({attr: value})
+        session.commit()
+
+
+c = CashierModels('arman', 'kazemi', '12346', '12214')
