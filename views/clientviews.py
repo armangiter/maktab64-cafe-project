@@ -36,7 +36,7 @@ def menu():
         menu_dict = menu_items.MenuItems.all_menu_item()
         data = base_variables
         data['page']['title'] = "menu page !"
-        return render_template('menupage', category_dict=category_dict, menu_dict=menu_dict,
+        return render_template('menu', category_dict=category_dict, menu_dict=menu_dict,
                                data=data)
     else:
         data = request.data()
