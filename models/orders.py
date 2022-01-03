@@ -18,13 +18,6 @@ class Order:
     def change_status(cls, stat="ordered", o_id=None):
         session.query(Orders).filter(Orders.id == o_id).update({'status': stat})
 
-    @classmethod
-    def finish(cls):
-        '''
-        Todo:update
-        :return:
-        '''
-
     def get_status(self):
         return self.__status
 
