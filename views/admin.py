@@ -58,4 +58,5 @@ def receipt():
 def menu_item():
     if request.method == 'POST':
         req = request.form.get
-        menu_items.MenuItems(req('name'), req('price'), req('category'),)
+        menu_items.MenuItems(req('name'), req('price'), req('image'), req('description'), req('category'))
+        return render_template('menuitems.html')
