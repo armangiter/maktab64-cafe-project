@@ -21,3 +21,7 @@ def register():
                               escape(request.form.get('phone')),
                               escape(request.form.get('password')), escape(request.form.get('email')))
         return render_template('login')
+    return None
+
+
+def admin_page():
