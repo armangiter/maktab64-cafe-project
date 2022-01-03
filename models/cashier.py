@@ -33,3 +33,7 @@ class CashierModels:
                 'password': c.password
             }
         return cashier_dict
+
+    @classmethod
+    def update(cls, attr, c_id, value):
+        session.query(Cashier).filter(Cashier.id == c_id).Update({attr: value})
