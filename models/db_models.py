@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
-engine = create_engine('postgres://lkfrpdyj:hhUJANbdSKxjUZFbO1Ph0E_R4D4wBhT0@castor.db.elephantsql.com/lkfrpdyj')
+engine = create_engine('postgres://postgres:123456@localhost/postgres')
 session = sessionmaker(bind=engine)()
 
 
