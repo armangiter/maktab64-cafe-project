@@ -18,3 +18,19 @@ class MenuItems:
     def delete_item(cls, item_id):
         session.query(Menu_Items).filter(Menu_Items.id == item_id).delete()
         session.commit()
+
+    @classmethod
+    def all_menu_item(cls):
+        menu = session.query(Menu_Items).all()
+        menu_dict = {}
+        for i in menu:
+            i: Menu_Items
+            menu_dict[i.id] = {
+                'name': i.name,
+                'price': i.price,
+                'category': i.category,
+                'discount': i.discount,
+                'serv_time': i.serv_time,
+                'st_cook_time': i.st_cooking_time
+            }
+        return menu_dict
