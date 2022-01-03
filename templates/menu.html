@@ -6,114 +6,123 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
+        body {
+            background-color: bisque;
+        }
+        #box {
+            background-color: white;
+            margin: 3vh;
+        }
         .flip-card {
-    background-color: transparent;
-    width: 300px;
-    height: 300px;
-    perspective: 1000px;
-    display: block;
-    margin: auto;
-    border-radius: 10px;
-}
+            background-color: transparent;
+            width: 300px;
+            height: 300px;
+            perspective: 1000px;
+            display: block;
+            margin: auto;
+            border-radius: 10px;
+        }
 
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-}
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
 
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
 
-.flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
 
-.flip-card-front {
-    background-color: #bbb;
-    color: black;
-    border-radius: 10px;
-    overflow: hidden;
-}
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+            border-radius: 10px;
+            overflow: hidden;
+        }
 
-.flip-card-front img {
-    width: 100%;
-    height: 100%;
-}
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+        }
 
-.flip-card-back {
-    background-color: #eff5fa;
-    color: black;
-    transform: rotateY(180deg);
-    border-radius: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
+        .flip-card-back {
+            background-color: #eff5fa;
+            color: black;
+            transform: rotateY(180deg);
+            border-radius: 10px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-4">
-            <h3>breakfast</h3>
-            {% for menu in breakfast %}
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="{{ menu.imag }}" alt="{{menu.name}}">
-                        </div>
-                        <div class="flip-card-back">
-                            <h1>{{menu.name}}</h1><br>
-                            <p><b>{{ menu.description }}</b></p>
-                            <p><b> {{ menu.price }} </b></p>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="col-lg-4">
-            <h3>cafe</h3>
-            {% for menu in cafe %}
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="{{ menu.imag }}" alt="{{menu.name}}">
-                        </div>
-                        <div class="flip-card-back">
-                            <h1>{{menu.name}}</h1><br>
-                            <p><b>{{ menu.description }}</b></p>
-                            <p><b> {{ menu.price }} </b></p>
+<div id="box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h3 style="text-align: center">breakfast</h3>
+                {% for menu in breakfast %}
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="{{ menu.imag }}" alt="{{ menu.name }}">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>{{ menu.name }}</h1><br>
+                                <p><b>{{ menu.description }}</b></p>
+                                <p><b> {{ menu.price }} </b></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="col-lg-4">
-            <h3>restaurant</h3>
-            {% for menu in resturant %}
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="{{ menu.imag }}" alt="{{menu.name}}">
-                        </div>
-                        <div class="flip-card-back">
-                            <h1>{{menu.name}}</h1><br>
-                            <p><b>{{ menu.description }}</b></p>
-                            <p><b> {{ menu.price }} </b></p>
+                {% endfor %}
+            </div>
+            <div class="col-lg-4">
+                <h3 style="text-align: center">cafe</h3>
+                {% for menu in cafe %}
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="{{ menu.imag }}" alt="{{ menu.name }}">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>{{ menu.name }}</h1><br>
+                                <p><b>{{ menu.description }}</b></p>
+                                <p><b> {{ menu.price }} </b></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
+            <div class="col-lg-4">
+                <h3 style="text-align: center">restaurant</h3>
+                {% for menu in resturant %}
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="{{ menu.imag }}" alt="{{ menu.name }}">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>{{ menu.name }}</h1><br>
+                                <p><b>{{ menu.description }}</b></p>
+                                <p><b> {{ menu.price }} </b></p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
