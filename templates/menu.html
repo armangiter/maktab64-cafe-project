@@ -12,7 +12,8 @@
 
         #box {
             background-color: white;
-            margin: 3vh;
+            margin: auto;
+
         }
 
         .flip-card {
@@ -21,7 +22,7 @@
             height: 200px;
             perspective: 1000px;
             display: block;
-            margin: 8vh;
+            margin: auto;
             border-radius: 10px;
         }
 
@@ -100,8 +101,8 @@
             margin-right: 4rem;
         }
 
-        h3 {
-            margin-left: 3rem;
+        button {
+            margin-top: 1rem;
         }
     </style>
 </head>
@@ -120,7 +121,7 @@
                 <div class="col-lg-4">
                     <h3 style="text-align: center">breakfast</h3>
                     {% for menu in breakfast %}
-                        <div class="flip-card">
+                        <div class="flip-card" style="margin-bottom: 5rem;">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
                                     <img src="{{ menu.imag }}" alt="{{ menu.name }}">
@@ -131,20 +132,35 @@
                                     <p><b> {{ menu.price }} </b></p>
                                 </div>
                             </div>
-                            <form action="#">
+                            <form action="#" method="POST">
                                 <div class="row justify-content-center" id="Button">
-                                    <button class="form-control col-4" type="submit"></button>
-                                    <button class="form-control col-4" type="submit"></button>
+                                    <button class="form-control col-4" type="submit">order</button>
                                 </div>
                             </form>
                         </div>
-
+                        <div class="flip-card" style="margin-bottom: 5rem;">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="{{ menu.imag }}" alt="{{ menu.name }}">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>{{ menu.name }}</h1><br>
+                                    <p><b>{{ menu.description }}</b></p>
+                                    <p><b> {{ menu.price }} </b></p>
+                                </div>
+                            </div>
+                            <form action="#" method="POST">
+                                <div class="row justify-content-center" id="Button">
+                                    <button class="form-control col-4" type="submit">order</button>
+                                </div>
+                            </form>
+                        </div>
                     {% endfor %}
                 </div>
                 <div class="col-lg-4">
                     <h3 style="text-align: center">cafe</h3>
                     {% for menu in cafe %}
-                        <div class="flip-card">
+                        <div class="flip-card" style="margin-bottom: 5rem;">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
                                     <img src="{{ menu.imag }}" alt="{{ menu.name }}">
@@ -155,10 +171,9 @@
                                     <p><b> {{ menu.price }} </b></p>
                                 </div>
                             </div>
-                            <form action="#">
+                            <form action="#" method="POST">
                                 <div class="row justify-content-center" id="Button">
-                                    <button class="form-control col-4" type="submit"></button>
-                                    <button class="form-control col-4" type="submit"></button>
+                                    <button class="form-control col-4" type="submit">order</button>
                                 </div>
                             </form>
                         </div>
@@ -178,10 +193,9 @@
                                     <p><b> {{ menu.price }} </b></p>
                                 </div>
                             </div>
-                            <form action="#">
+                            <form action="#" method="POST">
                                 <div class="row justify-content-center" id="Button">
-                                    <button class="form-control col-4" type="submit"></button>
-                                    <button class="form-control col-4" type="submit"></button>
+                                    <button class="form-control col-4" type="submit">order</button>
                                 </div>
                             </form>
                         </div>
