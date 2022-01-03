@@ -25,3 +25,8 @@ def about():
     data = base_variables
     data['page']['title'] = "About page !"
     return render_template("about.html", data=data)
+
+def menu():
+    data = base_variables
+    data['page']['title'] = "menu page !"
+    return render_template("menu.html", data=data)
