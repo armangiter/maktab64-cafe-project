@@ -12,7 +12,7 @@
 
         #box {
             background-color: white;
-            margin: auto;
+            margin: 3vh;
 
         }
 
@@ -104,6 +104,9 @@
         button {
             margin-top: 1rem;
         }
+        #footer{
+            margin-top: 5rem;
+        }
     </style>
 </head>
 <body>
@@ -121,23 +124,6 @@
                 <div class="col-lg-4">
                     <h3 style="text-align: center">breakfast</h3>
                     {% for menu in breakfast %}
-                        <div class="flip-card" style="margin-bottom: 5rem;">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <img src="{{ menu.imag }}" alt="{{ menu.name }}">
-                                </div>
-                                <div class="flip-card-back">
-                                    <h1>{{ menu.name }}</h1><br>
-                                    <p><b>{{ menu.description }}</b></p>
-                                    <p><b> {{ menu.price }} </b></p>
-                                </div>
-                            </div>
-                            <form action="#" method="POST">
-                                <div class="row justify-content-center" id="Button">
-                                    <button class="form-control col-4" type="submit">order</button>
-                                </div>
-                            </form>
-                        </div>
                         <div class="flip-card" style="margin-bottom: 5rem;">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
