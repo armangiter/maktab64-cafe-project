@@ -17,6 +17,7 @@ class Order:
     @classmethod
     def change_status(cls, stat="ordered", o_id=None):
         session.query(Orders).filter(Orders.id == o_id).update({'status': stat})
+        session.commit()
 
     def get_status(self):
         return self.__status
