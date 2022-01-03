@@ -30,3 +30,8 @@ def menu():
     data = base_variables
     data['page']['title'] = "menu page !"
     return render_template("menu.html", data=data)
+
+def team():
+    data = base_variables
+    data['page']['title'] = "team page !"
+    return render_template("team.html", data=data)
