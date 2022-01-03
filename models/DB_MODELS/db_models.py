@@ -3,8 +3,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
-engine = create_engine('postgres://postgres:123456@localhost/postgres')
-session = sessionmaker(engine)()
+engine = create_engine('postgresql://postgres:123456@localhost/postgres')
+session = sessionmaker(bind=engine)()
 
 
 class Cashier(Base):
@@ -29,6 +29,8 @@ class Menu_Items(Base):
     id = Column('id', Integer, unique=True, primary_key=True)
     name = Column('Name', String, unique=True)
     price = Column('Price', Integer, unique=False)
+    image = Column('image', String, unique=False)
+    description = Column('description', String, unique=False)
     category = Column('Category', Integer, ForeignKey('Category.id', ondelete='CASCADE'))
     discount = Column('discount', Integer, unique=False, default=0)
     serv_time = Column('ServTime', Integer, unique=False, default=10)
