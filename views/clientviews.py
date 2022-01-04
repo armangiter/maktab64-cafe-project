@@ -47,4 +47,11 @@ def team():
 
 def order():
     if request.method == "POST":
-        orders.Order()
+        menu_dict = menu_items.MenuItems.all_menu_item()
+        req = request.form.get
+        for i in menu_dict:
+            if req(i) != 0:
+                orders.Order(req('table'), req(i))
+                order_dict = orders.Order.all_orders().keys()
+                order_item.OrderItem(order_dict[len(order_dict)], req(i))
+        return render_template('home.html')
