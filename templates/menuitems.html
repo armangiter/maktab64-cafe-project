@@ -5,6 +5,23 @@
     <title>{{ data.title }}</title>
 </head>
 <body>
-<form action={{ url_for('menuitem') }}></form>
+<form action="{{ url_for('menuitem')}}" method="POST">
+    <lable>name</lable>
+    <br>
+    <input type="text" name="name" ><br>
+    <lable>price</lable>
+    <br>
+    <input type="number" name="price" ><br>
+    <lable>image name</lable>
+    <br>
+    <input type="text" name="image" ><br>
+    <lable>descriptions</lable>
+    <br>
+    <input type="text" name="descriptions" ><br>
+    <lable>category</lable>
+    <br>
+    <input type="text" name="category" ><br>
+    <input type="submit">
+</form>
 </body>
 </html>
