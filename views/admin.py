@@ -8,8 +8,8 @@ def login():
     if request.method == "POST":
         cashier_dict = cashier.CashierModels.all_cashiers()
         for c in cashier_dict:
-            if escape(request.form.get('phone')) == c['phone'] and \
-                    escape(request.form.get('password')) == c['password']:
+            if escape(request.form.get('phone')) == cashier_dict[c]['phone'] and \
+                    escape(request.form.get('password')) == cashier_dict[c]['password']:
                 return render_template('adminpage2.html', data=c)
     elif request.method == 'GET':
         return render_template('login.html')
