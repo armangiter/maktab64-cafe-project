@@ -43,11 +43,12 @@ def team():
 
 def order():
     if request.method == "POST":
-        menu_dict = menu_items.MenuItems.all_menu_item()
+        menu_dict = list(menu_items.MenuItems.all_menu_item().keys())
         req = request.form.get
         for i in menu_dict:
             if req(i) != 0:
-                orders.Order(req('table'), req(i))
-                order_dict = orders.Order.all_orders().keys()
-                order_item.OrderItem(order_dict[len(order_dict)], req(i))
+                orders.Order(req('table'), req(str(i)))
+                order_dict = list(orders.Order.all_orders().keys())
+                o = order_dict[len(order_dict) - 1]
+                order_item.OrderItem(o, i)
         return render_template('home.html')
