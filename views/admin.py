@@ -10,19 +10,19 @@ def login():
         for c in cashier_dict:
             if escape(request.form.get('phone')) == c['phone'] and \
                     escape(request.form.get('password')) == c['password']:
-                return render_template('admin_page', data=c)
+                return render_template('adminpage2.html', data=c)
     elif request.method == 'GET':
-        return render_template('login')
+        return render_template('login.html')
 
 
 def register():
     if request.method == 'GET':
-        return render_template('register')
+        return render_template('register.html')
     elif request.method == 'POST':
         cashier.CashierModels(escape(request.form.get('firstname')), escape(request.form.get('lastname')),
                               escape(request.form.get('phone')),
                               escape(request.form.get('password')), escape(request.form.get('email')))
-        return render_template('login')
+        return render_template('login.html')
     return None
 
 

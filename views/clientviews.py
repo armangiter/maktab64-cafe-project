@@ -19,9 +19,10 @@ def index():
 
 
 def home():
-    data = base_variables
-    data['page']['title'] = "home page !"
-    return render_template("home.html", data=data)
+    if request.method == 'GET':
+        data = base_variables
+        data['page']['title'] = "Home page !"
+        return render_template('home.html', data=data)
 
 
 def about():
