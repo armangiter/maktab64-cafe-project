@@ -14,5 +14,6 @@ app.add_url_rule('/category', 'category', admin.categories, methods=['GET', 'POS
 app.add_url_rule('/about', 'about', admin.about, methods=['GET'])
 app.add_url_rule('/team', 'team', admin.team, methods=['GET'])
 app.add_url_rule('/order', 'order', admin.order, methods=['GET', 'POST'])
+app.add_url_rule('/receipt','receipt',admin.receipt)
 if __name__ == '__main__':
     app.run()
