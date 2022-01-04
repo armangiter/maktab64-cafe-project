@@ -33,10 +33,6 @@ def menu():
         data['page']['title'] = "menu page !"
         return render_template('menu.html', category_dict=category_dict, menu_dict=menu_dict,
                                data=data)
-    else:
-        data = request.data()
-        new_order = orders.Order(data['table_id'], data['id'])
-        return render_template('orderpage', new_order=new_order)
 
 
 def team():
