@@ -45,14 +45,14 @@ def order():
         menu_dict = menu_items.MenuItems.all_menu_item()
         order_dict = orders.Order.all_orders()
         order_item_dict = order_item.OrderItem.all_order_items()
-        return render_template('orders', menu_dict=menu_dict, order_dict=order_dict, order_item_dict=order_item_dict)
+        return render_template('orders.html', menu_dict=menu_dict, order_dict=order_dict, order_item_dict=order_item_dict)
     return None
 
 
 def receipt():
     if request.method == 'GET':
         receipts_dict = reciepts.Receipts.all_receipts()
-        return render_template('receipt', receipts_dict=receipts_dict)
+        return render_template('recipts.html', receipts_dict=receipts_dict)
     return None
 
 

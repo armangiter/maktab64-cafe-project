@@ -48,3 +48,7 @@ def team():
 menu_dict = menu_items.MenuItems.all_menu_item()
 for i in menu_dict:
     print(menu_dict[i]['name'])
+
+def order():
+    if request.method == "POST":
+        orders.Order()
