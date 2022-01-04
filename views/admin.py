@@ -77,3 +77,8 @@ def categories():
 def about():
     if request.method == 'GET':
         return render_template('about.html')
+
+
+def team():
+    if request.method == "GET":
+        return render_template('team.html')
