@@ -72,3 +72,8 @@ def categories():
         req = request.form.get
         category.CategoryModels(req('title'), req('root'))
         return render_template('category.html')
+
+
+def about():
+    if request.method == 'GET':
+        return render_template('about.html')
