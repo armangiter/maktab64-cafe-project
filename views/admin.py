@@ -62,3 +62,9 @@ def menu_item():
         return render_template('menuitems.html')
     elif request.method == 'GET':
         return render_template('menuitems.html')
+
+
+def categories():
+    if request.method == 'GET':
+        category_dict = category.CategoryModels.all_categories()
+        return render_template('category.html', category_dict=category_dict)

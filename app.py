@@ -10,5 +10,6 @@ app.add_url_rule('/register', 'register', admin.register, methods=['GET', 'POST'
 app.add_url_rule('/login', 'login', admin.login, methods=['GET', 'POST'])
 app.add_url_rule('/adminpage', 'adminpage', admin.admin_page, methods=['GET', 'POST'])
 app.add_url_rule('/orders', 'orders', admin.order, methods=['GET', 'POST'])
+app.add_url_rule('/category','category',admin.)
 if __name__ == '__main__':
     app.run()
