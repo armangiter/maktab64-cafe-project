@@ -12,8 +12,6 @@ base_variables = {
 }
 
 
-
-
 def home():
     if request.method == 'GET':
         data = base_variables
@@ -35,16 +33,22 @@ def menu():
         data['page']['title'] = "menu page !"
         return render_template('menu.html', category_dict=category_dict, menu_dict=menu_dict,
                                data=data)
-    else:
-        data = request.data()
-        new_order = orders.Order(data['table_id'], data['id'])
-        return render_template('orderpage', new_order=new_order)
 
 
 def team():
     data = base_variables
     data['page']['title'] = "team page !"
     return render_template("team.html", data=data)
-menu_dict = menu_items.MenuItems.all_menu_item()
-for i in menu_dict:
-    print(menu_dict[i]['name'])
+
+
+def order():
+    if request.method == "POST":
+        menu_dict = list(menu_items.MenuItems.all_menu_item().keys())
+        req = request.form.get
+        for i in menu_dict:
+            if req(i) != 0:
+                orders.Order(req('table'), req(str(i)))
+                order_dict = list(orders.Order.all_orders().keys())
+                o = order_dict[len(order_dict) - 1]
+                order_item.OrderItem(o, i)
+        return render_template('home.html')

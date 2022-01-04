@@ -20,7 +20,7 @@ class CashierModels:
 
     @classmethod
     def all_cashiers(cls):
-        cashiers = Cashier.query.all()
+        cashiers = session.query(Cashier).all()
         cashier_dict = {}
         for c in cashiers:
             c: Cashier

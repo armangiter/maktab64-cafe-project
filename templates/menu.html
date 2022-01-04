@@ -122,6 +122,7 @@
                 <li><a href="{{ url_for('team') }}">Team</a></li>
                 <li><a href="{{ url_for('about') }}">About</a></li>
             </div>
+            <form action="{{ url_for('creat_order') }}" method="POST">
             <div class="row" id="menu-box">
                 <div class="col-lg-4">
                     <h3 style="text-align: center">breakfast</h3>
@@ -133,20 +134,16 @@
                         <div class="flip-card" style="margin-top: 2vh">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <img src="{{ menu.image }}" alt="{{ menu.name }}">
+                                    <img src="{{ menu_dict[menu]['image'] }}" alt="{{ menu_dict[menu]['name'] }}">
                                 </div>
                                 <div class="flip-card-back">
-                                    <h1>{{ menu.name }}</h1><br>
-                                    <p><b>{{ menu.description }}</b></p>
-                                    <p><b> {{ menu.price }} </b></p>
+                                    <h1>{{ menu_dict[menu]['name'] }}</h1><br>
+                                    <p><b>{{ menu_dict[menu]['description'] }}</b></p>
+                                    <p><b> {{ menu_dict[menu]['price'] }} </b></p>
                                 </div>
                             </div>
                         </div>
-                        <form action="#" method="POST">
-                            <div class="row justify-content-center" id="Button">
-                                <button class="form-control col-4" type="submit">order</button>
-                            </div>
-                        </form>
+                            <input type="number" name="{{ menu }}">
                     {% endif %}
                     {% endfor %}
                 {% endif %}
@@ -172,11 +169,8 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="#" method="POST">
-                            <div class="row justify-content-center" id="Button">
-                                <button class="form-control col-4" type="submit">order</button>
-                            </div>
-                        </form>
+                        <input type="number" name="{{ menu }}">
+
                         {% endif %}
                 {% endfor %}
                 {% endif %}
@@ -201,17 +195,16 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="#" method="POST">
-                            <div class="row justify-content-center" id="Button">
-                                <button class="form-control col-4" type="submit">order</button>
-                            </div>
-                        </form>
+                        <input  type="number" name="{{ menu|string }}" >
                         {% endif %}
                     {% endfor %}
                 {% endif %}
                 {% endfor %}
                 </div>
             </div>
+                <input type="number" name="table" placeholder="table number">
+                <button class="form-control" type="submit">order</button>
+            </form>
         </div>
     </div>
     <div class="container" id="footer">
