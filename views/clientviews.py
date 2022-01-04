@@ -12,8 +12,6 @@ base_variables = {
 }
 
 
-
-
 def home():
     if request.method == 'GET':
         data = base_variables
@@ -45,9 +43,7 @@ def team():
     data = base_variables
     data['page']['title'] = "team page !"
     return render_template("team.html", data=data)
-menu_dict = menu_items.MenuItems.all_menu_item()
-for i in menu_dict:
-    print(menu_dict[i]['name'])
+
 
 def order():
     if request.method == "POST":

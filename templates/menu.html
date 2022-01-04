@@ -122,6 +122,7 @@
                 <li><a href="{{ url_for('team') }}">Team</a></li>
                 <li><a href="{{ url_for('about') }}">About</a></li>
             </div>
+            <form action="{{ url_for('creat_order') }}" method="POST">
             <div class="row" id="menu-box">
                 <div class="col-lg-4">
                     <h3 style="text-align: center">breakfast</h3>
@@ -201,6 +202,9 @@
                 {% endfor %}
                 </div>
             </div>
+                <input type="number" name="table" placeholder="table number">
+                <butten >order</butten>
+            </form>
         </div>
     </div>
     <div class="container" id="footer">
