@@ -34,7 +34,8 @@ def admin_page():
         order_item_dict = order_item.OrderItem.all_order_items()
         table_dict = table.TableModels.all_table()
         receipts_dict = reciepts.Receipts.all_receipts()
-        return render_template('admin_page', category_dict=category_dict, menu_dict=menu_dict, order_dict=order_dict,
+        return render_template('adminpage2.html', category_dict=category_dict, menu_dict=menu_dict,
+                               order_dict=order_dict,
                                order_item_dict=order_item_dict, table_dict=table_dict, receipts_dict=receipts_dict)
     return None
 

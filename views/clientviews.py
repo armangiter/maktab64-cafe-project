@@ -12,10 +12,6 @@ base_variables = {
 }
 
 
-def index():
-    data = base_variables
-    data['page']['title'] = "index page !"
-    return render_template("index.html", data=data)
 
 
 def home():
