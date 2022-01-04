@@ -67,10 +67,10 @@
 <div id="box">
     <div class="container-fluid">
         <div class="row" id="navbar">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Menu</a></li>
-            <li><a href="#">Team</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href='{{ url_for("home") }}'>Home</a></li>
+            <li><a href={{ url_for('menu') }}>Menu</a></li>
+            <li><a href="{{ url_for("team") }}">Team</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
         </div>
         <div class="row" id="body">
             <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi deserunt eos modi quod ratione
