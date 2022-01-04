@@ -33,7 +33,13 @@
     <div class="row" id="orders">
         <ul class="list-group col-lg-12">
             {% for order in order_dict %}
-            <li class="list-group-item">{{ order }}</li>
+            {% for o_i in order_item_dict %}
+            {% if order_item_dict[o_i]['order_items']==order_dict[order]['id'] %}
+            <li class="list-group-item">table {{ order_dict[order]['table_id'] }}
+                item {{ menu_dict[order_item_dict[o_i]['name']] }}</li>
+            {% endif %}
+        {% endfor %}
+        {% endfor %}
         </ul>
     </div>
 </div>
