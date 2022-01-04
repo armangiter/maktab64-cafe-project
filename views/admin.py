@@ -68,3 +68,7 @@ def categories():
     if request.method == 'GET':
         category_dict = category.CategoryModels.all_categories()
         return render_template('category.html', category_dict=category_dict)
+    elif request.method == 'POST':
+        req = request.form.get
+        category.CategoryModels(req('title'), req('root'))
+        return render_template('category.html')
