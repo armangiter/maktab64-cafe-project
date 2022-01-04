@@ -31,6 +31,8 @@ class MenuItems:
             menu_dict[i.id] = {
                 'name': i.name,
                 'price': i.price,
+                'image': i.image,
+                'description': i.description,
                 'category': i.category,
                 'discount': i.discount,
                 'serv_time': i.serv_time,

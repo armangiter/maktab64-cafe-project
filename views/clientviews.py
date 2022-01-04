@@ -12,10 +12,6 @@ base_variables = {
 }
 
 
-def index():
-    data = base_variables
-    data['page']['title'] = "index page !"
-    return render_template("index.html", data=data)
 
 
 def home():
@@ -37,7 +33,7 @@ def menu():
         menu_dict = menu_items.MenuItems.all_menu_item()
         data = base_variables
         data['page']['title'] = "menu page !"
-        return render_template('menu', category_dict=category_dict, menu_dict=menu_dict,
+        return render_template('menu.html', category_dict=category_dict, menu_dict=menu_dict,
                                data=data)
     else:
         data = request.data()
@@ -49,3 +45,6 @@ def team():
     data = base_variables
     data['page']['title'] = "team page !"
     return render_template("team.html", data=data)
+menu_dict = menu_items.MenuItems.all_menu_item()
+for i in menu_dict:
+    print(menu_dict[i]['name'])

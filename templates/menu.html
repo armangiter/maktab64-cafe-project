@@ -117,41 +117,23 @@
     <div class="inner-box">
         <div class="container-fluid">
             <div class="row" id="navbar">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">Team</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="{{ url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('menu')}}">Menu</a></li>
+                <li><a href="{{ url_for('team') }}">Team</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
             </div>
             <div class="row" id="menu-box">
                 <div class="col-lg-4">
                     <h3 style="text-align: center">breakfast</h3>
-                    {% for menu in breakfast %}
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <img src="{{ menu.imag }}" alt="{{ menu.name }}">
-                                </div>
-                                <div class="flip-card-back">
-                                    <h1>{{ menu.name }}</h1><br>
-                                    <p><b>{{ menu.description }}</b></p>
-                                    <p><b> {{ menu.price }} </b></p>
-                                </div>
-                            </div>
-                        </div>
-                        <form action="#" method="POST">
-                            <div class="row justify-content-center" id="Button">
-                                <button class="form-control col-4" type="submit">order</button>
-                            </div>
-                        </form>
-                    {% endfor %}
-                </div>
-                <div class="col-lg-4">
-                    <h3 style="text-align: center">cafe</h3>
-                    {% for menu in cafe %}
+                {% for cat in category_dict %}
+                {% if category_dict[cat]['root'] == 'breakfast'%}
+                    <h3 style="text-align: center">{{ category_dict[cat]['title'] }}</h3>
+                    {% for menu in menu_dict %}
+                        {% if menu_dict[menu]['category']==category_dict[cat]['title'] %}
                         <div class="flip-card" style="margin-top: 2vh">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <img src="{{ menu.imag }}" alt="{{ menu.name }}">
+                                    <img src="{{ menu.image }}" alt="{{ menu.name }}">
                                 </div>
                                 <div class="flip-card-back">
                                     <h1>{{ menu.name }}</h1><br>
@@ -165,20 +147,57 @@
                                 <button class="form-control col-4" type="submit">order</button>
                             </div>
                         </form>
+                    {% endif %}
                     {% endfor %}
+                {% endif %}
+                    {% endfor %}
+
+                </div>
+                <div class="col-lg-4">
+                    <h3 style="text-align: center">cafe</h3>
+                    {% for cat in category_dict %}
+                    {% if category_dict[cat]['root']=='cafe' %}
+                        <h3 style="text-align: center">{{ category_dict[cat]['title'] }}</h3>
+                    {% for menu in menu_dict %}
+                        {% if menu_dict[menu]['category']==cat %}
+                        <div class="flip-card" style="margin-top: 2vh">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="{{ menu_dict[menu]['image'] }}" alt="{{ menu_dict[menu]['name'] }}">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>{{ menu_dict[menu]['name'] }}</h1><br>
+                                    <p><b>{{ menu_dict[menu]['description'] }}</b></p>
+                                    <p><b> {{ menu_dict[menu]['price'] }} </b></p>
+                                </div>
+                            </div>
+                        </div>
+                        <form action="#" method="POST">
+                            <div class="row justify-content-center" id="Button">
+                                <button class="form-control col-4" type="submit">order</button>
+                            </div>
+                        </form>
+                        {% endif %}
+                {% endfor %}
+                {% endif %}
+                {% endfor %}
                 </div>
                 <div class="col-lg-4">
                     <h3 style="text-align: center">restaurant</h3>
-                    {% for menu in resturant %}
-                        <div class="flip-card">
+                    {% for cat in category_dict %}
+                    {% if category_dict[cat]['root']=='food' %}
+                        <h3 style="text-align: center">{{ category_dict[cat]['title'] }}</h3>
+                    {% for menu in menu_dict %}
+                        {% if menu_dict[menu]['category']==cat %}
+                        <div class="flip-card" style="margin-top: 2vh">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <img src="{{ menu.imag }}" alt="{{ menu.name }}">
+                                    <img src="/{{ menu_dict[menu]['image'] }}" alt="{{ menu_dict[menu]['name'] }}">
                                 </div>
                                 <div class="flip-card-back">
-                                    <h1>{{ menu.name }}</h1><br>
-                                    <p><b>{{ menu.description }}</b></p>
-                                    <p><b> {{ menu.price }} </b></p>
+                                    <h1>{{ menu_dict[menu]['name'] }}</h1><br>
+                                    <p><b>{{ menu_dict[menu]['description'] }}</b></p>
+                                    <p><b> {{ menu_dict[menu]['price'] }} </b></p>
                                 </div>
                             </div>
                         </div>
@@ -187,7 +206,10 @@
                                 <button class="form-control col-4" type="submit">order</button>
                             </div>
                         </form>
+                        {% endif %}
                     {% endfor %}
+                {% endif %}
+                {% endfor %}
                 </div>
             </div>
         </div>
