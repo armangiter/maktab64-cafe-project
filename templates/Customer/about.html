@@ -4,77 +4,21 @@
     <link rel="stylesheet" href="../../static/css/about.css">
 {% endblock %}
 {% block body %}
-<div id="box">
-    <div class="container-fluid">
-        <div class="row" id="navbar">
-            <li><a href='{{ url_for("home") }}'>Home</a></li>
-            <li><a href={{ url_for('menu') }}>Menu</a></li>
-            <li><a href="{{ url_for("team") }}">Team</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
-        </div>
-        <div class="row" id="body">
-            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi deserunt eos modi quod ratione
-                repudiandae tempora voluptatum! Fugiat ipsa itaque maxime officia omnis perferendis sunt veritatis
-                voluptas. Cumque,
-            </h4><br>
-            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi deserunt eos modi quod ratione
-                repudiandae tempora voluptatum! Fugiat ipsa itaque maxime officia omnis perferendis sunt veritatis
-                voluptas. Cumque,
-            </h4>
-        </div>
-        <div class="container" id="footer">
-            <div class="row ">
-                <div class="col-lg-4">
-                    <div class="footer-widget pr-lg-5 pr-0">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et obcaecati quisquam id sit omnis
-                            explicabo voluptate aut placeat, soluta, nisi ea magni facere, itaque incidunt modi? Magni,
-                            et voluptatum dolorem.</p>
-                        <nav class="nav nav-mastfoot justify-content-start">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-instagram"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-telegram"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-twitter"></i>
-                            </a>
-                        </nav>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="footer-widget px-lg-5 px-0">
-                        <h4>Open Hours</h4>
-                        <ul class="list-unstyled open-hours">
-                            <li class="d-flex justify-content-between"><span>Monday</span><span>9:00 - 24:00</span></li>
-                            <li class="d-flex justify-content-between"><span>Tuesday</span><span>9:00 - 24:00</span>
-                            </li>
-                            <li class="d-flex justify-content-between"><span>Wednesday</span><span>9:00 - 24:00</span>
-                            </li>
-                            <li class="d-flex justify-content-between"><span>Thursday</span><span>9:00 - 24:00</span>
-                            </li>
-                            <li class="d-flex justify-content-between"><span>Friday</span><span>9:00 - 02:00</span></li>
-                            <li class="d-flex justify-content-between"><span>Saturday</span><span>9:00 - 02:00</span>
-                            </li>
-                            <li class="d-flex justify-content-between"><span>Sunday</span><span> Closed</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="footer-widget pl-lg-5 pl-0">
-                        <h4>Newsletter</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <form id="newsletter">
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="emailNewsletter"
-                                       aria-describedby="emailNewsletter" placeholder="Enter email">
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Submit</button>
-                        </form>
-                    </div>
-                </div>
+    <div id="box">
+        <div class="container-fluid">
+            {% include "layot/_navbar.html" %}
+
+            <div class="row" id="body">
+                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi deserunt eos modi quod ratione
+                    repudiandae tempora voluptatum! Fugiat ipsa itaque maxime officia omnis perferendis sunt veritatis
+                    voluptas. Cumque,
+                </h4><br>
+                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi deserunt eos modi quod ratione
+                    repudiandae tempora voluptatum! Fugiat ipsa itaque maxime officia omnis perferendis sunt veritatis
+                    voluptas. Cumque,
+                </h4>
             </div>
+            {% include "layot/_footer.html" %}
         </div>
     </div>
-</div>
 {% endblock %}
