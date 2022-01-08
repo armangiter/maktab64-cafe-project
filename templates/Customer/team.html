@@ -1,108 +1,12 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Team</title>
-    <link rel=" stylesheet
-    " href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <style>
-        body {
-            background-color: bisque;
-        }
+{% extends "layot/_base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="../../static/css/team.css">
+{% endblock %}
+{% block title %}team{% endblock %}
 
-        #box {
-            background-color: white;
-            margin: 3vh;
-            height: 90%;
-        }
-
-        #navbar {
-            justify-content: space-around;
-            align-items: center;
-            margin-right: 8rem;
-            margin-left: 8rem;
-        }
-
-        #navbar li {
-            list-style-type: none;
-            border-bottom: 4px solid transparent;
-            transition: all 1s;
-        }
-
-        #navbar li:hover {
-            background-color: white;
-            border-color: dodgerblue;
-        }
-
-        #navbar li > a {
-            display: block;
-            padding: 20px 30px;
-            text-decoration: none;
-            color: gray;
-        }
-
-        #footer {
-            margin-top: 5rem;
-        }
-
-        #special-recipe a {
-            display: block;
-            padding: 20px 30px;
-            text-decoration: none;
-            color: gray;
-        }
-
-        #body {
-            margin: 8rem;
-        }
-
-        .team-card {
-            position: relative;
-        }
-
-        .team-card:hover .team-desc {
-            height: 110px;
-        }
-
-        .team-card:hover .team-desc .team-social-links {
-            opacity: 1;
-        }
-
-        .team-desc {
-            position: absolute;
-            background: #ffffff;
-            width: auto;
-            left: 15px;
-            bottom: 15px;
-            right: 15px;
-            text-align: center;
-            padding: 15px;
-            height: 80px;
-            overflow: hidden;
-            transition: all .3s ease-in-out;
-        }
-
-        .team-social-links {
-            opacity: 0;
-            transition: all .3s ease-in-out;
-        }
-    </style>
-</head>
-<body>
-<div id="box">
-    <div class="container-fluid">
-        <div class="row" id="navbar">
-            <li><a href='{{ url_for("home") }}'>Home</a></li>
-            <li><a href={{ url_for('menu') }}>Menu</a></li>
-            <li><a href="{{ url_for("team") }}">Team</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
-        </div>
+{% block body %}
+    <div id="box">
+        {% include "layot/_navbar.html" %}
         <section id="gtco-team" class="bg-white section-padding">
             <div class="container">
                 <div class="section-content">
@@ -117,7 +21,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="team-card mb-5">
-                                <img class="img-fluid" src="../static/img/chef-1.jpg" alt="">
+                                <img class="img-fluid" src="../../static/img/chef-1.jpg" alt="">
                                 <div class="team-desc">
                                     <h4 class="mb-0">Jafar Ghodrati</h4>
                                     <p class="mb-1">CEO</p>
@@ -144,7 +48,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="team-card mb-5">
-                                <img class="img-fluid" src="../static/img/chef-3.jpg" alt="">
+                                <img class="img-fluid" src="../../static/img/chef-3.jpg" alt="">
                                 <div class="team-desc">
                                     <h4 class="mb-0">Arman Kazemi</h4>
                                     <p class="mb-1">Chef</p>
@@ -170,7 +74,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="team-card mb-5">
-                                <img class="img-fluid" src="../static/img/barista.jpg" alt="">
+                                <img class="img-fluid" src="../../static/img/barista.jpg" alt="">
                                 <div class="team-desc">
                                     <h4 class="mb-0">Mahdi Zolfaghari</h4>
                                     <p class="mb-1">Barista</p>
@@ -196,7 +100,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="team-card mb-5">
-                                <img class="img-fluid" src="../static/img/chef-2.jpg" alt="">
+                                <img class="img-fluid" src="../../static/img/chef-2.jpg" alt="">
                                 <div class="team-desc">
                                     <h4 class="mb-0">Mahdi Jalalvand</h4>
                                     <p class="mb-1">Chef</p>
@@ -222,7 +126,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="team-card mb-5">
-                                <img class="img-fluid" src="../static/img/cashire.jpg" alt="">
+                                <img class="img-fluid" src="../../static/img/cashire.jpg" alt="">
                                 <div class="team-desc">
                                     <h4 class="mb-0">Alireza Hedayatnia</h4>
                                     <p class="mb-1">Cashier</p>
@@ -250,60 +154,6 @@
                 </div>
             </div>
         </section>
-        <div class="container" id="footer">
-            <div class="row ">
-                <div class="col-lg-4">
-                    <div class="footer-widget pr-lg-5 pr-0">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et obcaecati quisquam id sit omnis
-                            explicabo voluptate aut placeat, soluta, nisi ea magni facere, itaque incidunt modi? Magni,
-                            et voluptatum dolorem.</p>
-                        <nav class="nav nav-mastfoot justify-content-start">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-instagram"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-telegram"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-twitter"></i>
-                            </a>
-                        </nav>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="footer-widget px-lg-5 px-0">
-                        <h4>Open Hours</h4>
-                        <ul class="list-unstyled open-hours">
-                            <li class="d-flex justify-content-between"><span>Monday</span><span>9:00 - 24:00</span></li>
-                            <li class="d-flex justify-content-between"><span>Tuesday</span><span>9:00 - 24:00</span>
-                            </li>
-                            <li class="d-flex justify-content-between"><span>Wednesday</span><span>9:00 - 24:00</span>
-                            </li>
-                            <li class="d-flex justify-content-between"><span>Thursday</span><span>9:00 - 24:00</span>
-                            </li>
-                            <li class="d-flex justify-content-between"><span>Friday</span><span>9:00 - 02:00</span></li>
-                            <li class="d-flex justify-content-between"><span>Saturday</span><span>9:00 - 02:00</span>
-                            </li>
-                            <li class="d-flex justify-content-between"><span>Sunday</span><span> Closed</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="footer-widget pl-lg-5 pl-0">
-                        <h4>Newsletter</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <form id="newsletter">
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="emailNewsletter"
-                                       aria-describedby="emailNewsletter" placeholder="Enter email">
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include "layot/_footer.html" %}
     </div>
-</div>
-</body>
-</html>
+{% endblock %}

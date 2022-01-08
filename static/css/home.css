@@ -1,0 +1,16 @@
+#box {
+    background-color: white;
+    margin: 3vh;
+    height: 90%;
+}
+
+
+#special-recipe a {
+    display: block;
+    padding: 30px 30px;
+    text-decoration: none;
+    color: gray;
+}
+#body{
+    margin: 8rem;
+}

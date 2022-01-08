@@ -1,0 +1,24 @@
+{% extends "layot/_base.html" %}
+{% block title %}About{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="../../static/css/about.css">
+{% endblock %}
+{% block body %}
+    <div id="box">
+        <div class="container-fluid">
+            {% include "layot/_navbar.html" %}
+
+            <div class="row" id="body">
+                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi deserunt eos modi quod ratione
+                    repudiandae tempora voluptatum! Fugiat ipsa itaque maxime officia omnis perferendis sunt veritatis
+                    voluptas. Cumque,
+                </h4><br>
+                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi deserunt eos modi quod ratione
+                    repudiandae tempora voluptatum! Fugiat ipsa itaque maxime officia omnis perferendis sunt veritatis
+                    voluptas. Cumque,
+                </h4>
+            </div>
+            {% include "layot/_footer.html" %}
+        </div>
+    </div>
+{% endblock %}
