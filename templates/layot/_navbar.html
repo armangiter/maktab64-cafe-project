@@ -1,0 +1,16 @@
+<style>
+    #navbar {
+        justify-content: space-around;
+        align-items: center;
+        margin-right: 8rem;
+        margin-left: 8rem;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row" id="navbar">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('menu') }}">Menu</a></li>
+        <li><a href="{{ url_for('team') }}">Team</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+    </div>
+</div>
