@@ -1,76 +1,60 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>home</title>
-    <link rel=" stylesheet
-    " href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-    <style>
-        body {
-            background-color: bisque;
-        }
+{% extends "layot/_base.html" %}
+{% block title %}Menu{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="../../static/css/menu.css">
+{% endblock %}
 
-        #box {
-            background-color: white;
-            margin: 3vh;
-            height: 90%;
-        }
+<style>
+    body {
+        background-color: bisque;
+    }
 
-        #navbar {
-            justify-content: space-around;
-            align-items: center;
-            margin-right: 8rem;
-            margin-left: 8rem;
-        }
+    #box {
+        background-color: white;
+        margin: 3vh;
+        height: 90%;
+    }
 
-        #navbar li {
-            list-style-type: none;
-            border-bottom: 4px solid transparent;
-            transition: all 1s;
-        }
+    #navbar {
+        justify-content: space-around;
+        align-items: center;
+        margin-right: 8rem;
+        margin-left: 8rem;
+    }
 
-        #navbar li:hover {
-            background-color: white;
-            border-color: dodgerblue;
-        }
+    #navbar li {
+        list-style-type: none;
+        border-bottom: 4px solid transparent;
+        transition: all 1s;
+    }
 
-        #navbar li > a {
-            display: block;
-            padding: 20px 30px;
-            text-decoration: none;
-            color: gray;
-        }
+    #navbar li:hover {
+        background-color: white;
+        border-color: dodgerblue;
+    }
 
-        #footer {
-            margin-top: 5rem;
-        }
+    #navbar li > a {
+        display: block;
+        padding: 20px 30px;
+        text-decoration: none;
+        color: gray;
+    }
 
-        #special-recipe a {
-            display: block;
-            padding: 20px 30px;
-            text-decoration: none;
-            color: gray;
-        }
+    #footer {
+        margin-top: 5rem;
+    }
 
-        #body {
-            margin: 8rem;
-        }
-    </style>
+    #special-recipe a {
+        display: block;
+        padding: 20px 30px;
+        text-decoration: none;
+        color: gray;
+    }
+
+    #body {
+        margin: 8rem;
+    }
+</style>
 </head>
 <body>
 <div id="box">
@@ -91,13 +75,13 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="../static/img/hero-1.jpg" class="d-block w-100" alt="...">
+                            <img src="../../static/img/hero-1.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="../static/img/hero-2.jpg" class="d-block w-100" alt="...">
+                            <img src="../../static/img/hero-2.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="../static/img/hero-3.jpg" class="d-block w-100" alt="...">
+                            <img src="../../static/img/hero-3.jpg" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -121,19 +105,19 @@
                 <div class="row" id="special-recipe">
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <a href="#" class="thumb-menu">
-                            <img class="img-fluid img-cover" src="../static/img/breakfast/specialbreakfast.jpg"/>
+                            <img class="img-fluid img-cover" src="../../static/img/breakfast/specialbreakfast.jpg"/>
                             <h4>Special Breakfast</h4>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <a href="#" class="thumb-menu">
-                            <img class="img-fluid img-cover" src="../static/img/asli/vije.jpg"/>
+                            <img class="img-fluid img-cover" src="../../static/img/asli/vije.jpg"/>
                             <h4>Special plate</h4>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <a href="#" class="thumb-menu">
-                            <img class="img-fluid img-cover" src="../static/img/daria/salmon.jpg"/>
+                            <img class="img-fluid img-cover" src="../../static/img/daria/salmon.jpg"/>
                             <h4>Salmon steak</h4>
                         </a>
                     </div>
