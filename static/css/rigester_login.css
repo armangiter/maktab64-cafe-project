@@ -145,3 +145,11 @@ img {
     color: var(--first-color);
     cursor: pointer;
 }
+.login__social{
+    margin-top: 2rem;
+}
+.login__social-icon{
+    font-size: 1.5rem;
+    color: var(--first-color-dark);
+    margin: 0 1.5rem;
+}
