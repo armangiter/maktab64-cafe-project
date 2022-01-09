@@ -29,7 +29,7 @@ class MenuItems(BaseManager):
         session.commit()
 
     @classmethod
-    def all_menu_item(cls):
+    def read_all(cls):
         menu = session.query(Menu_Items).all()
         menu_dict = {}
         for i in menu:
