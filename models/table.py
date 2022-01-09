@@ -1,7 +1,8 @@
 from core.db_models import *
+from core.manager import BaseManager
 
 
-class TableModels:
+class TableModels(BaseManager):
 
     def __init__(self, table_number, cafe_position, capacity):
         self.table_number = table_number
@@ -11,6 +12,11 @@ class TableModels:
                         capacity=self.capacity)
         session.add(new_row)
         session.commit()
+
+    @classmethod
+    def read(cls, row_id):
+        data = session.query(Table).filter(Table.id == row_id)
+        return data
 
     @classmethod
     def delete(cls, table_id):
