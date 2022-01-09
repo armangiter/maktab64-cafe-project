@@ -82,8 +82,20 @@ img {
     border-radius: 1rem;
     text-align: center;
     box-shadow: 0 8px 20px rgba(35, 0, 77, .2);
+    animation-duration: .4s;
+    animation-name: animate-login;
 }
-
+@keyframes animate-login {
+    0%{
+        transform: scale(1,1);
+    }
+    50%{
+        transform: scale(1.1,1.1);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}
 .login__title {
     font-size: var(--h1-font-size);
     margin-bottom: 2rem;
