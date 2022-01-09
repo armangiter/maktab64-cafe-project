@@ -81,11 +81,13 @@ img {
     text-align: center;
     box-shadow: 0 8px 20px rgba(35, 0, 77, .2);
 }
+
 .login__title {
     font-size: var(--h1-font-size);
     margin-bottom: 2rem;
 }
-.login__box{
+
+.login__box {
     display: grid;
     grid-template-columns: max-content 1fr;
     column-gap: .5rem;
@@ -94,25 +96,29 @@ img {
     margin-top: 1rem;
     border-radius: .5rem;
 }
-.login__icon{
+
+.login__icon {
     font-size: 1.5rem;
     color: var(--first-color);
 }
-.login__input{
+
+.login__input {
     border: none;
     outline: none;
     font-size: var(--normal-font-size);
     font-weight: 700;
     color: var(--first-color-dark);
 }
-.login__input::placeholder{
+
+.login__input::placeholder {
     font-size: var(--normal-font-size);
     font-family: var(--body-font);
-    color:var(--first-color-light);
+    color: var(--first-color-light);
 }
-.login_button{
+
+.login_button {
     display: block;
-    padding:1rem;
+    padding: 1rem;
     margin: 2rem 0;
     background-color: var(--first-color);
     color: #FFF;
@@ -121,10 +127,21 @@ img {
     border-radius: .5rem;
     transition: .3s;
 }
-.login__button:hover{
+
+.login__button:hover {
     background-color: var(--first-color-dark);
 }
-.login__account,.login__signin,.login__signup{
+
+.login__account, .login__signin, .login__signup {
     font-weight: 600;
     font-size: var(--small-font-size);
+}
+
+.login__account {
+    color: var(--first-color-dark);
+}
+
+.login__signin, .login__signup {
+    color: var(--first-color);
+    cursor: pointer;
 }
