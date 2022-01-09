@@ -22,11 +22,11 @@ class Receipt(BaseManager):
 
     @classmethod
     def update(cls, column_name, row_id, value):
-        session.query(Receipts).filter(Receipts.id == row_id).Update({column_name : value})
+        session.query(Receipts).filter(Receipts.id == row_id).Update({column_name: value})
         session.commit()
 
     @classmethod
-    def all_receipts(cls):
+    def read_all(cls):
         receipts = session.query(Receipts).all()
         receipts_dict = {}
         for i in receipts:
@@ -39,6 +39,6 @@ class Receipt(BaseManager):
         return receipts_dict
 
     @classmethod
-    def delete(cls, receipt_id):
-        session.query(Receipts).filter(Receipts.table_id == receipt_id).delete()
+    def delete(cls, row_id):
+        session.query(Receipts).filter(Receipts.table_id == row_id).delete()
         session.commit()
