@@ -1,7 +1,7 @@
 from core.db_models import *
+from core.manager import BaseManager
 
-
-class CategoryModels:
+class CategoryModels(BaseManager):
 
     def __init__(self, title, root=None):
         self.title = title
