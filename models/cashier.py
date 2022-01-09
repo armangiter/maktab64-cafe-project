@@ -20,7 +20,7 @@ class CashierModels(BaseManager):
         session.commit()
 
     @classmethod
-    def all_cashiers(cls):
+    def read_all(cls):
         cashiers = session.query(Cashier).all()
         cashier_dict = {}
         for c in cashiers:
