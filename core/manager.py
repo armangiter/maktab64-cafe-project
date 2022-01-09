@@ -15,3 +15,10 @@ class BaseManager(ABC):
         """
         to create an object and save into data base
         """
+
+    @classmethod
+    @abstractmethod
+    def read(cls, table: str, row_id):
+        """
+        to read data from database
+        """
