@@ -49,3 +49,9 @@ img{
     margin-left: 1.5rem;
     margin-right: 1.5rem;
 }
+.login__content{
+display: grid;
+}
+.login__img{
+    justify-self: center;
+}
