@@ -180,14 +180,14 @@ img {
     display: none;
 }
 
-@media screen and (min-width: 0px) {
-    .login__img {
-        display: flex;
-        width: 1%;
-        height: 100%;
-        background-image: url('../img/wp2352849.jpg');
-        border-radius: 1rem;
-        padding-left: 1rem;
+@media screen and (max-width: 576px) {
+    body {
+        background-color: #423e4b
+    }
+
+    #login-up {
+        margin-bottom: -215px;
+
     }
 }
 
