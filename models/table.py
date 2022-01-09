@@ -19,6 +19,10 @@ class TableModels(BaseManager):
         return data
 
     @classmethod
+    def update(cls, column_name, row_id, value):
+        session.query(Table).filter(Table.id == row_id).Update({column_name: value})
+
+    @classmethod
     def delete(cls, table_id):
         session.query(Table).filter(Table.table_number == table_id).delete()
         session.commit()
