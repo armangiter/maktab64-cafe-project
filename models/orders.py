@@ -1,8 +1,9 @@
 from core.db_models import *
 from datetime import datetime
+from core.manager import BaseManager
 
 
-class Order:
+class Order(BaseManager):
 
     def __init__(self, table_id, number, time_stamp=datetime.now()):
         self.table_id = table_id
@@ -13,6 +14,11 @@ class Order:
                          status=self.status, time_stamp=self.time_stamp)
         session.add(new_row)
         session.commit()
+
+    @classmethod
+    def read(cls, row_id):
+        data = session.query(Orders).filter(Orders.id == row_id)
+        return data
 
     @classmethod
     def change_status(cls, stat="ordered", o_id=None):
