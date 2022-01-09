@@ -1,7 +1,8 @@
-from models.DB_MODELS.db_models import *
+from core.db_models import *
+from core.manager import BaseManager
 
 
-class OrderItem:
+class OrderItem(BaseManager):
     def __init__(self, order_id, item_id):
         self.order_id = order_id
         self.item_id = item_id
@@ -10,7 +11,22 @@ class OrderItem:
         session.commit()
 
     @classmethod
-    def all_order_items(cls):
+    def read(cls, row_id):
+        data = session.query(Order_items).filter(Order_items.id == row_id)
+        return data
+
+    @classmethod
+    def update(cls, column_name, row_id, value):
+        session.query(Order_items).filter(Order_items.id == row_id).Update({column_name: value})
+        session.commit()
+
+    @classmethod
+    def delete(cls, row_id):
+        session.query(Order_items).filter(Order_items.id == row_id).delete()
+        session.commit()
+
+    @classmethod
+    def read_all(cls):
         order_item = session.query(Order_items).all()
         order_item_dict = {}
         for i in order_item:

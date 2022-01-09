@@ -1,7 +1,8 @@
-from models.DB_MODELS.db_models import *
+from core.db_models import *
+from core.manager import BaseManager
 
 
-class MenuItems:
+class MenuItems(BaseManager):
     def __init__(self, name, price, image, description, category, discount=0, serv_time=20, st_cooking_time=20):
         self.name = name
         self.price = price
@@ -18,12 +19,17 @@ class MenuItems:
         session.commit()
 
     @classmethod
-    def delete_item(cls, item_id):
+    def read(cls, row_id):
+        data = session.query(Menu_Items).filter(Menu_Items.id == row_id)
+        return data
+
+    @classmethod
+    def delete(cls, item_id):
         session.query(Menu_Items).filter(Menu_Items.id == item_id).delete()
         session.commit()
 
     @classmethod
-    def all_menu_item(cls):
+    def read_all(cls):
         menu = session.query(Menu_Items).all()
         menu_dict = {}
         for i in menu:
@@ -41,6 +47,6 @@ class MenuItems:
         return menu_dict
 
     @classmethod
-    def update(cls, attr, i_id, value):
-        session.query(Menu_Items).filter(Menu_Items.id == i_id).update({attr: value})
+    def update(cls, column_name, row_id, value):
+        session.query(Menu_Items).filter(Menu_Items.id == row_id).update({column_name: value})
         session.commit()

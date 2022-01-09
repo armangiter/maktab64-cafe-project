@@ -1,7 +1,8 @@
-from models.DB_MODELS.db_models import *
+from core.db_models import *
+from core.manager import BaseManager
 
 
-class CashierModels:
+class CashierModels(BaseManager):
     def __init__(self, first_name, last_name, phone_number, password, email=None):
         self.first_name = first_name
         self.last_name = last_name
@@ -14,12 +15,18 @@ class CashierModels:
         session.commit()
 
     @classmethod
+    def read(cls, row_id):
+        data = session.query(Cashier).filter(Cashier.id == row_id)
+        session.commit()
+        return data
+
+    @classmethod
     def delete(cls, user_id):
         session.query(Cashier).filter(Cashier.id == user_id).delete()
         session.commit()
 
     @classmethod
-    def all_cashiers(cls):
+    def read_all(cls):
         cashiers = session.query(Cashier).all()
         cashier_dict = {}
         for c in cashiers:
@@ -34,6 +41,6 @@ class CashierModels:
         return cashier_dict
 
     @classmethod
-    def update(cls, attr, c_id, value):
-        session.query(Cashier).filter(Cashier.id == c_id).Update({attr: value})
+    def update(cls, column_name, row_id, value):
+        session.query(Cashier).filter(Cashier.id == row_id).Update({column_name: value})
         session.commit()

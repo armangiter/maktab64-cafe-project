@@ -6,7 +6,7 @@ from models import cashier, category, menu_items, order_item, orders, table, rec
 
 def login():
     if request.method == "POST":
-        cashier_dict = cashier.CashierModels.all_cashiers()
+        cashier_dict = cashier.CashierModels.read_all()
         for c in cashier_dict:
             if escape(request.form.get('phone')) == cashier_dict[c]['phone'] and \
                     escape(request.form.get('password')) == cashier_dict[c]['password']:
@@ -28,11 +28,11 @@ def register():
 
 def admin_page():
     if request.method == 'GET':
-        category_dict = category.CategoryModels.all_categories()
-        menu_dict = menu_items.MenuItems.all_menu_item()
-        order_dict = orders.Order.all_orders()
-        order_item_dict = order_item.OrderItem.all_order_items()
-        table_dict = table.TableModels.all_table()
+        category_dict = category.CategoryModels.read_all()
+        menu_dict = menu_items.MenuItems.read_all()
+        order_dict = orders.Order.read_all()
+        order_item_dict = order_item.OrderItem.read_all()
+        table_dict = table.TableModels.read_all()
         receipts_dict = reciepts.Receipts.all_receipts()
         return render_template('cashier/adminpage2.html', category_dict=category_dict, menu_dict=menu_dict,
                                order_dict=order_dict,
@@ -42,9 +42,9 @@ def admin_page():
 
 def order():
     if request.method == "GET":
-        menu_dict = menu_items.MenuItems.all_menu_item()
-        order_dict = orders.Order.all_orders()
-        order_item_dict = order_item.OrderItem.all_order_items()
+        menu_dict = menu_items.MenuItems.read_all()
+        order_dict = orders.Order.read_all()
+        order_item_dict = order_item.OrderItem.read_all()
         return render_template('cashier/orders.html', menu_dict=menu_dict, order_dict=order_dict, order_item_dict=order_item_dict)
     return None
 
@@ -67,7 +67,7 @@ def menu_item():
 
 def categories():
     if request.method == 'GET':
-        category_dict = category.CategoryModels.all_categories()
+        category_dict = category.CategoryModels.read_all()
         return render_template('cashier/category.html', category_dict=category_dict)
     elif request.method == 'POST':
         req = request.form.get

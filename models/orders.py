@@ -1,8 +1,9 @@
-from models.DB_MODELS.db_models import *
+from core.db_models import *
 from datetime import datetime
+from core.manager import BaseManager
 
 
-class Order:
+class Order(BaseManager):
 
     def __init__(self, table_id, number, time_stamp=datetime.now()):
         self.table_id = table_id
@@ -15,12 +16,22 @@ class Order:
         session.commit()
 
     @classmethod
-    def change_status(cls, stat="ordered", o_id=None):
-        session.query(Orders).filter(Orders.id == o_id).update({'status': stat})
+    def read(cls, row_id):
+        data = session.query(Orders).filter(Orders.id == row_id)
+        return data
+
+    @classmethod
+    def update(cls, column_name, row_id, value):
+        session.query(Orders).filter(Orders.id == row_id).update({column_name: value})
         session.commit()
 
     @classmethod
-    def all_orders(cls):
+    def delete(cls, row_id):
+        session.query(Orders).filter(Orders.id == row_id).delete()
+        session.commit()
+
+    @classmethod
+    def read_all(cls):
         orders = session.query(Orders).all()
         orders_dict = {}
         for i in orders:
