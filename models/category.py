@@ -1,6 +1,7 @@
 from core.db_models import *
 from core.manager import BaseManager
 
+
 class CategoryModels(BaseManager):
 
     def __init__(self, title, root=None):
@@ -9,6 +10,11 @@ class CategoryModels(BaseManager):
         new_row = Category(title=self.title, root=self.root)
         session.add(new_row)
         session.commit()
+
+    @classmethod
+    def read(cls, row_id):
+        data = session.query(Category).filter(Category.id == row_id)
+        return data
 
     @classmethod
     def delete(cls, category_id):
