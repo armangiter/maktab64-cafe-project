@@ -17,6 +17,11 @@ class CategoryModels(BaseManager):
         return data
 
     @classmethod
+    def update(cls, column_name, row_id, value):
+        session.query(Category).filter(Category.id == row_id).update({column_name: value})
+        session.commit()
+
+    @classmethod
     def delete(cls, category_id):
         session.query(Category).filter(Category.id == category_id).delete()
         session.commit()
