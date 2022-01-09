@@ -47,6 +47,6 @@ class MenuItems(BaseManager):
         return menu_dict
 
     @classmethod
-    def update(cls, attr, i_id, value):
-        session.query(Menu_Items).filter(Menu_Items.id == i_id).update({attr: value})
+    def update(cls, column_name, row_id, value):
+        session.query(Menu_Items).filter(Menu_Items.id == row_id).update({column_name: value})
         session.commit()
