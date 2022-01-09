@@ -8,8 +8,12 @@ class TableModels(BaseManager):
         self.table_number = table_number
         self.cafe_position = cafe_position
         self.capacity = capacity
-        new_row = Table(table_number=self.table_number, cafe_position=self.cafe_position,
-                        capacity=self.capacity)
+        self.create(self.table_number, self.cafe_position, self.capacity)
+
+    @classmethod
+    def create(cls, table_number, cafe_position, capacity):
+        new_row = Table(table_number=table_number, cafe_position=cafe_position,
+                        capacity=capacity)
         session.add(new_row)
         session.commit()
 
