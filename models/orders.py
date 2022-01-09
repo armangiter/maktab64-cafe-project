@@ -21,8 +21,8 @@ class Order(BaseManager):
         return data
 
     @classmethod
-    def change_status(cls, stat="ordered", o_id=None):
-        session.query(Orders).filter(Orders.id == o_id).update({'status': stat})
+    def update(cls, column_name, row_id, value):
+        session.query(Orders).filter(Orders.id == row_id).update({column_name: value})
         session.commit()
 
     @classmethod
