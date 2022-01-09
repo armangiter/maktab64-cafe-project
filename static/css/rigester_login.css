@@ -74,6 +74,7 @@ img {
 }
 
 .login__register, .login__create {
+    position: absolute;
     width: 100%;
     background-color: var(--first-color-lighten);
     padding: 2rem 1rem;
