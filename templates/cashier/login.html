@@ -34,27 +34,27 @@
                     <span class="login__signin" id="sign-up">Sign Up</span>
                 </div>
             </form>
-            <form action="" class="login__create none" id="login-up">
+            <form action="{{ url_for('register') }}" class="login__create none" id="login-up">
                 <h1 class="login_title">Create Account</h1>
                 <div class="login__box">
                     <i class="bi bi-person-circle login__icon"></i>
-                    <input type="text" placeholder="First Name" class="login__input">
+                    <input type="text" placeholder="First Name" class="login__input" name="firstname">
                 </div>
                 <div class="login__box">
                     <i class="bi bi-person-circle login__icon"></i>
-                    <input type="text" placeholder="Last name" class="login__input">
+                    <input type="text" placeholder="Last name" class="login__input" name="lastname">
                 </div>
                 <div class="login__box">
                     <i class="bi bi-telephone login__icon"></i>
-                    <input type="text" placeholder="Phone" class="login__input">
+                    <input type="text" placeholder="Phone" class="login__input" name="phone">
                 </div>
                 <div class="login__box">
                     <i class="bi bi-envelope login__icon"></i>
-                    <input type="text" placeholder="Email" class="login__input">
+                    <input type="text" placeholder="Email" class="login__input" name="email">
                 </div>
                 <div class="login__box">
                     <i class="bi bi-person-circle login__icon"></i>
-                    <input type="Password" placeholder="Password" class="login__input">
+                    <input type="Password" placeholder="Password" class="login__input" name="password">
                 </div>
                 <a href="#" class="login_button">Sign Up</a>
                 <div>
