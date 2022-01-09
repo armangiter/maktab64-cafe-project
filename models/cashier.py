@@ -1,4 +1,5 @@
 from core.db_models import *
+from core.manager import BaseManager
 
 
 class CashierModels:
