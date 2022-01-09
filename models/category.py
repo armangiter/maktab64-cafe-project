@@ -18,7 +18,7 @@ class CategoryModels(BaseManager):
 
     @classmethod
     def update(cls, column_name, row_id, value):
-        session.query(Category).filter(Category.id == row_id).update({column_name: value})
+        session.query(Category).filter(Category.id == row_id).Update({column_name: value})
         session.commit()
 
     @classmethod
