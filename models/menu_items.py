@@ -18,7 +18,7 @@ class MenuItems:
         session.commit()
 
     @classmethod
-    def delete_item(cls, item_id):
+    def delete(cls, item_id):
         session.query(Menu_Items).filter(Menu_Items.id == item_id).delete()
         session.commit()
 
