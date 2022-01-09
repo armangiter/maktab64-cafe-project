@@ -94,3 +94,14 @@ img {
     margin-top: 1rem;
     border-radius: .5rem;
 }
+.login__icon{
+    font-size: 1.5rem;
+    color: var(--first-color);
+}
+.login__input{
+    border: none;
+    outline: none;
+    font-size: var(--normal-font-size);
+    font-weight: 700;
+    color: var(--first-color-dark);
+}
