@@ -26,7 +26,12 @@ class Order(BaseManager):
         session.commit()
 
     @classmethod
-    def all_orders(cls):
+    def delete(cls, row_id):
+        session.query(Orders).filter(Orders.id == row_id).delete()
+        session.commit()
+
+    @classmethod
+    def read_all(cls):
         orders = session.query(Orders).all()
         orders_dict = {}
         for i in orders:
