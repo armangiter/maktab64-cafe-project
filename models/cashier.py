@@ -35,6 +35,6 @@ class CashierModels(BaseManager):
         return cashier_dict
 
     @classmethod
-    def update(cls, attr, c_id, value):
-        session.query(Cashier).filter(Cashier.id == c_id).Update({attr: value})
+    def update(cls, column_name, row_id, value):
+        session.query(Cashier).filter(Cashier.id == row_id).Update({column_name: value})
         session.commit()
