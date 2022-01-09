@@ -10,8 +10,12 @@ class Receipt(BaseManager):
         self.total_price = total_price
         self.final_price = final_price
         self.time_stamp = time_stamp
-        new_row = Receipts(table_id=self.table_id, total_price=self.total_price, final_price=self.final_price,
-                           time_stamp=self.time_stamp)
+        self.create(self.table_id, self.total_price, self.final_price, self.time_stamp)
+
+    @classmethod
+    def create(cls, table_id, total_price, final_price, time_stamp):
+        new_row = Receipts(table_id=table_id, total_price=total_price, final_price=final_price,
+                           time_stamp=time_stamp)
         session.add(new_row)
         session.commit()
 
