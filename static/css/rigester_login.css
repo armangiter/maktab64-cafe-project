@@ -105,3 +105,8 @@ img {
     font-weight: 700;
     color: var(--first-color-dark);
 }
+.login__input::placeholder{
+    font-size: var(--normal-font-size);
+    font-family: var(--body-font);
+    color:var(--first-color-light);
+}
