@@ -15,6 +15,12 @@ class CashierModels(BaseManager):
         session.commit()
 
     @classmethod
+    def read(cls, row_id):
+        data = session.query(Cashier).filter(Cashier.id == row_id)
+        session.commit()
+        return data
+
+    @classmethod
     def delete(cls, user_id):
         session.query(Cashier).filter(Cashier.id == user_id).delete()
         session.commit()
