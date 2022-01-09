@@ -29,3 +29,10 @@ class BaseManager(ABC):
         """
         to update data in database
         """
+
+    @classmethod
+    @abstractmethod
+    def delete(cls, table:str, row_id):
+        """
+        to delete data from database
+        """
