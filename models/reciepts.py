@@ -1,8 +1,9 @@
 from core.db_models import *
 from datetime import datetime
+from core.manager import BaseManager
 
 
-class Receipts:
+class Receipt(BaseManager):
 
     def __init__(self, table_id, total_price=None, final_price=0, time_stamp=datetime.now()):
         self.table_id = table_id
@@ -13,6 +14,11 @@ class Receipts:
                            time_stamp=self.time_stamp)
         session.add(new_row)
         session.commit()
+
+    @classmethod
+    def read(cls, row_id):
+        data = session.query(Receipts).filter(Receipts.id == row_id)
+        return data
 
     @classmethod
     def all_receipts(cls):
