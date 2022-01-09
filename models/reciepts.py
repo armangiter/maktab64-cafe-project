@@ -1,4 +1,4 @@
-from models.DB_MODELS.db_models import *
+from core.db_models import *
 from datetime import datetime
 
 
