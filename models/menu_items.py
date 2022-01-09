@@ -1,7 +1,8 @@
 from core.db_models import *
+from core.manager import BaseManager
 
 
-class MenuItems:
+class MenuItems(BaseManager):
     def __init__(self, name, price, image, description, category, discount=0, serv_time=20, st_cooking_time=20):
         self.name = name
         self.price = price
@@ -16,6 +17,11 @@ class MenuItems:
                              discount=self.discount, serv_time=self.serv_time, st_cooking_time=self.st_cooking_time)
         session.add(new_row)
         session.commit()
+
+    @classmethod
+    def read(cls, row_id):
+        data = session.query(Menu_Items).filter(Menu_Items.id == row_id)
+        return data
 
     @classmethod
     def delete(cls, item_id):
