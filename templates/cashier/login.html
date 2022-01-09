@@ -18,7 +18,7 @@
         <div class="login__img">
         </div>
         <div class="login__forms">
-            <form action="{{ url_for('login') }}" class="login__register" id="login-in">
+            <form action="{{ url_for('login') }}" class="login__register" id="login-in" method="POST">
                 <h1 class="login_title">Sign In</h1>
                 <div class="login__box">
                     <i class="bi bi-person-circle login__icon"></i>
@@ -34,7 +34,7 @@
                     <span class="login__signin" id="sign-up">Sign Up</span>
                 </div>
             </form>
-            <form action="{{ url_for('register') }}" class="login__create none" id="login-up">
+            <form action="{{ url_for('register') }}" class="login__create none" id="login-up" method="POST">
                 <h1 class="login_title">Create Account</h1>
                 <div class="login__box">
                     <i class="bi bi-person-circle login__icon"></i>
@@ -56,7 +56,7 @@
                     <i class="bi bi-person-circle login__icon"></i>
                     <input type="Password" placeholder="Password" class="login__input" name="password">
                 </div>
-                <a href="#" class="login_button">Sign Up</a>
+                <button type="submit" class="login_button">Sign up</button>
                 <div>
                     <span class="login__account">Already have an Account?</span>
                     <span class="login__signup" id="sign-in">Sign In</span>
