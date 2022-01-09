@@ -36,3 +36,11 @@ class BaseManager(ABC):
         """
         to delete data from database
         """
+
+    @classmethod
+    @abstractmethod
+    def read_all(cls, table: str):
+        """
+        to read all data from one table
+        """
+
