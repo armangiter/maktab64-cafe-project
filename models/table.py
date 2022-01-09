@@ -28,7 +28,7 @@ class TableModels(BaseManager):
         session.commit()
 
     @classmethod
-    def all_table(cls):
+    def read_all(cls):
         tables = session.query(Table).all()
         table_dict = {}
         for i in tables:
