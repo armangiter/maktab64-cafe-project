@@ -16,6 +16,11 @@ class OrderItem(BaseManager):
         return data
 
     @classmethod
+    def update(cls, column_name, row_id, value):
+        session.query(Order_items).filter(Order_items.id==row_id).Update({column_name:value})
+        session.commit()
+
+    @classmethod
     def all_order_items(cls):
         order_item = session.query(Order_items).all()
         order_item_dict = {}
