@@ -25,7 +25,7 @@ class BaseManager(ABC):
 
     @classmethod
     @abstractmethod
-    def update(cls, row_id):
+    def update(cls, column_id, row_id, value):
         """
         to update data in database
         """
@@ -43,4 +43,3 @@ class BaseManager(ABC):
         """
         to read all data from one table
         """
-
