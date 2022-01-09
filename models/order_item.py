@@ -26,7 +26,7 @@ class OrderItem(BaseManager):
         session.commit()
 
     @classmethod
-    def all_order_items(cls):
+    def read_all(cls):
         order_item = session.query(Order_items).all()
         order_item_dict = {}
         for i in order_item:
