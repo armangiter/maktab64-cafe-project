@@ -27,7 +27,7 @@ class CategoryModels(BaseManager):
         session.commit()
 
     @classmethod
-    def all_categories(cls):
+    def read_all(cls):
         categories = session.query(Category).all()
         categories_dict = {}
         for i in categories:
