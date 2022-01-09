@@ -18,28 +18,28 @@ class BaseManager(ABC):
 
     @classmethod
     @abstractmethod
-    def read(cls, table: str, row_id):
+    def read(cls, row_id):
         """
         to read data from database
         """
 
     @classmethod
     @abstractmethod
-    def update(cls, table: str, row_id):
+    def update(cls, row_id):
         """
         to update data in database
         """
 
     @classmethod
     @abstractmethod
-    def delete(cls, table: str, row_id):
+    def delete(cls, row_id):
         """
         to delete data from database
         """
 
     @classmethod
     @abstractmethod
-    def read_all(cls, table: str):
+    def read_all(cls):
         """
         to read all data from one table
         """
