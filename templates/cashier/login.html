@@ -18,23 +18,22 @@
         <div class="login__img">
         </div>
         <div class="login__forms">
-            <form action="" class="login__register" id="login-in">
+            <form action="{{ url_for('login') }}" class="login__register" id="login-in">
                 <h1 class="login_title">Sign In</h1>
                 <div class="login__box">
                     <i class="bi bi-person-circle login__icon"></i>
-                    <input type="text" placeholder="Phone" class="login__input">
+                    <input type="text" placeholder="Phone" class="login__input" name="phone">
                 </div>
                 <div class="login__box">
                     <i class="bi bi-person-circle login__icon"></i>
-                    <input type="Password" placeholder="Password" class="login__input">
+                    <input type="Password" placeholder="Password" class="login__input" name="password">
                 </div>
-                <a href="#" class="login_button">Sign In</a>
+                <button type="submit" class="login_button">Sign in</button>
                 <div>
                     <span class="login__account">Don't have an Account?</span>
                     <span class="login__signin" id="sign-up">Sign Up</span>
                 </div>
             </form>
-
             <form action="" class="login__create none" id="login-up">
                 <h1 class="login_title">Create Account</h1>
                 <div class="login__box">
