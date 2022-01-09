@@ -12,9 +12,14 @@ class MenuItems(BaseManager):
         self.discount = discount
         self.serv_time = serv_time
         self.st_cooking_time = st_cooking_time
-        new_row = Menu_Items(name=self.name, price=self.price, image=self.image, description=self.description,
-                             category=self.category,
-                             discount=self.discount, serv_time=self.serv_time, st_cooking_time=self.st_cooking_time)
+        self.create(self.name, self.price, self.image, self.description, self.category, self.discount, self.serv_time,
+                    self.st_cooking_time)
+
+    @classmethod
+    def create(cls, name, price, image, description, category, discount, serv_time, st_cooking_time):
+        new_row = Menu_Items(name=name, price=price, image=image, description=description,
+                             category=category,
+                             discount=discount, serv_time=serv_time, st_cooking_time=st_cooking_time)
         session.add(new_row)
         session.commit()
 
