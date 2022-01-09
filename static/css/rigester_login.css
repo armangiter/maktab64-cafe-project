@@ -110,7 +110,7 @@ img {
     font-family: var(--body-font);
     color:var(--first-color-light);
 }
-.login__button{
+.login_button{
     display: block;
     padding:1rem;
     margin: 2rem 0;
@@ -120,4 +120,11 @@ img {
     text-align: center;
     border-radius: .5rem;
     transition: .3s;
+}
+.login__button:hover{
+    background-color: var(--first-color-dark);
+}
+.login__account,.login__signin,.login__signup{
+    font-weight: 600;
+    font-size: var(--small-font-size);
 }
