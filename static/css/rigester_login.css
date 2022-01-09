@@ -155,3 +155,9 @@ img {
     color: var(--first-color-dark);
     margin: 0 1.5rem;
 }
+.block{
+    display:block ;
+}
+.none {
+    display: none;
+}
