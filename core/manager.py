@@ -22,3 +22,10 @@ class BaseManager(ABC):
         """
         to read data from database
         """
+
+    @classmethod
+    @abstractmethod
+    def update(cls, table: str, row_id):
+        """
+        to update data in database
+        """
