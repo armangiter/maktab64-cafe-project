@@ -11,7 +11,7 @@ session = sessionmaker(bind=engine)()
 class BaseManager(ABC):
     @classmethod
     @abstractmethod
-    def create(cls, table: str, row_id):
+    def create(cls, table: str):
         """
         to create an object and save into data base
         """
@@ -32,7 +32,7 @@ class BaseManager(ABC):
 
     @classmethod
     @abstractmethod
-    def delete(cls, table:str, row_id):
+    def delete(cls, table: str, row_id):
         """
         to delete data from database
         """
