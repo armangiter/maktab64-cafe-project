@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 :root {
-    --first-color: #9d4bff;
+    --first-color: #56416b;
     --first-color-dark: #23004d;
     --first-color-light: #A49eac;
     --first-color-lighten: #f2f2f2;
@@ -75,7 +75,7 @@ img {
 
 .login__register, .login__create {
     position: absolute;
-    bottom:1rem;
+    bottom: 1rem;
     width: 100%;
     background-color: var(--first-color-lighten);
     padding: 2rem 1rem;
@@ -85,17 +85,19 @@ img {
     animation-duration: .4s;
     animation-name: animate-login;
 }
+
 @keyframes animate-login {
-    0%{
-        transform: scale(1,1);
+    0% {
+        transform: scale(1, 1);
     }
-    50%{
-        transform: scale(1.1,1.1);
+    50% {
+        transform: scale(1.1, 1.1);
     }
-    100%{
-        transform: scale(1,1);
+    100% {
+        transform: scale(1, 1);
     }
 }
+
 .login__title {
     font-size: var(--h1-font-size);
     margin-bottom: 2rem;
@@ -159,17 +161,48 @@ img {
     color: var(--first-color);
     cursor: pointer;
 }
-.login__social{
+
+.login__social {
     margin-top: 2rem;
 }
-.login__social-icon{
+
+.login__social-icon {
     font-size: 1.5rem;
     color: var(--first-color-dark);
     margin: 0 1.5rem;
 }
-.block{
-    display:block ;
+
+.block {
+    display: block;
 }
+
 .none {
     display: none;
+}
+
+@media screen and (min-width: 576px) {
+    .login__forms {
+        width: 348px;
+        justify-self: center;
+    }
+}
+
+@media screen and (min-width: 1024px ) {
+    .login {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .login__content {
+        grid-template-columns: repeat(2, max-content);
+        justify-content: center;
+        align-items: center;
+        margin-left: 10rem;
+
+    }
+
+    #login-up {
+        margin-bottom: -21vh;
+
+    }
 }
