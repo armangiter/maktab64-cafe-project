@@ -33,10 +33,10 @@ def admin_page():
         order_dict = orders.Order.all_orders()
         order_item_dict = order_item.OrderItem.all_order_items()
         table_dict = table.TableModels.all_table()
-        # receipts_dict = reciepts.Receipts.all_receipts()
+        receipts_dict = reciepts.Receipts.all_receipts()
         return render_template('cashier/adminpage2.html', category_dict=category_dict, menu_dict=menu_dict,
                                order_dict=order_dict,
-                               order_item_dict=order_item_dict, table_dict=table_dict, )
+                               order_item_dict=order_item_dict, table_dict=table_dict, receipts_dict=receipts_dict)
     return None
 
 
