@@ -180,10 +180,35 @@ img {
     display: none;
 }
 
+@media screen and (min-width: 0px) {
+    .login__img {
+        display: flex;
+        width: 1%;
+        height: 100%;
+        background-image: url('../img/wp2352849.jpg');
+        border-radius: 1rem;
+        padding-left: 1rem;
+    }
+}
+
 @media screen and (min-width: 576px) {
     .login__forms {
         width: 348px;
         justify-self: center;
+    }
+
+    .login__img {
+        display: flex;
+        width: 550px;
+        height: 550px;
+        background-image: url('../img/wp2352849.jpg');
+        border-radius: 1rem;
+        padding-left: 1rem;
+    }
+
+    #login-in {
+        margin-bottom: 7rem;
+
     }
 }
 
@@ -197,12 +222,36 @@ img {
         grid-template-columns: repeat(2, max-content);
         justify-content: center;
         align-items: center;
-        margin-left: 10rem;
 
     }
 
     #login-up {
-        margin-bottom: -21vh;
+        margin-bottom: -215px;
+        margin-left: -29rem;
 
     }
+
+    .login__img {
+        display: flex;
+        width: 1200px;
+        height: 800px;
+        background-image: url('../img/wp2352849.jpg');
+        border-radius: 1rem;
+        padding-left: 1rem;
+    }
+
+    .login__img img {
+        width: 390px;
+        margin-top: 0;
+    }
+
+    .login__register, .login__create {
+        left: 11rem;
+    }
+
+    #login-in {
+        margin-bottom: -51px;
+        margin-left: -29rem;
+    }
+
 }
