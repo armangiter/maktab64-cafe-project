@@ -21,6 +21,11 @@ class Receipt(BaseManager):
         return data
 
     @classmethod
+    def update(cls, column_name, row_id, value):
+        session.query(Receipts).filter(Receipts.id == row_id).Update({column_name : value})
+        session.commit()
+
+    @classmethod
     def all_receipts(cls):
         receipts = session.query(Receipts).all()
         receipts_dict = {}
