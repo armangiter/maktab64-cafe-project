@@ -11,7 +11,7 @@ session = sessionmaker(bind=engine)()
 class BaseManager(ABC):
     @classmethod
     @abstractmethod
-    def create(cls, table: str):
+    def create(cls, *args):
         """
         to create an object and save into data base
         """

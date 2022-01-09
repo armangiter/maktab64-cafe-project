@@ -7,7 +7,11 @@ class CategoryModels(BaseManager):
     def __init__(self, title, root=None):
         self.title = title
         self.root = root
-        new_row = Category(title=self.title, root=self.root)
+        self.create(self.title, self.root)
+
+    @classmethod
+    def create(cls, title, root):
+        new_row = Category(title=title, root=root)
         session.add(new_row)
         session.commit()
 

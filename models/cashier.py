@@ -9,8 +9,12 @@ class CashierModels(BaseManager):
         self.phone_number = phone_number
         self.email = email
         self.password = password
-        cashier = Cashier(firstname=self.first_name, lastname=self.last_name, phone=self.phone_number
-                          , password=self.password, email=self.email)
+        self.create(self.first_name, self.last_name, self.phone_number, self.password, self.email)
+
+    @classmethod
+    def create(cls, first_name, last_name, phone_number, password, email):
+        cashier = Cashier(firstname=first_name, lastname=last_name, phone=phone_number
+                          , password=password, email=email)
         session.add(cashier)
         session.commit()
 
