@@ -6,7 +6,11 @@ class OrderItem(BaseManager):
     def __init__(self, order_id, item_id):
         self.order_id = order_id
         self.item_id = item_id
-        new_row = Order_items(item_id=self.item_id, order_id=self.order_id)
+        self.create(self.order_id, self.item_id)
+
+    @classmethod
+    def create(cls, order_id, item_id):
+        new_row = Order_items(item_id=item_id, order_id=order_id)
         session.add(new_row)
         session.commit()
 

@@ -10,8 +10,12 @@ class Order(BaseManager):
         self.number = number
         self.time_stamp = time_stamp
         self.status = 'ordered'
-        new_row = Orders(table_id=self.table_id, number=self.number,
-                         status=self.status, time_stamp=self.time_stamp)
+        self.create(self.table_id, self.number, self.status, self.time_stamp)
+
+    @classmethod
+    def create(cls, table_id, number, time_stamp, status):
+        new_row = Orders(table_id=table_id, number=number,
+                         status=status, time_stamp=time_stamp)
         session.add(new_row)
         session.commit()
 
