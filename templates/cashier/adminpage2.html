@@ -10,63 +10,116 @@
 {% block title %}Admin{% endblock %}
 
 {% block body %}
-<body id="body-pd">
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1>Welcome Admin Panel</h1>
-        </div>
-    </div>
-</div>
-
-<div class="l_navabar" id="navbar">
-    <nav class="nav">
-        <div>
-            <div class="nav__brand">
-                <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
-                <a href="#" class="nav__logo">Admin</a>
+    <body id="body-pd">
+    <div class="container-fluid" id="admin_content">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Welcome Admin Panel</h1>
             </div>
         </div>
-        <div class="nav__list" style="margin-bottom: 25vh">
-            <a href="#" class="nav__link">
-                <ion-icon name="home-outline" class="nav__icon"></ion-icon>
-                <span class="nav__name">Dashboard</span>
-            </a>
-            <a href="#" class="nav__link">
-                <ion-icon name="bag-add-outline" class="nav__icon"></ion-icon>
-                <span class="nav__name">Add menu Items</span>
-            </a>
-            <a href="#" class="nav__link">
-                <ion-icon name="add-circle-outline" class="nav__icon"></ion-icon>
-                <span class="nav__name">Add category</span>
-            </a>
-            <a href="#" class="nav__link">
-                <ion-icon name="cart-outline" class="nav__icon"></ion-icon>
-                <span class="nav__name">Orders</span>
-            </a>
-            <a href="#" class="nav__link">
-                <ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon>
-                <span class="nav__name">Table</span>
-            </a>
-            <a href="#" class="nav__link">
-                <ion-icon name="cafe-outline" class="nav__icon"></ion-icon>
-                <span class="nav__name">Receipts</span>
-            </a>
-            <a href="#" class="nav__link">
-                <ion-icon name="person-add-outline" class="nav__icon"></ion-icon>
-                <span class="nav__name">Register</span>
-            </a>
-        </div>
-        <a href="#" class="nav__link">
-            <ion-icon name="log-out-outline"></ion-icon>
-            <span class="nav__name">log out</span>
-        </a>
-    </nav>
-</div>
+    </div>
 
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<script src="../../static/js/adminpage.js"></script>
-</body>
+    <div class="l_navabar" id="navbar">
+        <nav class="nav">
+            <div>
+                <div class="nav__brand">
+                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+                    <a href="#" class="nav__logo">Admin</a>
+                </div>
+            </div>
+            <div class="nav__list" style="margin-bottom: 25vh">
+                <a href="#" class="nav__link">
+                    <ion-icon name="home-outline" class="nav__icon"></ion-icon>
+                    <span class="nav__name">Dashboard</span>
+                </a>
+                <a id="Menu" class="nav__link">
+                    <ion-icon name="bag-add-outline" class="nav__icon"></ion-icon>
+                    <span class="nav__name">Add menu Items</span>
+                </a>
+                <a href="#" class="nav__link">
+                    <ion-icon name="add-circle-outline" class="nav__icon"></ion-icon>
+                    <span class="nav__name">Add category</span>
+                </a>
+                <a id="Orders" class="nav__link">
+                    <ion-icon name="cart-outline" class="nav__icon"></ion-icon>
+                    <span class="nav__name">Orders</span>
+                </a>
+                <a id="Table" class="nav__link">
+                    <ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon>
+                    <span class="nav__name">Table</span>
+                </a>
+                <a id="Receipt" class="nav__link">
+                    <ion-icon name="cafe-outline" class="nav__icon"></ion-icon>
+                    <span class="nav__name">Receipts</span>
+                </a>
+                <a href="#" class="nav__link">
+                    <ion-icon name="person-add-outline" class="nav__icon"></ion-icon>
+                    <span class="nav__name">Register</span>
+                </a>
+            </div>
+            <a href="#" class="nav__link">
+                <ion-icon name="log-out-outline"></ion-icon>
+                <span class="nav__name">log out</span>
+            </a>
+        </nav>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="../../static/js/adminpage.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $('#Orders').click(function () {
+            $.ajax({
+                url: "{{ url_for('orders') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#admin_content').html(res['data']);
+                    console.log(res['data'])
+                }
+            });
+        })
+        $('#Receipt').click(function () {
+            $.ajax({
+                url: "{{ url_for('receipt') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#admin_content').html(res['data']);
+                    console.log(res['data'])
+                }
+            });
+        })
+        $('#Table').click(function () {
+            $.ajax({
+                url: "{{ url_for('table') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#admin_content').html(res['data']);
+                    console.log(res['data'])
+                }
+            });
+        })
+        $('#Menu').click(function () {
+            $.ajax({
+                url: "{{ url_for('menuitem') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#admin_content').html(res['data']);
+                    console.log(res['data'])
+                }
+            });
+        })
+    f</script>
+    </body>
 {% endblock %}
 

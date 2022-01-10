@@ -23,23 +23,23 @@
                     <form action="{{ url_for("menuitem") }}" class="create" id="login-up" method="POST">
                         <div class="box">
                             <i class="bi bi-person-circle icon"></i>
-                            <input type="text" placeholder="Enter Items Name" class="input">
+                            <input type="text" placeholder="Enter Items Name" class="input" name="name">
                         </div>
                         <div class="box">
                             <i class="bi bi-currency-dollar"></i>
-                            <input type="text" placeholder="Enter Items Price" class="input">
+                            <input type="text" placeholder="Enter Items Price" class="input" name="price">
                         </div>
                         <div class="box">
                             <i class="bi bi-card-image"></i>
-                            <input type="text" placeholder="Enter Image address" class="input">
+                            <input type="text" placeholder="Enter Image address" class="input" name="image">
                         </div>
                         <div class="box">
                             <i class="bi bi-clipboard"></i>
-                            <input type="text" placeholder="Enter Description Items" class="input">
+                            <input type="text" placeholder="Enter Description Items" class="input" name="description">
                         </div>
                         <div class="box">
                             <i class="bi bi-bag"></i>
-                            <input type="number" placeholder="Enter Category Number" class="input">
+                            <input type="number" placeholder="Enter Category Number" class="input" name="category">
                         </div>
                         <div class="row">
                             <button type="submit" class="button col">Create</button>
