@@ -81,7 +81,17 @@
     <script>
         $('#Orders').click(function () {
             $.ajax({
-                url: "{{ url_for('home') }}",
+                url: "{{ url_for('orders') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#spa_content').html(res['data']);
+                    console.log(res['data'])
+                }
+            });
+        })
+        $('#Receipt').click(function () {
+            $.ajax({
+                url: "{{ url_for('receipt') }}",
                 type: 'GET',
                 success: function (res) {
                     $('#spa_content').html(res['data']);
