@@ -144,9 +144,10 @@ img {
     transition: .3s;
 }
 
-.login__button:hover {
+.login_button:hover {
     background-color: var(--first-color-dark);
 }
+
 
 .login__account, .login__signin, .login__signup {
     font-weight: 600;
