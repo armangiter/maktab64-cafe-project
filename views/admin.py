@@ -1,6 +1,6 @@
 from models import *
 from flask import Flask
-from flask import redirect, url_for, request, render_template, escape, render_template_string, Response
+from flask import redirect, url_for, request, render_template, escape, render_template_string, Response, jsonify
 from models import cashier, category, menu_items, order_item, orders, table, reciepts
 
 
@@ -33,7 +33,7 @@ def admin_page():
         order_dict = orders.Order.read_all()
         order_item_dict = order_item.OrderItem.read_all()
         table_dict = table.TableModels.read_all()
-        receipts_dict = reciepts.Receipts.all_receipts()
+        receipts_dict = reciepts.Receipt.read_all()
         return render_template('cashier/adminpage2.html', category_dict=category_dict, menu_dict=menu_dict,
                                order_dict=order_dict,
                                order_item_dict=order_item_dict, table_dict=table_dict, receipts_dict=receipts_dict)
@@ -45,14 +45,15 @@ def order():
         menu_dict = menu_items.MenuItems.read_all()
         order_dict = orders.Order.read_all()
         order_item_dict = order_item.OrderItem.read_all()
-        return render_template('cashier/orders.html', menu_dict=menu_dict, order_dict=order_dict, order_item_dict=order_item_dict)
+        return jsonify({'data': render_template('cashier/orders.html', menu_dict=menu_dict, order_dict=order_dict,
+                                                order_item_dict=order_item_dict)})
     return None
 
 
 def receipt():
     if request.method == 'GET':
-        receipts_dict = reciepts.Receipts.all_receipts()
-        return render_template('cashier/recipts.html', receipts_dict=receipts_dict)
+        receipts_dict = reciepts.Receipt.read_all()
+        return jsonify({'data': render_template('cashier/recipts.html', receipts_dict=receipts_dict)})
     return None
 
 
@@ -60,9 +61,9 @@ def menu_item():
     if request.method == 'POST':
         req = request.form.get
         menu_items.MenuItems(req('name'), req('price'), req('image'), req('description'), req('category'))
-        return render_template('cashier/menuitems.html')
+        return jsonify({'data': render_template('cashier/menuitems.html')})
     elif request.method == 'GET':
-        return render_template('cashier/menuitems.html')
+        return jsonify({'data': render_template('cashier/menuitems.html')})
 
 
 def categories():
@@ -83,3 +84,9 @@ def about():
 def team():
     if request.method == "GET":
         return render_template('Customer/team.html')
+
+
+def tables():
+    if request.method == 'GET':
+        table_dict = table.TableModels.read_all()
+        return jsonify({'data': render_template('cashier/table.html', table_dict=table_dict)})
