@@ -45,8 +45,8 @@ def order():
         menu_dict = menu_items.MenuItems.read_all()
         order_dict = orders.Order.read_all()
         order_item_dict = order_item.OrderItem.read_all()
-        return render_template('cashier/orders.html', menu_dict=menu_dict, order_dict=order_dict,
-                               order_item_dict=order_item_dict)
+        return jsonify({'data': render_template('cashier/orders.html', menu_dict=menu_dict, order_dict=order_dict,
+                                                order_item_dict=order_item_dict)})
     return None
 
 
