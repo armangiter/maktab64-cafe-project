@@ -101,7 +101,7 @@
         })
         $('#Table').click(function () {
             $.ajax({
-                url: "{{ url_for('tables') }}",
+                url: "{{ url_for('table') }}",
                 type: 'GET',
                 success: function (res) {
                     $('#admin_content').html(res['data']);
