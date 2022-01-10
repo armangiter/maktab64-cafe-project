@@ -1,4 +1,4 @@
-from flask import render_template, request,render_template_string,jsonify
+from flask import render_template, request, render_template_string, jsonify
 from models import cashier, category, menu_items, order_item, orders, table, reciepts
 
 base_variables = {
@@ -12,11 +12,16 @@ base_variables = {
 }
 
 
+def index():
+    if request.method == 'GET':
+        render_template('Customer/index.html')
+
+
 def home():
     if request.method == 'GET':
         data = base_variables
         data['page']['title'] = "Home page !"
-        return render_template('Customer/home.html', data=data)
+        return render_template('Customer/index.html', data=data)
 
 
 def about():
@@ -51,7 +56,7 @@ def order():
                 order_dict = list(orders.Order.read_all().keys())
                 o = order_dict[len(order_dict) - 1]
                 order_item.OrderItem(o, i)
-        return render_template('Customer/home.html')
+        return render_template('Customer/index.html')
 
 
 def all_():
@@ -60,7 +65,7 @@ def all_():
         print('ok')
         category_dict = category.CategoryModels.read_all()
         menu_dict = menu_items.MenuItems.read_all()
-        return jsonify({'data': render_template('Customer/all.html', category_dict=category_dict,menu_dict=menu_dict)})
+        return jsonify({'data': render_template('Customer/all.html', category_dict=category_dict, menu_dict=menu_dict)})
 
 # category_dict = category.CategoryModels.read_all()
 # menu_dict = menu_items.MenuItems.read_all()
