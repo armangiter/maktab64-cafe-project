@@ -61,9 +61,9 @@ def menu_item():
     if request.method == 'POST':
         req = request.form.get
         menu_items.MenuItems(req('name'), req('price'), req('image'), req('description'), req('category'))
-        return render_template('cashier/menuitems.html')
+        return jsonify({'data':render_template('cashier/menuitems.html')})
     elif request.method == 'GET':
-        return render_template('cashier/menuitems.html')
+        return jsonify({'data': render_template('cashier/menuitems.html')})
 
 
 def categories():
