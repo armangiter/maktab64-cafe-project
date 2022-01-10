@@ -14,7 +14,7 @@ base_variables = {
 
 def index():
     if request.method == 'GET':
-        render_template('Customer/index.html')
+        return render_template('Customer/index.html')
 
 
 def home():
