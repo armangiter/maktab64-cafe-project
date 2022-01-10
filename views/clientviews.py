@@ -41,9 +41,10 @@ def menu():
 
 
 def team():
-    data = base_variables
-    data['page']['title'] = "team page !"
-    return jsonify({'data': render_template("Customer/team.html", data=data)})
+    if request.method == "GET":
+        data = base_variables
+        data['page']['title'] = "team page !"
+        return jsonify({'data': render_template("Customer/team.html", data=data)})
 
 
 def order():
