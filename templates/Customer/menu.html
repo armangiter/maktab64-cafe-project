@@ -1,102 +1,54 @@
-{% extends "layot/_base.html" %}
-
-{% block title %}Menu{% endblock %}
-{% block head %}
-    <link rel="stylesheet" href="../../static/css/menu.css">
-{% endblock %}
-
-{% block body %}
+<div id="menu">
     <div id="box">
         <div class="inner-box">
-            {% include "layot/_navbar.html" %}
-            <form action="{{ url_for('creat_order') }}" method="POST">
-                <div class="row" id="menu-box">
-                    <div class="col-lg-4">
-                        <h3 style="text-align: center">breakfast</h3>
-                        {% for cat in category_dict %}
-                            {% if category_dict[cat]['root'] == 'breakfast' %}
-                                <h3 style="text-align: center">{{ category_dict[cat]['title'] }}</h3>
-                                {% for menu in menu_dict %}
-                                    {% if menu_dict[menu]['category']==category_dict[cat]['title'] %}
-                                        <div class="flip-card" style="margin-top: 2vh">
-                                            <div class="flip-card-inner">
-                                                <div class="flip-card-front">
-                                                    <img src="{{ menu_dict[menu]['image'] }}"
-                                                         alt="{{ menu_dict[menu]['name'] }}">
-                                                </div>
-                                                <div class="flip-card-back">
-                                                    <h1>{{ menu_dict[menu]['name'] }}</h1><br>
-                                                    <p><b>{{ menu_dict[menu]['description'] }}</b></p>
-                                                    <p><b> {{ menu_dict[menu]['price'] }} </b></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <input type="number" name="{{ menu }}">
-                                    {% endif %}
-                                {% endfor %}
-                            {% endif %}
-                        {% endfor %}
+            <section id="menu-list" class="section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center marb-35">
+                            <h1 class="header-h">Menu List</h1>
+                            <p class="header-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A asperiores
+                                assumenda aut consectetur,
+                                distinctio,<br> dolor earum eos est et eveniet excepturi impedit iure nam nulla placeat
+                                provident quas recusandae soluta?</p>
+                        </div>
+                        <div class="col-md-12 text-center" id="menu-filters">
+                            <ul>
+                                <li><a class="filter active" data-filter=".menu-restaurant" id="show_all">Show All</a>
+                                </li>
+                                <li><a class="filter" data-filter=".breakfast" id="breakfast">Breakfast</a></li>
+                                <li><a class="filter" data-filter=".lunch" id="food">Lunch</a></li>
+                                <li><a class="filter" data-filter=".dinner" id="cafe">Dinner</a></li>
+                            </ul>
 
-                    </div>
-                    <div class="col-lg-4">
-                        <h3 style="text-align: center">cafe</h3>
-                        {% for cat in category_dict %}
-                            {% if category_dict[cat]['root']=='cafe' %}
-                                <h3 style="text-align: center">{{ category_dict[cat]['title'] }}</h3>
-                                {% for menu in menu_dict %}
-                                    {% if menu_dict[menu]['category']==cat %}
-                                        <div class="flip-card" style="margin-top: 2vh">
-                                            <div class="flip-card-inner">
-                                                <div class="flip-card-front">
-                                                    <img src="{{ menu_dict[menu]['image'] }}"
-                                                         alt="{{ menu_dict[menu]['name'] }}">
-                                                </div>
-                                                <div class="flip-card-back">
-                                                    <h1>{{ menu_dict[menu]['name'] }}</h1><br>
-                                                    <p><b>{{ menu_dict[menu]['description'] }}</b></p>
-                                                    <p><b> {{ menu_dict[menu]['price'] }} </b></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <input type="number" name="{{ menu }}">
-
-                                    {% endif %}
-                                {% endfor %}
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                    <div class="col-lg-4">
-                        <h3 style="text-align: center">restaurant</h3>
-                        {% for cat in category_dict %}
-                            {% if category_dict[cat]['root']=='food' %}
-                                <h3 style="text-align: center">{{ category_dict[cat]['title'] }}</h3>
-                                {% for menu in menu_dict %}
-                                    {% if menu_dict[menu]['category']==cat %}
-                                        <div class="flip-card" style="margin-top: 2vh">
-                                            <div class="flip-card-inner">
-                                                <div class="flip-card-front">
-                                                    <img src="/{{ menu_dict[menu]['image'] }}"
-                                                         alt="{{ menu_dict[menu]['name'] }}">
-                                                </div>
-                                                <div class="flip-card-back">
-                                                    <h1>{{ menu_dict[menu]['name'] }}</h1><br>
-                                                    <p><b>{{ menu_dict[menu]['description'] }}</b></p>
-                                                    <p><b> {{ menu_dict[menu]['price'] }} </b></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <input type="number" name="{{ menu|string }}">
-                                    {% endif %}
-                                {% endfor %}
-                            {% endif %}
-                        {% endfor %}
+                        </div>
+                        <div id="items"></div>
                     </div>
                 </div>
-                <input type="number" name="table" placeholder="table number">
-                <button class="form-control" type="submit">order</button>
-            </form>
+            </section>
         </div>
-        {% include "layot/_footer.html" %}
     </div>
-{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $('#show_all').click(function () {
+        $.ajax({
+    url: "{{ url_for('all') }}",
+    type: 'GET',
+    success: function(res) {
+        $('#items').html(res['data']);
+        console.log(res['data'])
+    }
+});
+    })
+    </script>
+</div>
 
