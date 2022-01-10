@@ -4,92 +4,104 @@
 {% block head %}
     <link rel="stylesheet" href="../../static/css/menu.css">
     <style>
-    body {
-        font-size: 15px;
-        line-height: 1.52;
-        color: #fd7e14;
-        font-family: 'open',sans-serif;
-        font-weight: 400;
-        overflow-x: hidden;
-    }
-    .section-padding {
-        padding: 60px 0px;
+        body {
+            font-size: 15px;
+            line-height: 1.52;
+            color: #fd7e14;
+            font-family: 'open', sans-serif;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
 
-    }
-    .marb-35{
-        margin-bottom: 35px;
-    }
-    .header-h {
-        font-size: 35px;
-        color: teal;
-        font-family: 'satisfy',sans-serif;
-        font-weight: 300;
-    }
-    .header-p{
-        color: #dcb72f;
-        font-size: 16px;
-    }
-    #menu-filters ul li {
-        display: inline-block;
-        color: #ffca2c;
-        text-transform: capitalize;
-        letter-spacing: 1px;
-        margin-bottom: 40px;
-    }
-    #menu-filters ul li a {
-        padding: 10px 20px;
-        font-size: 14px;
-        color: darkorange;
-        border-radius: 0px;
-        border: 1px solid blue;
-        text-decoration: none;
-        cursor : pointer;
-    }
-    #menu-filters ul li a.active,    #menu-filters ul li a:hover{
-           background: coral;
-           color: black;
-           border: 1px solid blue;
+        .section-padding {
+            padding: 60px 0px;
 
-       }
-    .menu-restaurant {
-           width: 50%;
-           float: left;
-           padding: 15px;
-           position: relative;
-       }
-    .menu-restaurant .menu-title {
-        float: left;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: darkmagenta;
-    }
-    .menu-restaurant .menu-line {
-        position: absolute;
-        bottom: 6px;
-        border-bottom: 1px dotted rgba(0,0,0,.3);
-        margin-left: .6rem;
-        margin-right: .6rem;
+        }
 
-    }
-    .menu-restaurant .menu-price {
-        font-weight: 600;
-        position: absolute;
-        right: 0;
-        top: 0;
+        .marb-35 {
+            margin-bottom: 35px;
+        }
 
-    }
-    .menu-restaurant .menu-subtitle {
-        display: block;
-        float: left;
-        color: maroon;
-        font-size: 1.2rem;
+        .header-h {
+            font-size: 35px;
+            color: teal;
+            font-family: 'satisfy', sans-serif;
+            font-weight: 300;
+        }
 
-    }
-    .menu-restaurant span.clearfix {
-        position: relative;
-        display: block;
-    }
+        .header-p {
+            color: #dcb72f;
+            font-size: 16px;
+        }
 
+        #menu-filters ul li {
+            display: inline-block;
+            color: #ffca2c;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
+        }
+
+        #menu-filters ul li a {
+            padding: 10px 20px;
+            font-size: 14px;
+            color: darkorange;
+            border-radius: 0px;
+            border: 1px solid blue;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #menu-filters ul li a.active, #menu-filters ul li a:hover {
+            background: coral;
+            color: black;
+            border: 1px solid blue;
+
+        }
+
+        .menu-restaurant {
+            width: 50%;
+            float: left;
+            padding: 15px;
+            position: relative;
+        }
+
+        .menu-restaurant .menu-title {
+            float: left;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: darkmagenta;
+        }
+
+        .menu-restaurant .menu-line {
+            position: absolute;
+            bottom: 6px;
+            border-bottom: 1px dotted rgba(0, 0, 0, .3);
+            margin-left: .6rem;
+            margin-right: .6rem;
+
+        }
+
+        .menu-restaurant .menu-price {
+            font-weight: 600;
+            position: absolute;
+            right: 0;
+            top: 0;
+
+        }
+
+        .menu-restaurant .menu-subtitle {
+            display: block;
+            float: left;
+            color: maroon;
+            font-size: 1.2rem;
+
+        }
+
+        .menu-restaurant span.clearfix {
+            position: relative;
+            display: block;
+        }
 
 
     </style>
@@ -99,147 +111,55 @@
     <div id="box">
         <div class="inner-box">
             {% include "layot/_navbar.html" %}
-<section id="menu-list" class="section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center marb-35">
-                <h1 class="header-h">Menu List</h1>
-                <p class="header-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A asperiores assumenda aut consectetur,
-                    distinctio,<br> dolor earum eos est et eveniet excepturi impedit iure nam nulla placeat provident quas recusandae soluta?</p>
-            </div>
-            <div class="col-md-12 text-center" id="menu-filters">
-                <ul>
-                    <li><a class="filter active" data-filter=".menu-restaurant">Show All</a></li>
-                    <li><a class="filter" data-filter=".breakfast">Breakfast</a></li>
-                    <li><a class="filter" data-filter=".lunch">Lunch</a></li>
-                    <li><a class="filter" data-filter=".dinner">Dinner</a></li>
-                </ul>
+            <section id="menu-list" class="section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center marb-35">
+                            <h1 class="header-h">Menu List</h1>
+                            <p class="header-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A asperiores
+                                assumenda aut consectetur,
+                                distinctio,<br> dolor earum eos est et eveniet excepturi impedit iure nam nulla placeat
+                                provident quas recusandae soluta?</p>
+                        </div>
+                        <div class="col-md-12 text-center" id="menu-filters">
+                            <ul>
+                                <li><a class="filter active" data-filter=".menu-restaurant" id="show_all">Show All</a>
+                                </li>
+                                <li><a class="filter" data-filter=".breakfast" id="breakfast">Breakfast</a></li>
+                                <li><a class="filter" data-filter=".lunch" id="food">Lunch</a></li>
+                                <li><a class="filter" data-filter=".dinner" id="cafe">Dinner</a></li>
+                            </ul>
 
-            </div>
-            <div class="menu-wrapper">
-
-                <div class="breakfast menu-restaurant">
-                    <span class="clearfix">
-                        <a href="#" class="menu-title" data-meal-img="https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=4.0.208"> Food Item Name</a>
-                        <span style="left: 166px;right: 44px"class="menu-line"></span>
-                        <span class="menu-price">$10</span>
-                    </span>
-                    <span class="menu-subtitle">test</span>
+                        </div>
+                        <div id="items"></div>
+                    </div>
                 </div>
-                <div class="breakfast menu-restaurant">
-                    <span class="clearfix">
-                        <a href="#" class="menu-title" data-meal-img="https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=4.0.208"> Food Item Name</a>
-                        <span style="left: 166px;right: 44px"class="menu-line"></span>
-                        <span class="menu-price">$10</span>
-                    </span>
-                    <span class="menu-subtitle">test</span>
-                </div>
-                <div class="breakfast menu-restaurant">
-                    <span class="clearfix">
-                        <a href="#" class="menu-title" data-meal-img="https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=4.0.208"> Food Item Name</a>
-                        <span style="left: 166px;right: 44px"class="menu-line"></span>
-                        <span class="menu-price">$10</span>
-                    </span>
-                    <span class="menu-subtitle">test</span>
-                </div>
-                <div class="breakfast menu-restaurant">
-                    <span class="clearfix">
-                        <a href="#" class="menu-title" data-meal-img="https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=4.0.208"> Food Item Name</a>
-                        <span style="left: 166px;right: 44px"class="menu-line"></span>
-                        <span class="menu-price">$10</span>
-                    </span>
-                    <span class="menu-subtitle">test</span>
-                </div>
-                <div class="lunch menu-restaurant">
-                    <span class="clearfix">
-                        <a href="#" class="menu-title" data-meal-img="https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=4.0.208"> Food Item Name</a>
-                        <span style="left: 166px;right: 44px"class="menu-line"></span>
-                        <span class="menu-price">$10</span>
-                    </span>
-                    <span class="menu-subtitle">test</span>
-                </div>
-                <div class="lunch menu-restaurant">
-                    <span class="clearfix">
-                        <a href="#" class="menu-title" data-meal-img="https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=4.0.208"> Food Item Name</a>
-                        <span style="left: 166px;right: 44px"class="menu-line"></span>
-                        <span class="menu-price">$10</span>
-                    </span>
-                    <span class="menu-subtitle">test</span>
-                </div>
-                <div class="lunch menu-restaurant">
-                    <span class="clearfix">
-                        <a href="#" class="menu-title" data-meal-img="https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=4.0.208"> Food Item Name</a>
-                        <span style="left: 166px;right: 44px"class="menu-line"></span>
-                        <span class="menu-price">$10</span>
-                    </span>
-                    <span class="menu-subtitle">test</span>
-                </div>
-                <div class="lunch menu-restaurant">
-                    <span class="clearfix">
-                        <a href="#" class="menu-title" data-meal-img="https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=4.0.208"> Food Item Name</a>
-                        <span style="left: 166px;right: 44px"class="menu-line"></span>
-                        <span class="menu-price">$10</span>
-                    </span>
-                    <span class="menu-subtitle">test</span>
-                </div>
-                <div class="dinner menu-restaurant">
-                    <span class="clearfix">
-                        <a href="#" class="menu-title" data-meal-img="https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=4.0.208"> Food Item Name</a>
-                        <span style="left: 166px;right: 44px"class="menu-line"></span>
-                        <span class="menu-price">$10</span>
-                    </span>
-                    <span class="menu-subtitle">test</span>
-                </div>
-                <div class="dinner menu-restaurant">
-                    <span class="clearfix">
-                        <a href="#" class="menu-title" data-meal-img="https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=4.0.208"> Food Item Name</a>
-                        <span style="left: 166px;right: 44px"class="menu-line"></span>
-                        <span class="menu-price">$10</span>
-                    </span>
-                    <span class="menu-subtitle">test</span>
-                </div>
-                <div class="dinner menu-restaurant">
-                    <span class="clearfix">
-                        <a href="#" class="menu-title" data-meal-img="https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=4.0.208"> Food Item Name</a>
-                        <span style="left: 166px;right: 44px"class="menu-line"></span>
-                        <span class="menu-price">$10</span>
-                    </span>
-                    <span class="menu-subtitle">test</span>
-                </div>
-                <div class="dinner menu-restaurant">
-                    <span class="clearfix">
-                        <a href="#" class="menu-title" data-meal-img="https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=4.0.208"> Food Item Name</a>
-                        <span style="left: 166px;right: 44px"class="menu-line"></span>
-                        <span class="menu-price">$10</span>
-                    </span>
-                    <span class="menu-subtitle">test</span>
-                </div>
-
-
-
-
-            </div>
-
-
-
-
-
-        </div>
-
-    </div>
-</section>
-
-
-
-
-
-
-
+            </section>
         </div>
         {% include "layot/_footer.html" %}
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $('#show_all').click(function () {
+        $.ajax({
+    url: "{{ url_for('all') }}",
+    type: 'GET',
+    success: function(res) {
+        $('#items').html(res['data']);
+        console.log(res['data'])
+    }
+});
+    })
+    </script>
 {% endblock %}
 
