@@ -29,7 +29,37 @@
                 url: "{{ url_for('home') }}",
                 type: 'GET',
                 success: function (res) {
-                    $('#items').html(res['data']);
+                    $('#spa_content').html(res['data']);
+                    console.log(res['data'])
+                }
+            });
+        })
+        $('#Menu').click(function () {
+            $.ajax({
+                url: "{{ url_for('menu') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#spa_content').html(res['data']);
+                    console.log(res['data'])
+                }
+            });
+        })
+        $('#Team').click(function () {
+            $.ajax({
+                url: "{{ url_for('team') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#spa_content').html(res['data']);
+                    console.log(res['data'])
+                }
+            });
+        })
+        $('#About').click(function () {
+            $.ajax({
+                url: "{{ url_for('about') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#spa_content').html(res['data']);
                     console.log(res['data'])
                 }
             });
