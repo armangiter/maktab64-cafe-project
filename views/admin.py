@@ -52,7 +52,7 @@ def order():
 
 def receipt():
     if request.method == 'GET':
-        receipts_dict = reciepts.Receipts.all_receipts()
+        receipts_dict = reciepts.Receipt.read_all()
         return jsonify({'data': render_template('cashier/recipts.html', receipts_dict=receipts_dict)})
     return None
 
