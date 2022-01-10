@@ -15,8 +15,7 @@
     <div class="row">
   <p><h2>Shopping Cart</h2></p>
    <div class="col-sm-12">
-  {% if 'cart_item' in session %}
-   <p><a id="btnEmpty" href="{{ url_for('.empty_cart') }}" class="btn btn-danger">Empty Cart</a></p>
+   <p><a id="btnEmpty"  class="btn btn-danger">Empty Cart</a></p>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -28,10 +27,7 @@
                     </tr>
                 </thead>
                 <tbody>
-    {% for key, val in session['cart_item'].items() %}
-        {% set quantity = session['cart_item'][key]['quantity'] %}
-        {% set price = session['cart_item'][key]['price'] %}
-        {% set item_price = session['cart_item'][key]['total_price'] %}
+
                     <tr>
                         <td class="col-sm-8 col-md-6">
                         <div class="media">
@@ -48,11 +44,11 @@
                         <td class="col-sm-1 col-md-1 text-center"><strong>${{ price }} </strong></td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>${{ item_price }} </strong></td>
                         <td class="col-sm-1 col-md-1">
-                        <a href="{{ url_for('.delete_product', code=session['cart_item'][key]['code']) }}" class="btn btn-danger">
+                        <a  class="btn btn-danger">
                             <span class="glyphicon glyphicon-remove"></span> Remove
                         </a></td>
                     </tr>
-    {% endfor %}
+
                     <tr>
                         <td colspan="4"><h5>Total Quantity</h5></td>
                         <td class="text-right"><h5><strong>{{ session['all_total_quantity'] }}</strong></h5></td>
@@ -73,9 +69,9 @@
                     </tr>
                 </tbody>
             </table>
-  {% else: %}
+
    <div class="no-records">Your Cart is Empty</div>
-  {% endif %}
+
         </div>
     </div>
 </div>
