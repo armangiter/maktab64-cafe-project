@@ -1,6 +1,6 @@
 from models import *
 from flask import Flask
-from flask import redirect, url_for, request, render_template, escape, render_template_string, Response
+from flask import redirect, url_for, request, render_template, escape, render_template_string, Response, jsonify
 from models import cashier, category, menu_items, order_item, orders, table, reciepts
 
 
@@ -45,7 +45,8 @@ def order():
         menu_dict = menu_items.MenuItems.read_all()
         order_dict = orders.Order.read_all()
         order_item_dict = order_item.OrderItem.read_all()
-        return render_template('cashier/orders.html', menu_dict=menu_dict, order_dict=order_dict, order_item_dict=order_item_dict)
+        return render_template('cashier/orders.html', menu_dict=menu_dict, order_dict=order_dict,
+                               order_item_dict=order_item_dict)
     return None
 
 
@@ -83,3 +84,9 @@ def about():
 def team():
     if request.method == "GET":
         return render_template('Customer/team.html')
+
+
+def tables():
+    if request.method == 'GET':
+        table_dict = table.TableModels.read_all()
+        return jsonify({'data': render_template('cashier/table.html', table_dict=table_dict)})
