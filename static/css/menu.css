@@ -71,7 +71,7 @@ button {
 body {
             font-size: 15px;
             line-height: 1.52;
-            color: #fd7e14;
+            color: #2f2b2b;
             font-family: 'open', sans-serif;
             font-weight: 400;
             overflow-x: hidden;
@@ -88,13 +88,13 @@ body {
 
         .header-h {
             font-size: 35px;
-            color: teal;
+            color: #007bff;
             font-family: 'satisfy', sans-serif;
             font-weight: 300;
         }
 
         .header-p {
-            color: #dcb72f;
+            color: black;
             font-size: 16px;
         }
 
@@ -104,23 +104,24 @@ body {
             text-transform: capitalize;
             letter-spacing: 1px;
             margin-bottom: 40px;
+
         }
 
         #menu-filters ul li a {
-            padding: 10px 20px;
+            background-color: #007bff;
+            padding: 1rem;
+            margin: 5px;
             font-size: 14px;
-            color: darkorange;
-            border-radius: 0px;
-            border: 1px solid blue;
+            color: #FFF;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 1rem;
             text-decoration: none;
-            cursor: pointer;
+            transition: .3s
         }
 
         #menu-filters ul li a.active, #menu-filters ul li a:hover {
-            background: coral;
-            color: black;
-            border: 1px solid blue;
-
+            background: #12192C;
         }
 
         .menu-restaurant {
