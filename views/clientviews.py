@@ -21,7 +21,7 @@ def home():
     if request.method == 'GET':
         data = base_variables
         data['page']['title'] = "Home page !"
-        return render_template('Customer/index.html', data=data)
+        return render_template('Customer/home.html', data=data)
 
 
 def about():
