@@ -3,98 +3,103 @@
 {% block title %}Menu{% endblock %}
 {% block head %}
     <link rel="stylesheet" href="../../static/css/menu.css">
+    <style>
+    body {
+        font-size: 15px;
+        line-height: 1.52;
+        color: #fd7e14;
+        font-family: 'open',sans-serif;
+        font-weight: 400;
+        overflow-x: hidden;
+    }
+    .section-padding {
+        padding: 60px 0px;
+
+    }
+    .marb-35{
+        margin-bottom: 35px;
+    }
+    .header-h {
+        font-size: 35px;
+        color: teal;
+        font-family: 'satisfy',sans-serif;
+        font-weight: 300;
+    }
+    .header-p{
+        color: #dcb72f;
+        font-size: 16px;
+    }
+    #menu-filters ul li {
+        display: inline-block;
+        color: #ffca2c;
+        text-transform: capitalize;
+        letter-spacing: 1px;
+        margin-bottom: 40px;
+    }
+    #menu-filters ul li a {
+        padding: 10px 20px;
+        font-size: 14px;
+        color: darkorange;
+        border-radius: 0px;
+        border: 1px solid blue;
+        text-decoration: none;
+        cursor : pointer;
+    }
+    #menu-filters ul li a.active,    #menu-filters ul li a:hover{
+           background: coral;
+           color: black;
+           border: 1px solid blue;
+
+       }
+    .menu-restaurant {
+           width: 50%;
+           float: left;
+           padding: 15px;
+           position: relative;
+       }
+    .menu-restaurant .menu-title {
+        float: left;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: darkmagenta;
+    }
+    .menu-restaurant .menu-line {
+        position: absolute;
+        bottom: 6px;
+        border-bottom: 1px dotted rgba(0,0,0,.3);
+        margin-left: .6rem;
+        margin-right: .6rem;
+
+    }
+    .menu-restaurant .menu-price {
+        font-weight: 600;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+    }
+    .menu-restaurant .menu-subtitle {
+        display: block;
+        float: left;
+        color: maroon;
+        font-size: 1.2rem;
+
+    }
+    .menu-restaurant span.clearfix {
+        position: relative;
+        display: block;
+    }
+
+
+
+    </style>
 {% endblock %}
 
 {% block body %}
     <div id="box">
         <div class="inner-box">
             {% include "layot/_navbar.html" %}
-            <form action="{{ url_for('creat_order') }}" method="POST">
-                <div class="row" id="menu-box">
-                    <div class="col-lg-4">
-                        <h3 style="text-align: center">breakfast</h3>
-                        {% for cat in category_dict %}
-                            {% if category_dict[cat]['root'] == 'breakfast' %}
-                                <h3 style="text-align: center">{{ category_dict[cat]['title'] }}</h3>
-                                {% for menu in menu_dict %}
-                                    {% if menu_dict[menu]['category']==category_dict[cat]['title'] %}
-                                        <div class="flip-card" style="margin-top: 2vh">
-                                            <div class="flip-card-inner">
-                                                <div class="flip-card-front">
-                                                    <img src="{{ menu_dict[menu]['image'] }}"
-                                                         alt="{{ menu_dict[menu]['name'] }}">
-                                                </div>
-                                                <div class="flip-card-back">
-                                                    <h1>{{ menu_dict[menu]['name'] }}</h1><br>
-                                                    <p><b>{{ menu_dict[menu]['description'] }}</b></p>
-                                                    <p><b> {{ menu_dict[menu]['price'] }} </b></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <input type="number" name="{{ menu }}">
-                                    {% endif %}
-                                {% endfor %}
-                            {% endif %}
-                        {% endfor %}
 
-                    </div>
-                    <div class="col-lg-4">
-                        <h3 style="text-align: center">cafe</h3>
-                        {% for cat in category_dict %}
-                            {% if category_dict[cat]['root']=='cafe' %}
-                                <h3 style="text-align: center">{{ category_dict[cat]['title'] }}</h3>
-                                {% for menu in menu_dict %}
-                                    {% if menu_dict[menu]['category']==cat %}
-                                        <div class="flip-card" style="margin-top: 2vh">
-                                            <div class="flip-card-inner">
-                                                <div class="flip-card-front">
-                                                    <img src="{{ menu_dict[menu]['image'] }}"
-                                                         alt="{{ menu_dict[menu]['name'] }}">
-                                                </div>
-                                                <div class="flip-card-back">
-                                                    <h1>{{ menu_dict[menu]['name'] }}</h1><br>
-                                                    <p><b>{{ menu_dict[menu]['description'] }}</b></p>
-                                                    <p><b> {{ menu_dict[menu]['price'] }} </b></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <input type="number" name="{{ menu }}">
-
-                                    {% endif %}
-                                {% endfor %}
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                    <div class="col-lg-4">
-                        <h3 style="text-align: center">restaurant</h3>
-                        {% for cat in category_dict %}
-                            {% if category_dict[cat]['root']=='food' %}
-                                <h3 style="text-align: center">{{ category_dict[cat]['title'] }}</h3>
-                                {% for menu in menu_dict %}
-                                    {% if menu_dict[menu]['category']==cat %}
-                                        <div class="flip-card" style="margin-top: 2vh">
-                                            <div class="flip-card-inner">
-                                                <div class="flip-card-front">
-                                                    <img src="/{{ menu_dict[menu]['image'] }}"
-                                                         alt="{{ menu_dict[menu]['name'] }}">
-                                                </div>
-                                                <div class="flip-card-back">
-                                                    <h1>{{ menu_dict[menu]['name'] }}</h1><br>
-                                                    <p><b>{{ menu_dict[menu]['description'] }}</b></p>
-                                                    <p><b> {{ menu_dict[menu]['price'] }} </b></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <input type="number" name="{{ menu|string }}">
-                                    {% endif %}
-                                {% endfor %}
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-                <input type="number" name="table" placeholder="table number">
-                <button class="form-control" type="submit">order</button>
-            </form>
         </div>
         {% include "layot/_footer.html" %}
     </div>
