@@ -11,9 +11,9 @@
 
 {% block body %}
     <body id="body-pd">
-    <div class="container-fluid" id="admin_content">
-        <div class="row">
-            <div class="col-lg-12">
+    <div class="container-fluid" >
+        <div class="row" >
+            <div class="col-lg-12" id="admin_content">
                 <h1>Welcome Admin Panel</h1>
             </div>
         </div>
@@ -24,11 +24,11 @@
             <div>
                 <div class="nav__brand">
                     <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
-                    <a href="#" class="nav__logo">Admin</a>
+                    <a href="" class="nav__logo">Admin</a>
                 </div>
             </div>
             <div class="nav__list" style="margin-bottom: 25vh">
-                <a href="#" class="nav__link">
+                <a href="{{ url_for("adminpage") }}" class="nav__link">
                     <ion-icon name="home-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Dashboard</span>
                 </a>
@@ -36,7 +36,7 @@
                     <ion-icon name="bag-add-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Add menu Items</span>
                 </a>
-                <a href="#" class="nav__link">
+                <a id="Category" class="nav__link">
                     <ion-icon name="add-circle-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Add category</span>
                 </a>
@@ -52,12 +52,12 @@
                     <ion-icon name="cafe-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Receipts</span>
                 </a>
-                <a href="#" class="nav__link">
+                <a href="{{ url_for("login") }}" class="nav__link">
                     <ion-icon name="person-add-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Register</span>
                 </a>
             </div>
-            <a href="#" class="nav__link">
+            <a href="{{ url_for("index") }}" class="nav__link">
                 <ion-icon name="log-out-outline"></ion-icon>
                 <span class="nav__name">log out</span>
             </a>
@@ -77,7 +77,8 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
         $('#Orders').click(function () {
             $.ajax({
@@ -119,7 +120,17 @@
                 }
             });
         })
-    f</script>
+          $('#category').click(function () {
+            $.ajax({
+                url: "{{ url_for('category') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#admin_content').html(res['data']);
+                    console.log(res['data'])
+                }
+            });
+        })
+        </script>
     </body>
 {% endblock %}
 

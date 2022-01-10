@@ -63,11 +63,7 @@ img {
     box-shadow: 0 8px 20px rgba(35, 0, 77, .2);
 }
 
-.modal-body {
-    background-image: url(../img/istockphoto-683480284-612x612.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 
 .title {
     font-size: var(--h1-font-size);
