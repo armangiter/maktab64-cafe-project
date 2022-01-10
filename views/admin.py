@@ -17,7 +17,7 @@ def login():
 
 def register():
     if request.method == 'GET':
-        return render_template('cashier/register.html')
+        return render_template('cashier/login.html')
     elif request.method == 'POST':
         cashier.CashierModels(escape(request.form.get('firstname')), escape(request.form.get('lastname')),
                               escape(request.form.get('phone')),
