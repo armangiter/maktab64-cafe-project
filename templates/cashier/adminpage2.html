@@ -99,6 +99,16 @@
                 }
             });
         })
+        $('#Table').click(function () {
+            $.ajax({
+                url: "{{ url_for('table') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#spa_content').html(res['data']);
+                    console.log(res['data'])
+                }
+            });
+        })
     f</script>
     </body>
 {% endblock %}

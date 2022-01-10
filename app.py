@@ -18,5 +18,6 @@ app.add_url_rule('/order', 'order', admin.order, methods=['GET', 'POST'])
 app.add_url_rule('/receipt', 'receipt', admin.receipt , methods=["GET",'POST'])
 app.add_url_rule('/creat_order', 'creat_order', clientviews.order, methods=['GET', 'POST'])
 app.add_url_rule('/all', 'all', clientviews.all_, methods=['POST', 'GET'])
+app.add_url_rule('/table','table',clientviews.table,methods=['GET','POST'])
 if __name__ == '__main__':
     app.run()
