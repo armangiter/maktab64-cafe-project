@@ -54,7 +54,6 @@ img {
 
 
 .create {
-    position: absolute;
     bottom: 1rem;
     width: 100%;
     background-color: var(--first-color-lighten);
@@ -62,20 +61,12 @@ img {
     border-radius: 1rem;
     text-align: center;
     box-shadow: 0 8px 20px rgba(35, 0, 77, .2);
-    animation-duration: .4s;
-    animation-name: animate-login;
 }
 
-@keyframes animate-login {
-    0% {
-        transform: scale(1, 1);
-    }
-    50% {
-        transform: scale(1.1, 1.1);
-    }
-    100% {
-        transform: scale(1, 1);
-    }
+.modal-body {
+    background-image: url(../img/istockphoto-683480284-612x612.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .title {
