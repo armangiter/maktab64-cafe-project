@@ -21,13 +21,13 @@ def home():
     if request.method == 'GET':
         data = base_variables
         data['page']['title'] = "Home page !"
-        return render_template('Customer/home.html', data=data)
+        return jsonify({'data': render_template('Customer/home.html', data=data)})
 
 
 def about():
     data = base_variables
     data['page']['title'] = "About page !"
-    return render_template("Customer/about.html", data=data)
+    return jsonify({'data': render_template("Customer/about.html", data=data)})
 
 
 def menu():
@@ -36,14 +36,14 @@ def menu():
         menu_dict = menu_items.MenuItems.read_all()
         data = base_variables
         data['page']['title'] = "menu page !"
-        return render_template('Customer/menu.html', category_dict=category_dict, menu_dict=menu_dict,
-                               data=data)
+        return jsonify({'data': render_template('Customer/menu.html', category_dict=category_dict, menu_dict=menu_dict,
+                                                data=data)})
 
 
 def team():
     data = base_variables
     data['page']['title'] = "team page !"
-    return render_template("Customer/team.html", data=data)
+    return jsonify({'data': render_template("Customer/team.html", data=data)})
 
 
 def order():
