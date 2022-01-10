@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
 :root {
-    --first-color: #56416b;
+    --first-color: #2a2ada;
     --first-color-dark: #23004d;
     --first-color-light: #A49eac;
     --first-color-lighten: #f2f2f2;
@@ -45,12 +47,41 @@ img {
     display: block;
 }
 
-
 .login__img img {
     width: 310px;
     margin-top: 1.5rem;
 }
 
+
+.create {
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+    background-color: var(--first-color-lighten);
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(35, 0, 77, .2);
+    animation-duration: .4s;
+    animation-name: animate-login;
+}
+
+@keyframes animate-login {
+    0% {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(1.1, 1.1);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+.title {
+    font-size: var(--h1-font-size);
+    margin-bottom: 2rem;
+}
 
 .box {
     display: grid;
@@ -93,8 +124,9 @@ img {
     transition: .3s;
 }
 
-
-
+.button:hover {
+    background-color: var(--first-color-dark);
+}
 
 
 .login__social {
