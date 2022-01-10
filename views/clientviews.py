@@ -25,9 +25,10 @@ def home():
 
 
 def about():
-    data = base_variables
-    data['page']['title'] = "About page !"
-    return jsonify({'data': render_template("Customer/about.html", data=data)})
+    if request.method == 'GET':
+        data = base_variables
+        data['page']['title'] = "About page !"
+        return jsonify({'data': render_template("Customer/about.html", data=data)})
 
 
 def menu():
