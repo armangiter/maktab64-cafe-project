@@ -62,14 +62,31 @@ def order():
 
 
 def all_():
-    print('ok')
     if request.method == 'GET':
-        print('ok')
         category_dict = category.CategoryModels.read_all()
         menu_dict = menu_items.MenuItems.read_all()
         return jsonify({'data': render_template('Customer/all.html', category_dict=category_dict, menu_dict=menu_dict)})
 
-# category_dict = category.CategoryModels.read_all()
-# menu_dict = menu_items.MenuItems.read_all()
-# print(menu_dict)
-# print(category_dict)
+
+def cafe():
+    if request.method == 'GET':
+        category_dict = category.CategoryModels.read_all()
+        menu_dict = menu_items.MenuItems.read_all()
+        return jsonify(
+            {'data': render_template('Customer/cafe.html', category_dict=category_dict, menu_dict=menu_dict)})
+
+
+def food():
+    if request.method == 'GET':
+        category_dict = category.CategoryModels.read_all()
+        menu_dict = menu_items.MenuItems.read_all()
+        return jsonify(
+            {'data': render_template('Customer/food.html', category_dict=category_dict, menu_dict=menu_dict)})
+
+
+def breakfast():
+    if request.method == 'GET':
+        category_dict = category.CategoryModels.read_all()
+        menu_dict = menu_items.MenuItems.read_all()
+        return jsonify(
+            {'data': render_template('Customer/breakfast.html', category_dict=category_dict, menu_dict=menu_dict)})

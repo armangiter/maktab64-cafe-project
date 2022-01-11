@@ -1,0 +1,25 @@
+<div id="content">
+<div class="col">
+    <div class="row" style="display: flex">
+                        {% for cat in category_dict %}
+                            {% if category_dict[cat]['root'] == 'cafe' %}
+                                {% for menu in menu_dict %}
+                                    {% if menu_dict[menu]['category']==cat %}
+                                        <div class="flip-card" style="margin-top: 2vh ;margin-right: 20px">
+                                            <div class="flip-card-inner">
+                                                <div class="flip-card-front">
+                                                    <img src="{{ menu_dict[menu]['image'] }}"
+                                                         alt="{{ menu_dict[menu]['name'] }}">
+                                                </div>
+                                                <div class="flip-card-back">
+                                                    <h1>{{ menu_dict[menu]['name'] }}</h1><br>
+                                                    <p><b>{{ menu_dict[menu]['description'] }}</b></p>
+                                                    <p><b> {{ menu_dict[menu]['price'] }} </b></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}</div></div>
+</div>

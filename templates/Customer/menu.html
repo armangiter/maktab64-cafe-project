@@ -16,8 +16,8 @@
                                 <li><a class="filter active" data-filter=".menu-restaurant" id="show_all">Show All</a>
                                 </li>
                                 <li><a class="filter" data-filter=".breakfast" id="breakfast">Breakfast</a></li>
-                                <li><a class="filter" data-filter=".lunch" id="food">Cafe</a></li>
-                                <li><a class="filter" data-filter=".dinner" id="cafe">Dinner</a></li>
+                                <li><a class="filter" data-filter=".lunch" id="cafe">Cafe</a></li>
+                                <li><a class="filter" data-filter=".dinner" id="food">Dinner</a></li>
                             </ul>
 
                         </div>
@@ -39,16 +39,46 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-    $('#show_all').click(function () {
-        $.ajax({
-    url: "{{ url_for('all') }}",
-    type: 'GET',
-    success: function(res) {
-        $('#items').html(res['data']);
-        console.log(res['data'])
-    }
-});
-    })
+        $('#show_all').click(function () {
+            $.ajax({
+                url: "{{ url_for('all') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#items').html(res['data']);
+                    console.log(res['data'])
+                }
+            });
+        })
+        $('#cafe').click(function () {
+            $.ajax({
+                url: "{{ url_for('cafe') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#items').html(res['data']);
+                    console.log(res['data'])
+                }
+            });
+        })
+        $('#food').click(function () {
+            $.ajax({
+                url: "{{ url_for('food') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#items').html(res['data']);
+                    console.log(res['data'])
+                }
+            });
+        })
+        $('#breakfast').click(function () {
+            $.ajax({
+                url: "{{ url_for('breakfast') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#items').html(res['data']);
+                    console.log(res['data'])
+                }
+            });
+        })
     </script>
 </div>
 
