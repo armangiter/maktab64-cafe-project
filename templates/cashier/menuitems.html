@@ -2,7 +2,7 @@
     <div class="modal-header">
         <h2 class="modal-title">Menu Items</h2>
     </div>
-    <form action="" class="create" id="login-up" method="POST">
+    <form  class="create" id="login-up" >
         <div class="box">
             <i class="bi bi-person-circle icon"></i>
             <input type="text" placeholder="Enter Items Name" class="input" id="name">
@@ -32,3 +32,21 @@
         </div>
     </form>
 </div>
+<script>        $("#Sub").submit(function () {
+            $.ajax({
+                type: "POST",
+                url: "{{ url_for("menuitem") }}",
+                data: {
+                    name: $("#name").val(),
+                    price: $("#price").val(),
+                    image: $('#image').val(),
+                    description: $("#description").val(),
+                    category: $('#category').val()
+                },
+                dataType: "json",
+                success: function (res) {
+                    $('#admin_content').html(res['data']);
+                    console.log(res['data'])
+                }
+            })
+        });</script>

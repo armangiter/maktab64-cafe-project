@@ -6,6 +6,7 @@ import json
 
 
 def login():
+    print("login")
     if request.method == "POST":
         cashier_dict = cashier.CashierModels.read_all()
         for c in cashier_dict:
