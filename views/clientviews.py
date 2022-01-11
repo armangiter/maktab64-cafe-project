@@ -72,8 +72,16 @@ def cafe():
     if request.method == 'GET':
         category_dict = category.CategoryModels.read_all()
         menu_dict = menu_items.MenuItems.read_all()
-        return jsonify({'data': render_template('Customer/cafe.html', category_dict=category_dict, menu_dict=menu_dict)})
+        return jsonify(
+            {'data': render_template('Customer/cafe.html', category_dict=category_dict, menu_dict=menu_dict)})
 
+
+def food():
+    if request.method == 'GET':
+        category_dict = category.CategoryModels.read_all()
+        menu_dict = menu_items.MenuItems.read_all()
+        return jsonify(
+            {'data': render_template('Customer/food.html', category_dict=category_dict, menu_dict=menu_dict)})
 
 # category_dict = category.CategoryModels.read_all()
 # menu_dict = menu_items.MenuItems.read_all()
