@@ -83,6 +83,13 @@ def food():
         return jsonify(
             {'data': render_template('Customer/food.html', category_dict=category_dict, menu_dict=menu_dict)})
 
+
+def breakfast():
+    if request.method == 'GET':
+        category_dict = category.CategoryModels.read_all()
+        menu_dict = menu_items.MenuItems.read_all()
+        return jsonify(
+            {'data': render_template('Customer/breakfast.html', category_dict=category_dict, menu_dict=menu_dict)})
 # category_dict = category.CategoryModels.read_all()
 # menu_dict = menu_items.MenuItems.read_all()
 # print(menu_dict)
