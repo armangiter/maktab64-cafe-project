@@ -68,8 +68,7 @@ def menu_item():
 
 def categories():
     if request.method == 'GET':
-        category_dict = category.CategoryModels.read_all()
-        return render_template('cashier/category.html', category_dict=category_dict)
+        return jsonify({'data': render_template('cashier/category.html')})
     elif request.method == 'POST':
         req = request.form.get
         category.CategoryModels(req('title'), req('root'))
