@@ -5,7 +5,7 @@
                             {% if category_dict[cat]['root'] == 'cafe' %}
                                 {% for menu in menu_dict %}
                                     {% if menu_dict[menu]['category']==cat %}
-                                        <div class="flip-card" style="margin-top: 2vh">
+                                        <div class="flip-card" style="margin-top: 2vh ;margin-right: 20px">
                                             <div class="flip-card-inner">
                                                 <div class="flip-card-front">
                                                     <img src="{{ menu_dict[menu]['image'] }}"
