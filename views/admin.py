@@ -2,9 +2,11 @@ from models import *
 from flask import Flask
 from flask import redirect, url_for, request, render_template, escape, render_template_string, Response, jsonify
 from models import cashier, category, menu_items, order_item, orders, table, reciepts
+import json
 
 
 def login():
+    print("login")
     if request.method == "POST":
         cashier_dict = cashier.CashierModels.read_all()
         for c in cashier_dict:
@@ -58,8 +60,10 @@ def receipt():
 
 
 def menu_item():
+    print("menuitem")
     if request.method == 'POST':
-        req = request.form.get
+        req = json.load(request.json())
+        print(req)
         menu_items.MenuItems(req('name'), req('price'), req('image'), req('description'), req('category'))
         return jsonify({'data': render_template('cashier/menuitems.html')})
     elif request.method == 'GET':
