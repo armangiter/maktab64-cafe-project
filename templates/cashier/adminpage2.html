@@ -145,25 +145,23 @@
                 }
             });
         })
-
-        $("form").submit(function (event) {
-            var formData = {
-                name: $("#name").val(),
-                price: $("#price").val(),
-                image: $('#image').val(),
-                description: $("#description").val(),
-                category: $('#category').val()
-            };
+        $("#sub").click(function () {
             $.ajax({
                 type: "POST",
                 url: "{{ url_for("menuitem") }}",
-                data: formData,
+                data: {
+                    name: $("#name").val(),
+                    price: $("#price").val(),
+                    image: $('#image').val(),
+                    description: $("#description").val(),
+                    category: $('#category').val()
+                },
                 dataType: "json",
-                encode: true,
-            }).done(function (data) {
-                $('#admin_content').html(data['data'])
-                console.log(data);
-            });
+                success: function (res) {
+                    $('#admin_content').html(res['data']);
+                    console.log(res['data'])
+                }
+            })
         });
 
 
