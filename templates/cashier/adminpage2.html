@@ -16,8 +16,9 @@
         .card {
             margin: 10px;
         }
+
         h1 {
-            color:#12192C;
+            color: #12192C;
         }
     </style>
 {% endblock %}
@@ -144,6 +145,26 @@
                 }
             });
         })
+
+        $("form").submit(function (event) {
+            var formData = {
+                name: $("#name").val(),
+                price: $("#price").val(),
+                image: $('#image').val(),
+                description: $("#description").val(),
+                category: $('#category').val()
+            };
+            $.ajax({
+                type: "POST",
+                url: "{{ url_for("menuitem") }}",
+                data: formData,
+                dataType: "json",
+                encode: true,
+            }).done(function (data) {
+                $('#admin_content').html(data['data'])
+                console.log(data);
+            });
+        });
 
 
     </script>
