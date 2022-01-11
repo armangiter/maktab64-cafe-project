@@ -2,7 +2,7 @@
 <div class="col">
     <div class="row" style="display: flex">
                         {% for cat in category_dict %}
-                            {% if catogory_dict[cat]['root'] == 'food' %}
+                            {% if category_dict[cat]['root'] == 'food' %}
                                 {% for menu in menu_dict %}
                                     {% if menu_dict[menu]['category']==cat %}
                                         <div class="flip-card" style="margin-top: 2vh">
