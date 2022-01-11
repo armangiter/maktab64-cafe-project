@@ -1,20 +1,21 @@
 <style>
+    #navbar {
+        justify-content: space-around;
+        align-items: center;
+        margin-right: 8rem;
+        margin-left: 8rem;
+    }
+
     #nav-1 .nav {
         position: relative;
         border: none;
-        border-radius: 10em;
         display: flex;
         list-style: none;
         background: #f5f5f5;
-        box-shadow: 20px 40px 50px #000 44;
         padding: 10px;
     }
 
-    #nav-1 .nav li {
-        margin: 0px;
-    }
-
-    #nav-1 .nav li a {
+    #navbar li a {
         position: relative;
         padding: 0.6em 2em;
         font-size: 18px;
@@ -25,57 +26,45 @@
         z-index: 3;
     }
 
-    #nav-1 .slide1, #nav-1 .slide2 {
+    #navbar li {
+        list-style-type: none;
+        border-bottom: 4px solid transparent;
+        transition: all 1s;
+    }
+
+    #navbar li:hover {
+        background-color: white;
+        border-color: dodgerblue;
+    }
+
+    #navbar li > a {
+        display: block;
+        padding: 20px 30px;
+        text-decoration: none;
+        color: gray;
+    }
+
+    #navbar .slide1, #navbar .slide2 {
         position: absolute;
         display: inline-block;
         height: 3em;
         border-radius: 10em;
         transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1.05);
     }
-
-    #nav-1 .nav .slide1 {
-        background-color: yellowgreen;
-        z-index: 2;
-    }
-
-    #nav-1 .nav .slide2 {
-        opacity: 0;
-        background: #fff;
-        border: 1px solid #8ab9ff;
-        z-index: 1;
-    }
-
-    .squeeze {
-        transition: all 1.5s;
-        transform: scale(0.9);
-    }
-
-    *, *::before, *::after {
-        box-sizing: border-box;
-    }
-
-    html, body {
-        height: 100%;
-    }
-
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #e0e0e0;
-        font-family: Montserrat, sans-serif;
-        line-height: 1.5;
-        background: linear-gradient(160deg, #4567b2 20%, #8ab9ff 20%, #8ab9ff 80%, #4567b2 80%);
 </style>
 <div id="nav-1">
-    <ul class="nav">
-        <li class="slide1"></li>
-        <li class="slide2"></li
-        <li><a id="Home">Home</a></li>
-        <li><a id="Menu">Menu</a></li>
-        <li><a id="Team">Team</a></li>
-        <li><a id="About">About</a></li>
-
-    </ul>
+    <div class="nav">
+        <div class="container">
+            <div class="row" id="navbar">
+                <li class="slide1"></li>
+                <li class="slide2"></li>
+                <li><a id="Home">Home</a></li>
+                <li><a id="Menu">Menu</a></li>
+                <li><a id="Team">Team</a></li>
+                <li><a id="About">About</a></li>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
+<script src="jquery-3.4.1.min.js"></script>
+<script src="../../static/js/navbar.js"></script>
