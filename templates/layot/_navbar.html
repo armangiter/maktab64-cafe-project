@@ -11,8 +11,12 @@
         border: none;
         display: flex;
         list-style: none;
-        background: #f5f5f5;
+        background: #fff;
         padding: 10px;
+    }
+
+    #navbar li {
+        margin: 0px;
     }
 
     #navbar li a {
@@ -26,30 +30,33 @@
         z-index: 3;
     }
 
-    #navbar li {
-        list-style-type: none;
-        border-bottom: 4px solid transparent;
-        transition: all 1s;
-    }
-
-    #navbar li:hover {
-        background-color: white;
-        border-color: dodgerblue;
-    }
-
-    #navbar li > a {
-        display: block;
-        padding: 20px 30px;
-        text-decoration: none;
-        color: gray;
-    }
-
     #navbar .slide1, #navbar .slide2 {
         position: absolute;
         display: inline-block;
         height: 3em;
         border-radius: 10em;
         transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1.05);
+    }
+
+    #navbar .slide1 {
+        background-color: yellowgreen;
+        z-index: 2;
+    }
+
+    #navbar .slide2 {
+        opacity: 0;
+        background: #fff;
+        border: 1px solid #8ab9ff;
+        z-index: 1;
+    }
+
+    .squeeze {
+        transition: all 1.5s;
+        transform: scale(0.9);
+    }
+
+    *, *::before, *::after {
+        box-sizing: border-box;
     }
 </style>
 <div id="nav-1">
@@ -66,5 +73,5 @@
         </div>
     </div>
 </div>
-<script src="jquery-3.4.1.min.js"></script>
+<script src="../../static/js/jquery-3.4.1.min.js"></script>
 <script src="../../static/js/navbar.js"></script>
