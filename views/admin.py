@@ -60,6 +60,7 @@ def receipt():
 
 
 def menu_item():
+    print("menuitem")
     if request.method == 'POST':
         req = json.load(request.json())
         print(req)
