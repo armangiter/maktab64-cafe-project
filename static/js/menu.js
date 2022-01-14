@@ -2,9 +2,8 @@ $('.order_btn').click(function () {
     let item_id = $(this).attr('item')
     setCookie(item_id, 1, 1)
 })
+
 function setCookie(name, value, days) {
-    ca = document.cookie.split(';')
-    console.log(ca)
     let expires = "";
     if (days) {
         let date = new Date();
