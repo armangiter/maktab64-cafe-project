@@ -15,8 +15,12 @@ function getAllCookie() {
 function eraseCookie(name) {
     document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
-$(document.ready(function () {
-    $.get(
-
-    )
-}))
+$('.card_btn').click(function () {
+            $.ajax({
+                url: "{{ url_for('card') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#items').html(res['data']);
+                }
+            });
+        })
