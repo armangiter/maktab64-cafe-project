@@ -1,5 +1,5 @@
 $('.order_btn').click(function () {
-
+    let item_id = this.attr('item')
 })
 function setCookie(name,value,days) {
     let expires = 7;
