@@ -1,0 +1,82 @@
+<style>
+    #navbar {
+        justify-content: space-around;
+        align-items: center;
+        margin-right: 8rem;
+        margin-left: 8rem;
+    }
+
+    #nav-1 .nav {
+        position: relative;
+        border: none;
+        list-style: none;
+        background: #fff;
+        padding: 10px;
+        display: inline-block;
+    }
+
+
+    #navbar li {
+        margin: 0px;
+    }
+
+    #navbar li a {
+        position: relative;
+        padding: 0.6em 2em;
+        font-size: 18px;
+        border: none;
+        color: #333;
+        display: inline-block;
+        text-decoration: none;
+        z-index: 3;
+    }
+
+    #navbar .slide1, #navbar .slide2 {
+        position: absolute;
+        display: inline-block;
+        height: 3em;
+        border-radius: 10em;
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1.05);
+    }
+
+    #navbar .slide1 {
+        background-color: yellowgreen;
+        z-index: 2;
+    }
+
+    #navbar .slide2 {
+        opacity: 0;
+        background: #fff;
+        border: 1px solid #8ab9ff;
+        z-index: 1;
+    }
+
+    .squeeze {
+        transition: all 1.5s;
+        transform: scale(0.9);
+    }
+
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+</style>
+<div id="nav-1">
+    <div class="nav">
+        <div class="container">
+            <div class="row" id="navbar">
+                <li class="slide1"></li>
+                <li class="slide2"></li>
+                <img src="../../static/img/coffee-logo-png-7502.png" class="img-fluid footer-logo mb-3"
+                     style="width: 108px" alt="">
+                <li><a id="Home">Home</a></li>
+                <li><a id="Menu">Menu</a></li>
+                <li><a id="Team">Team</a></li>
+                <li><a id="About">About</a></li>
+                <li><a><i class="bi bi-search"></i></a></li>
+                <button type="button" class="btn btn-info btn-lg card_btn" data-toggle="modal" data-target="#myModal"><i class="bi bi-cart"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../static/js/jquery-3.4.1.min.js"></script>
+<script src="../../static/js/navbar.js"></script>

@@ -1,26 +1,41 @@
-from models.DB_MODELS.db_models import *
+from core.db_models import *
 from datetime import datetime
+from core.manager import BaseManager
 
 
-class Order:
+class Order(BaseManager):
 
     def __init__(self, table_id, number, time_stamp=datetime.now()):
         self.table_id = table_id
         self.number = number
         self.time_stamp = time_stamp
         self.status = 'ordered'
-        new_row = Orders(table_id=self.table_id, number=self.number,
-                         status=self.status, time_stamp=self.time_stamp)
+        self.create(self.table_id, self.number, self.status, self.time_stamp)
+
+    @classmethod
+    def create(cls, table_id, number, time_stamp, status):
+        new_row = Orders(table_id=table_id, number=number,
+                         status=status, time_stamp=time_stamp)
         session.add(new_row)
         session.commit()
 
     @classmethod
-    def change_status(cls, stat="ordered", o_id=None):
-        session.query(Orders).filter(Orders.id == o_id).update({'status': stat})
+    def read(cls, row_id):
+        data = session.query(Orders).filter(Orders.id == row_id)
+        return data
+
+    @classmethod
+    def update(cls, column_name, row_id, value):
+        session.query(Orders).filter(Orders.id == row_id).update({column_name: value})
         session.commit()
 
     @classmethod
-    def all_orders(cls):
+    def delete(cls, row_id):
+        session.query(Orders).filter(Orders.id == row_id).delete()
+        session.commit()
+
+    @classmethod
+    def read_all(cls):
         orders = session.query(Orders).all()
         orders_dict = {}
         for i in orders:

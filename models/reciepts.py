@@ -1,21 +1,36 @@
-from models.DB_MODELS.db_models import *
+from core.db_models import *
 from datetime import datetime
+from core.manager import BaseManager
 
 
-class Receipts:
+class Receipt(BaseManager):
 
     def __init__(self, table_id, total_price=None, final_price=0, time_stamp=datetime.now()):
         self.table_id = table_id
         self.total_price = total_price
         self.final_price = final_price
         self.time_stamp = time_stamp
-        new_row = Receipts(table_id=self.table_id, total_price=self.total_price, final_price=self.final_price,
-                           time_stamp=self.time_stamp)
+        self.create(self.table_id, self.total_price, self.final_price, self.time_stamp)
+
+    @classmethod
+    def create(cls, table_id, total_price, final_price, time_stamp):
+        new_row = Receipts(table_id=table_id, total_price=total_price, final_price=final_price,
+                           time_stamp=time_stamp)
         session.add(new_row)
         session.commit()
 
     @classmethod
-    def all_receipts(cls):
+    def read(cls, row_id):
+        data = session.query(Receipts).filter(Receipts.id == row_id)
+        return data
+
+    @classmethod
+    def update(cls, column_name, row_id, value):
+        session.query(Receipts).filter(Receipts.id == row_id).Update({column_name: value})
+        session.commit()
+
+    @classmethod
+    def read_all(cls):
         receipts = session.query(Receipts).all()
         receipts_dict = {}
         for i in receipts:
@@ -28,6 +43,6 @@ class Receipts:
         return receipts_dict
 
     @classmethod
-    def delete(cls, receipt_id):
-        session.query(Receipts).filter(Receipts.table_id == receipt_id).delete()
+    def delete(cls, row_id):
+        session.query(Receipts).filter(Receipts.table_id == row_id).delete()
         session.commit()

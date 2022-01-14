@@ -1,7 +1,8 @@
-from models.DB_MODELS.db_models import *
+from core.db_models import *
+from core.manager import BaseManager
 
 
-class MenuItems:
+class MenuItems(BaseManager):
     def __init__(self, name, price, image, description, category, discount=0, serv_time=20, st_cooking_time=20):
         self.name = name
         self.price = price
@@ -11,26 +12,39 @@ class MenuItems:
         self.discount = discount
         self.serv_time = serv_time
         self.st_cooking_time = st_cooking_time
-        new_row = Menu_Items(name=self.name, price=self.price, image=self, description=self.description,
-                             category=self.category,
-                             discount=self.discount, serv_time=self.serv_time, st_cooking_time=self.st_cooking_time)
+        self.create(self.name, self.price, self.image, self.description, self.category, self.discount, self.serv_time,
+                    self.st_cooking_time)
+
+    @classmethod
+    def create(cls, name, price, image, description, category, discount, serv_time, st_cooking_time):
+        new_row = Menu_Items(name=name, price=price, image=image, description=description,
+                             category=category,
+                             discount=discount, serv_time=serv_time, st_cooking_time=st_cooking_time)
         session.add(new_row)
         session.commit()
 
     @classmethod
-    def delete_item(cls, item_id):
+    def read(cls, row_id):
+        data = session.query(Menu_Items).filter(Menu_Items.id == row_id)
+        return data
+
+    @classmethod
+    def delete(cls, item_id):
         session.query(Menu_Items).filter(Menu_Items.id == item_id).delete()
         session.commit()
 
     @classmethod
-    def all_menu_item(cls):
+    def read_all(cls):
         menu = session.query(Menu_Items).all()
         menu_dict = {}
         for i in menu:
             i: Menu_Items
             menu_dict[i.id] = {
+                'id': i.id,
                 'name': i.name,
                 'price': i.price,
+                'image': i.image,
+                'description': i.description,
                 'category': i.category,
                 'discount': i.discount,
                 'serv_time': i.serv_time,
@@ -39,6 +53,6 @@ class MenuItems:
         return menu_dict
 
     @classmethod
-    def update(cls, attr, i_id, value):
-        session.query(Menu_Items).filter(Menu_Items.id == i_id).update({attr: value})
+    def update(cls, column_name, row_id, value):
+        session.query(Menu_Items).filter(Menu_Items.id == row_id).update({column_name: value})
         session.commit()

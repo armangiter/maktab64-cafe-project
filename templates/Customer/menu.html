@@ -1,0 +1,113 @@
+<div id="menu">
+    <div id="box">
+        <div class="inner-box">
+            <section id="menu-list" class="section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center marb-35">
+                            <h1 class="header-h">Menu List</h1>
+                            <p class="header-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A asperiores
+                                assumenda aut consectetur,
+                                distinctio,<br> dolor earum eos est et eveniet excepturi impedit iure nam nulla placeat
+                                provident quas recusandae soluta?</p>
+                        </div>
+                        <div class="col-md-12 text-center" id="menu-filters">
+                            <ul>
+                                <li><a class="filter active" data-filter=".menu-restaurant" id="show_all">Show All</a>
+                                </li>
+                                <li><a class="filter" data-filter=".breakfast" id="breakfast">Breakfast</a></li>
+                                <li><a class="filter" data-filter=".lunch" id="cafe">Cafe</a></li>
+                                <li><a class="filter" data-filter=".dinner" id="food">Dinner</a></li>
+                            </ul>
+                        </div>
+                        <div id="items">
+                            <div id="content">
+                                <div class="col">
+                                    <div class="row" style="display: flex;justify-content: center">
+                                        {% for cat in category_dict %}
+                                            {% for menu in menu_dict %}
+                                                {% if menu_dict[menu]['category']==cat %}
+                                                    <div style="text-align: center;margin: 2vh">
+                                                        <div class="flip-card">
+                                                            <div class="flip-card-inner">
+                                                                <div class="flip-card-front">
+                                                                    <img src="{{ menu_dict[menu]['image'] }}"
+                                                                         alt="{{ menu_dict[menu]['name'] }}">
+                                                                </div>
+                                                                <div class="flip-card-back">
+                                                                    <h1>{{ menu_dict[menu]['name'] }}</h1><br>
+                                                                    <p><b>{{ menu_dict[menu]['description'] }}</b></p>
+                                                                    <p><b> {{ menu_dict[menu]['price'] }} </b></p>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div style="margin-top: 1vh">
+                                                            <button class="button order_btn"
+                                                                    item="{{ menu_dict[menu]['id'] }}">add to cart
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endfor %}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $('#show_all').click(function () {
+            $.ajax({
+                url: "{{ url_for('all') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#items').html(res['data']);
+                }
+            });
+        })
+        $('#cafe').click(function () {
+            $.ajax({
+                url: "{{ url_for('cafe') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#items').html(res['data']);
+                }
+            });
+        })
+        $('#food').click(function () {
+            $.ajax({
+                url: "{{ url_for('food') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#items').html(res['data']);
+                }
+            });
+        })
+        $('#breakfast').click(function () {
+            $.ajax({
+                url: "{{ url_for('breakfast') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#items').html(res['data']);
+                }
+            });
+        })
+    </script>
+    <script src="../../static/js/menu.js"></script>
+</div>
+

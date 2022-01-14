@@ -1,13 +1,28 @@
-from models.DB_MODELS.db_models import *
+from core.db_models import *
+from core.manager import BaseManager
 
 
-class CategoryModels:
+class CategoryModels(BaseManager):
 
     def __init__(self, title, root=None):
         self.title = title
         self.root = root
-        new_row = Category(title=self.title, root=self.root)
+        self.create(self.title, self.root)
+
+    @classmethod
+    def create(cls, title, root):
+        new_row = Category(title=title, root=root)
         session.add(new_row)
+        session.commit()
+
+    @classmethod
+    def read(cls, row_id):
+        data = session.query(Category).filter(Category.id == row_id)
+        return data
+
+    @classmethod
+    def update(cls, column_name, row_id, value):
+        session.query(Category).filter(Category.id == row_id).Update({column_name: value})
         session.commit()
 
     @classmethod
@@ -16,7 +31,7 @@ class CategoryModels:
         session.commit()
 
     @classmethod
-    def all_categories(cls):
+    def read_all(cls):
         categories = session.query(Category).all()
         categories_dict = {}
         for i in categories:
