@@ -64,7 +64,9 @@
     margin-left: 2rem;
     margin-right: 4rem;
 }
-
+.order_btn:hover{
+    pointer-events: auto;
+}
 button {
     margin-top: 1rem;
 }
