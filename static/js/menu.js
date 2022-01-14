@@ -1,8 +1,14 @@
 $('.order_btn').click(function () {
-    let item_id = this.attr('item')
+    let item_id = $(this).attr('item')
+    setCookie(item_id,1,1)
 })
 function setCookie(name,value,days) {
-    let expires = 7;
+    let expires = "";
+    if (days) {
+        let date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
     document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
 function getCookie(name) {
