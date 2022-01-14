@@ -7,7 +7,6 @@ function setCookie(name, value, days) {
     }
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
-
 function getCookie(name) {
     let nameEQ = name + "=";
     let ca = document.cookie.split(';');

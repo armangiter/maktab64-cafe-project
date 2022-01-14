@@ -3,6 +3,8 @@ $('.order_btn').click(function () {
     setCookie(item_id, 1, 1)
 })
 function setCookie(name, value, days) {
+    ca = document.cookie.split(';')
+    console.log(ca)
     let expires = "";
     if (days) {
         let date = new Date();
