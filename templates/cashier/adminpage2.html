@@ -146,8 +146,9 @@
             });
         })
         $("#Sub").click(function () {
+            console.log('menuitem')
             $.ajax({
-                url: "{{ url_for("menuitem") }}",
+                url: "127.0.0.1:5000/{{ url_for("menuitem") }}",
                 type: "POST",
                 data: {
                     name: $("#name").val(),

@@ -23,28 +23,30 @@
                         </div>
                         <div id="items">
                             <div id="content">
-<div class="col">
-    <div class="row" style="display: flex">
-                        {% for cat in category_dict %}
-                                {% for menu in menu_dict %}
-                                    {% if menu_dict[menu]['category']==cat %}
-                                        <div class="flip-card" style="margin-top: 2vh">
-                                            <div class="flip-card-inner">
-                                                <div class="flip-card-front">
-                                                    <img src="{{ menu_dict[menu]['image'] }}"
-                                                         alt="{{ menu_dict[menu]['name'] }}">
-                                                </div>
-                                                <div class="flip-card-back">
-                                                    <h1>{{ menu_dict[menu]['name'] }}</h1><br>
-                                                    <p><b>{{ menu_dict[menu]['description'] }}</b></p>
-                                                    <p><b> {{ menu_dict[menu]['price'] }} </b></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %}
-                        {% endfor %}</div></div>
-</div></div>
+                                <div class="col">
+                                    <div class="row" style="display: flex">
+                                        {% for cat in category_dict %}
+                                            {% for menu in menu_dict %}
+                                                {% if menu_dict[menu]['category']==cat %}
+                                                    <div class="flip-card" style="margin-top: 2vh">
+                                                        <div class="flip-card-inner">
+                                                            <div class="flip-card-front">
+                                                                <img src="{{ menu_dict[menu]['image'] }}"
+                                                                     alt="{{ menu_dict[menu]['name'] }}">
+                                                            </div>
+                                                            <div class="flip-card-back">
+                                                                <h1>{{ menu_dict[menu]['name'] }}</h1><br>
+                                                                <p><b>{{ menu_dict[menu]['description'] }}</b></p>
+                                                                <p><b> {{ menu_dict[menu]['price'] }} </b></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endfor %}</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

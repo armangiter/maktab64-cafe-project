@@ -60,10 +60,9 @@ def receipt():
 
 
 def menu_item():
-    print("menuitem")
+    print('menuitem')
     if request.method == 'POST':
         req = json.load(request.json())
-        print(req)
         menu_items.MenuItems(req('name'), req('price'), req('image'), req('description'), req('category'))
         return jsonify({'data': render_template('cashier/menuitems.html')})
     elif request.method == 'GET':
