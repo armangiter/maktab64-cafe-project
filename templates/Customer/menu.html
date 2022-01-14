@@ -19,12 +19,11 @@
                                 <li><a class="filter" data-filter=".lunch" id="cafe">Cafe</a></li>
                                 <li><a class="filter" data-filter=".dinner" id="food">Dinner</a></li>
                             </ul>
-
                         </div>
                         <div id="items">
                             <div id="content">
                                 <div class="col">
-                                    <div class="row" style="display: flex">
+                                    <div class="row" style="display: flex;justify-content: center">
                                         {% for cat in category_dict %}
                                             {% for menu in menu_dict %}
                                                 {% if menu_dict[menu]['category']==cat %}
@@ -43,11 +42,10 @@
                                                             </div>
 
                                                         </div>
-                                                        <div>
+                                                        <div style="margin-top: 1vh">
                                                             <button class="button order_btn">add to cart</button>
                                                         </div>
                                                     </div>
-
                                                 {% endif %}
                                             {% endfor %}
                                         {% endfor %}</div>
