@@ -40,7 +40,7 @@ class MenuItems(BaseManager):
         for i in menu:
             i: Menu_Items
             menu_dict[i.id] = {
-                'id' : i.id,
+                'id': i.id,
                 'name': i.name,
                 'price': i.price,
                 'image': i.image,
