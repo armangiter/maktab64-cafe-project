@@ -2,7 +2,7 @@
     <div class="col">
         <div class="row" style="display: flex;justify-content: center">
             {% for cat in category_dict %}
-                {% if category_dict[ct]['root']== 'breakfast' %}
+                {% if category_dict[cat]['root']== 'breakfast' %}
                 {% for menu in menu_dict %}
                     {% if menu_dict[menu]['category']==cat %}
                         <div style="text-align: center;margin: 2vh">
@@ -25,6 +25,7 @@
                         </div>
                     {% endif %}
                 {% endfor %}
+                {% endif %}
             {% endfor %}
         </div>
     </div>
