@@ -16,8 +16,9 @@ function eraseCookie(name) {
     document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 $('.card_btn').click(function () {
+    console.log('in here')
             $.ajax({
-                url: "{{ url_for('card') }}",
+                url: "{{ url_for('cart') }}",
                 type: 'GET',
                 success: function (res) {
                     $('#items').html(res['data']);

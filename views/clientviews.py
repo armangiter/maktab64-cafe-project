@@ -1,4 +1,4 @@
-from flask import render_template, request, render_template_string, jsonify
+from flask import render_template, request, render_template_string, jsonify, make_response
 from models import cashier, category, menu_items, order_item, orders, table, reciepts
 
 base_variables = {
@@ -90,3 +90,11 @@ def breakfast():
         menu_dict = menu_items.MenuItems.read_all()
         return jsonify(
             {'data': render_template('Customer/breakfast.html', category_dict=category_dict, menu_dict=menu_dict)})
+
+
+def cart():
+    if request.method == "GET":
+        co = request.cookies.to_dict()
+        print(co)
+        res = make_response(co)
+        return res
