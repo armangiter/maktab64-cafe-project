@@ -97,4 +97,5 @@ def cart():
         co = request.cookies.to_dict()
         print(co)
         res = make_response(co)
+        res.set_cookie('all', f'{co}')
         return res
