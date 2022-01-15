@@ -1,3 +1,20 @@
+
+<div>
+    <table>
+        <tr>
+            <th>number</th>
+            <th>title</th>
+            <th>root</th>
+        </tr>
+        {% for cat in catagory_dict %}
+            <tr>
+                <th>{{category_dict[cat]['id']}}</th>
+                <th>{{category_dict[cat]['title']}}</th>
+                <th>{{category_dict[cat]['root']}}</th>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
 <div class="container">
     <div class="modal-header">
         <h2 class="modal-title">Add category</h2>
