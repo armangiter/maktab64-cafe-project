@@ -1,18 +1,21 @@
-
-<div>
-    <table>
+<div class="container">
+    <table class="table table-hover create" id="login-up">
+        <thead>
         <tr>
-            <th>number</th>
-            <th>title</th>
-            <th>root</th>
+            <th scope="col">Number</th>
+            <th scope="col">Title</th>
+            <th scope="col">Root</th>
         </tr>
+        </thead>
+        <tbody>
         {% for cat in category_dict %}
             <tr>
-                <th>{{category_dict[cat]['id']}}</th>
-                <th>{{category_dict[cat]['title']}}</th>
-                <th>{{category_dict[cat]['root']}}</th>
+                <th scope="row">{{ category_dict[cat]['id'] }}</th>
+                <td>{{ category_dict[cat]['title'] }}</td>
+                <td>{{ category_dict[cat]['root'] }}</td>
             </tr>
         {% endfor %}
+        </tbody>
     </table>
 </div>
 <div class="container">
