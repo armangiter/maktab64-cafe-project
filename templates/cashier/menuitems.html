@@ -1,3 +1,4 @@
+
 <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Menu Manager</h5>
@@ -16,17 +17,24 @@
                           <th>Category</th>
                           <th>Discount</th>
                             <th>serv_time</th>
-                            <th>serv_time</th>
+                            <th>st_cooking_time</th>
                         </tr>
                       </thead>
+                        {% for cat in category_dict %}
+                        {% for menu in menu_dict %}
+                        {% if menu_dict[menu]['category']==cat %}
                       <tbody>
                         <tr>
-                            <td>1</td>
-                          <td>Tiger Nixon</td>
-                          <td>System Architect</td>
-                          <td>Edinburgh</td>
-                          <td>61</td>
-                          <td>2011/04/25</td>
-                          <td>$320,800</td>
+                            <td class="editable" data-id="{{ menu_dict[menu]['id'] }}" data-type="id">{{ menu_dict[menu]['id'] }}</td>
+                          <td class="editable" data-id="{{ menu_dict[menu]['id'] }}" data-type="name">{{ menu_dict[menu]['name'] }}</td>
+                          <td class="editable" data-id="{{ menu_dict[menu]['id'] }}" data-type="price">{{ menu_dict[menu]['price'] }}</td>
+                          <td class="editable" data-id="{{ menu_dict[menu]['id'] }}" data-type="image"><img src="{{ menu_dict[menu]['image'] }}" alt="{{ menu_dict[menu]['name'] }}"></td>
+                            <td class="editable" data-id="{{ menu_dict[menu]['id'] }}" data-type="description">{{ menu_dict[menu]['description'] }}</td>
+                          <td class="editable" data-id="{{ menu_dict[menu]['id'] }}" data-type="category">{{ menu_dict[menu]['category'] }}</td>
+                          <td class="editable" data-id="{{ menu_dict[menu]['id'] }}" data-type="serv_time">{{ menu_dict[menu]['serv_time'] }}</td>
+                        <td class="editable" data-id="{{ menu_dict[menu]['id'] }}" data-type="st_cooking_time">{{ menu_dict[menu]['st_cooking_time'] }}</td>
                         </tr>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
 <script>    </script>
