@@ -1,29 +1,28 @@
-<header>
-    <button type="button" class="load">Load a bunch of items</button>
-</header>
-<ul class="container-fluid deck preload">
-    <div class="row col-12">
-        <li class="card col-lg-5">
-            <div class="content">1</div>
-        </li>
-        <li class="card col col-lg-5">
-            <div class="content col-lg-5">2</div>
-        </li>
+<div class="container-fluid deck preload">
+    <div class="row">
+        <div class="card col-lg-5 " style="background-color: #ff0003">
+            <div class="content">table 1</div>
+        </div>
+        <div class="card col col-lg-5" style="background-color: #ff0009">
+            <div class="content col-lg-5"><p style="padding: 50px;">{{ name }}</p></div>
+        </div>
     </div>
-    <li class="card">
-        <div class="content">3</div>
-    </li>
-    <li class="card">
-        <div class="content">4</div>
-    </li>
-    <li class="card">
-        <div class="content">5</div>
-    </li>
-    <li class="card">
-        <div class="content">6</div>
-    </li>
-    <li class="card">
-        <div class="content">7</div>
-    </li>
-</ul>
-<script src="../../static/js/table.js"></script>
+    <div class="row">
+        <div class="card col-lg-5" style="background-color: #2a2ada">
+            <div class="content"><p style="padding: 50px;">{{ name }}</p></div>
+        </div>
+        <div class="card col col-lg-5" style="background-color: #2a2ada">
+            <div class="content col-lg-5"><p style="padding: 50px;">{{ name }}</p></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card col-10" style="background-color: #423e4b">
+            <div class="content"><p style="padding: 50px;">{{ name }}</p></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card col-10" style="background-color: #423e4b">
+            <div class="content"><p style="padding: 50px;">{{ name }}</p></div>
+        </div>
+    </div>
+</div>
