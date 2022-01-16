@@ -15,32 +15,55 @@
                 <td>{{ category_dict[cat]['root'] }}</td>
                 <td>
                     <form action="{{ url_for('category') }}" method="POST">
-                        <button type="submit" class="btn btn-danger" name="id_Delete" value="{{ category_dict[cat]['id'] }}">Delete</button>
+                        <button type="submit" class="btn btn-danger" name="id_Delete"
+                                value="{{ category_dict[cat]['id'] }}">Delete
+                        </button>
                     </form>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-</div>
-<div class="container">
-    <div class="modal-header">
-        <h2 class="modal-title">Add category</h2>
-    </div>
-    <div class="modal-body">
-        <form action="{{ url_for('category') }}" class="create" id="login-up" method="POST">
-            <div class="box">
-                <i class="bi bi-bag"></i>
-                <input type="text" placeholder="Enter Items Title" class="input" name="Title">
-            </div>
-            <div class="box">
-                <i class="bi bi-bag"></i>
-                <input type="text" placeholder="Enter Items Root" class="input" name="Root">
-            </div>
-            <div class="row">
-                <button type="submit" class="button col">Create</button>
-            </div>
-        </form>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Add Category
+    </button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="container">
+                            <div class="modal-header">
+                                <h2 class="modal-title">Add category</h2>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{ url_for('category') }}" class="create" id="login-up" method="POST">
+                                    <div class="box">
+                                        <i class="bi bi-bag"></i>
+                                        <input type="text" placeholder="Enter Items Title" class="input" name="Title">
+                                    </div>
+                                    <div class="box">
+                                        <i class="bi bi-bag"></i>
+                                        <input type="text" placeholder="Enter Items Root" class="input" name="Root">
+                                    </div>
+                                    <div class="row">
+                                        <button type="submit" class="button col">Create</button>
+                                    </div>
+                                </form>
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 </div>
