@@ -1,8 +1,9 @@
-<tr>
+{% for i in cart_dict %}
+    <tr>
     <td class="col-sm-8 col-md-6">
         <div class="media">
             <a class="thumbnail pull-left" href="#"> <img class="media-object"
-                                                          src=""
+                                                          src="{{ cart_dict[i]['image'] }}"
                                                           style="width: 30px; height: 30px;">
             </a>
             <div class="media-body" style="padding-left:10px;">
@@ -15,13 +16,14 @@
     <td class="col-sm-1 col-md-1" style="text-align: center">
         <input type="email" class="form-control" value="1">
     </td>
-    <td class="col-sm-1 col-md-1 text-center"><strong> price </strong></td>
-    <td class="col-sm-1 col-md-1 text-center"><strong>item_price</strong></td>
+    <td class="col-sm-1 col-md-1 text-center"><strong> {{ cart_dict[i]['price'] }} </strong></td>
+    <td class="col-sm-1 col-md-1 text-center"><strong>{{ cart_dict[i]['t_price'] }}</strong></td>
     <td class="col-sm-1 col-md-1">
         <a class="btn btn-danger">
             <span class="glyphicon glyphicon-remove"></span> Remove
         </a></td>
 </tr>
+{% endfor %}
 <tr>
     <td colspan="4"><h5>Total Quantity</h5></td>
     <td class="text-right"><h5><strong>all_total_quantity</strong></h5></td>
