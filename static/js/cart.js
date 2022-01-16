@@ -7,10 +7,23 @@ function setCookie(name, value, days) {
     }
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
+
 function getAllCookie() {
     let ca = document.cookie.split(';');
     return ca
 }
+
 function eraseCookie(name) {
     document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+function refresh() {
+    console.log("in ref")
+    $.ajax({
+            url: "{{ url_for('cart') }}",
+            type: 'GET',
+            success: function (res) {
+                console.log(res)
+                $('#cart_content').html(res['data'])
+            }
+        })
 }
