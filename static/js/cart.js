@@ -8,22 +8,15 @@ function setCookie(name, value, days) {
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
-function getAllCookie() {
-    let ca = document.cookie.split(';');
-    return ca
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
 }
-
 function eraseCookie(name) {
     document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-}
-function refresh() {
-    console.log("in ref")
-    $.ajax({
-            url: "{{ url_for('cart') }}",
-            type: 'GET',
-            success: function (res) {
-                console.log(res)
-                $('#cart_content').html(res['data'])
-            }
-        })
 }
