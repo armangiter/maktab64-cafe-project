@@ -33,13 +33,13 @@
     <td colspan="2" class="text-right"><h3><strong>{{ total_price }}</strong></h3></td>
 </tr>
 <tr>
-    <td colspan="4">
-        <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-        </button>
-    </td>
+{#    <td colspan="4">#}
+{#        <button type="button" class="btn btn-default">#}
+{#            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping#}
+{#        </button>#}
+{#    </td>#}
     <td>
-        <button type="button" class="btn btn-success">
+        <button type="submit" class="btn btn-success">
             Checkout <span class="glyphicon glyphicon-play"></span>
         </button>
     </td>
@@ -51,6 +51,18 @@
             url: "{{ url_for('cart') }}",
             type: 'GET',
             success: function (res) {
+                console.log(res)
+                $('#cart_content').html(res['data'])
+            }
+        });
+    })
+    $('.btn-success').click(function () {
+        console.log('in here')
+        $.ajax({
+            url: "{{ url_for('cart') }}",
+            type: 'GET',
+            success: function (res) {
+                alert("order done")
                 console.log(res)
                 $('#cart_content').html(res['data'])
             }
