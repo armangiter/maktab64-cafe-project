@@ -115,9 +115,15 @@
                 <tbody>
                     {% for row in menu_item %}
                     <tr>
-                        <td>{{row.ID}}</td>
-                        <td>{{row.Name}}</td>
-                        <td>{{row.phone}}</td>
+                        <td>{{row.id}}</td>
+                        <td>{{row.name}}</td>
+                        <td>{{row.price}}</td>
+                        <td><img src="{{ row.image }}" alt="{{ row.image }}"></td>
+                        <td>{{row.description}}</td>
+                        <td>{{row.category}}</td>
+                        <td>{{row.serv_time}}</td>
+                        <td>{{row.st_cooking_time}}</td>
+
                         <td>
                             <a class="add" title="Add" data-toggle="tooltip" id="{{row.id}}"><i class="fa fa-user-plus"></i></a>
                             <a class="edit" title="Edit" data-toggle="tooltip" id="{{row.id}}"><i class="fa fa-pencil"></i></a>
