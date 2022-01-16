@@ -35,6 +35,7 @@ class Receipt(BaseManager):
         receipts_dict = {}
         for i in receipts:
             receipts_dict[i.id] = {
+                'id': i.id,
                 'table_id': i.table_id,
                 'total_price': i.total_price,
                 'final_price': i.final_price,
