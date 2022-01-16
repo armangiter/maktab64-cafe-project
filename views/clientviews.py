@@ -97,16 +97,9 @@ def cart():
         co = request.cookies.to_dict()
         cart_dict = {}
         i = 1
-        print(co)
         for k in co:
             i += 1
             item = menu_items.MenuItems.read(f'{k}')
-            cart_dict[f'{i}'] = {
-                'id': i.id,
-                'name': i.name,
-                'price': i.price,
-                'image': i.image,
-            }
-        print(cart_dict)
+            cart_dict[f'{i}'] = item
         res = make_response(co)
         return res

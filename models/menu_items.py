@@ -25,14 +25,14 @@ class MenuItems(BaseManager):
 
     @classmethod
     def read(cls, row_id):
-        data = session.query(Menu_Items).filter(Menu_Items.id == row_id)
+        data = session.query(Menu_Items).filter(Menu_Items.id == row_id).one()
         item = {
             'id': data.id,
             'name': data.name,
             'price': data.price,
             'image': data.image,
         }
-        return data
+        return item
 
     @classmethod
     def delete(cls, item_id):
