@@ -40,6 +40,7 @@ class TableModels(BaseManager):
             table_dict[i.id] = {
                 'table_number': i.table_number,
                 'cafe_position': i.cafe_position,
-                'capacity': i.capacity
+                'capacity': i.capacity,
+                'status': i.status
             }
         return table_dict
