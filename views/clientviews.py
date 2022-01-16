@@ -101,8 +101,12 @@ def cart():
         for k in co:
             i += 1
             item = menu_items.MenuItems.read(f'{k}')
-            cart_dict[f'{i}'] = item
+            cart_dict[f'{i}'] = {
+                'id': i.id,
+                'name': i.name,
+                'price': i.price,
+                'image': i.image,
+            }
         print(cart_dict)
         res = make_response(co)
-        res.set_cookie('all', f'{co}')
         return res
