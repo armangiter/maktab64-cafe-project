@@ -14,14 +14,14 @@
         </div>
     </td>
     <td class="col-sm-1 col-md-1" style="text-align: center">
-        <input type="email" class="form-control" value="1">
+        <input type="number" class="form-control" value="1">
     </td>
     <td class="col-sm-1 col-md-1 text-center"><strong> {{ cart_dict[i]['price'] }} </strong></td>
     <td class="col-sm-1 col-md-1 text-center"><strong>{{ cart_dict[i]['t_price'] }}</strong></td>
     <td class="col-sm-1 col-md-1">
-        <a class="btn btn-danger">
+        <button type="submit" onclick="eraseCookie({{ cart_dict[i]['id'] }})" class="btn btn-danger kheili">
             <span class="glyphicon glyphicon-remove"></span> Remove
-        </a></td>
+        </button></td>
 </tr>
 {% endfor %}
 <tr>
@@ -33,14 +33,39 @@
     <td colspan="2" class="text-right"><h3><strong>{{ total_price }}</strong></h3></td>
 </tr>
 <tr>
-    <td colspan="4">
-        <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-        </button>
-    </td>
+{#    <td colspan="4">#}
+{#        <button type="button" class="btn btn-default">#}
+{#            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping#}
+{#        </button>#}
+{#    </td>#}
     <td>
-        <button type="button" class="btn btn-success">
+        <button onclick="deleteAllCookies()" type="submit" class="btn btn-success">
             Checkout <span class="glyphicon glyphicon-play"></span>
         </button>
     </td>
 </tr>
+<script>
+    $('.kheili').click(function () {
+        console.log('in here')
+        $.ajax({
+            url: "{{ url_for('cart') }}",
+            type: 'GET',
+            success: function (res) {
+                console.log(res)
+                $('#cart_content').html(res['data'])
+            }
+        });
+    })
+    $('.btn-success').click(function () {
+        console.log('in here')
+        $.ajax({
+            url: "{{ url_for('order') }}",
+            type: 'GET',
+            success: function (res) {
+                alert("order done")
+                console.log(res)
+                $('#cart_content').html(res['data'])
+            }
+        });
+    })
+</script>
