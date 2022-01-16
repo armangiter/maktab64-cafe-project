@@ -95,7 +95,14 @@ def breakfast():
 def cart():
     if request.method == "GET":
         co = request.cookies.to_dict()
+        cart_dict = {}
+        i = 1
         print(co)
+        for k in co:
+            i += 1
+            item = menu_items.MenuItems.read(f'{k}')
+            cart_dict[f'{i}'] = item
+        print(cart_dict)
         res = make_response(co)
         res.set_cookie('all', f'{co}')
         return res
