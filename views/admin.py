@@ -49,7 +49,11 @@ def order():
         order_item_dict = order_item.OrderItem.read_all()
         return jsonify({'data': render_template('cashier/orders.html', menu_dict=menu_dict, order_dict=order_dict,
                                                 order_item_dict=order_item_dict)})
-    return None
+    elif request.method == 'POST':
+        value_status = request.form['status']
+        id_order = request.form['id_order']
+        orders.Order.update('status', id_order, value_status)
+        return render_template('cashier/orders.html')
 
 
 def receipt():

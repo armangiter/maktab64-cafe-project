@@ -38,7 +38,7 @@
                                     <div class="form-group">
                                        <form action="{{ url_for('orders') }}" method="POST">
                                         <label for="TF"></label>
-                                        <select id="TF" class="form-control" name="tarafdari">
+                                        <select id="TF" class="form-control" name="status">
                                             <option value="empty">empty</option>
                                             <option value="other">other</option>
                                             <option value="full">full</option>
@@ -46,7 +46,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
                                             </button>
-                                            <button type="submit" class="btn btn-primary" name="status" >Save changes</button>
+                                            <button type="submit" class="btn btn-primary" name="id_order" value="{{ order_dict[ord]['order_id'] }}">Save changes</button>
                                         </div>
                                     </form>
                                     </div>
