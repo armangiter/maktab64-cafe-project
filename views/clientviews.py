@@ -96,10 +96,12 @@ def cart():
     if request.method == "GET":
         co = request.cookies.to_dict()
         cart_dict = {}
+        total_price = 0
         i = 1
         for k in co:
             i += 1
             item = menu_items.MenuItems.read(f'{k}')
             item['t_price'] = item['price'] * int(co[k])
+            total_price += item['t_price']
             cart_dict[f'{i}'] = item
         return jsonify({'data': render_template('Customer/cart_control.html', cart_dict=cart_dict)})
