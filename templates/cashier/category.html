@@ -13,6 +13,11 @@
                 <th scope="row">{{ category_dict[cat]['id'] }}</th>
                 <td>{{ category_dict[cat]['title'] }}</td>
                 <td>{{ category_dict[cat]['root'] }}</td>
+                <td>
+                    <form action="{{ url_for('category') }}" method="POST">
+                        <button type="submit" class="btn btn-danger" name="id_Delete" value="{{ category_dict[cat]['id'] }}">Delete</button>
+                    </form>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
@@ -23,14 +28,14 @@
         <h2 class="modal-title">Add category</h2>
     </div>
     <div class="modal-body">
-        <form action="" class="create" id="login-up">
+        <form action="{{ url_for('category') }}" class="create" id="login-up" method="POST">
             <div class="box">
                 <i class="bi bi-bag"></i>
-                <input type="text" placeholder="Enter Items Title" class="input">
+                <input type="text" placeholder="Enter Items Title" class="input" name="Title">
             </div>
             <div class="box">
                 <i class="bi bi-bag"></i>
-                <input type="text" placeholder="Enter Items Root" class="input">
+                <input type="text" placeholder="Enter Items Root" class="input" name="Root">
             </div>
             <div class="row">
                 <button type="submit" class="button col">Create</button>
