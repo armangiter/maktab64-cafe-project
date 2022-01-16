@@ -84,6 +84,7 @@ def categories():
             category.CategoryModels.delete(id_delete)
             return render_template('cashier/category.html')
 
+
 def about():
     if request.method == 'GET':
         return render_template('Customer/about.html')
@@ -97,4 +98,5 @@ def team():
 def tables():
     if request.method == 'GET':
         table_dict = table.TableModels.read_all()
-        return jsonify({'data': render_template('cashier/table.html', table_dict=table_dict)})
+        orders_dict = orders.Order.read_all()
+        return jsonify({'data': render_template('cashier/table.html', table_dict=table_dict, orders=orders_dict)})
