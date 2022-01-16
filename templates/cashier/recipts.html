@@ -2,6 +2,7 @@
     <table class="table table-hover create" id="login-up">
         <thead>
         <tr>
+            <th scope="col">Id</th>
             <th scope="col">Table id</th>
             <th scope="col">Total Price</th>
             <th scope="col">Final Price</th>
@@ -11,7 +12,7 @@
         <tbody>
         {% for rec in receipts_dict %}
             <tr>
-                <th scope="row">{{ category_dict[rec]['id'] }}</th>
+                <th scope="row">{{ receipts_dict[rec]['id'] }}</th>
                 <td>{{ receipts_dict[rec]['table_id'] }}</td>
                 <td>{{ receipts_dict[rec]['total_price'] }}</td>
                 <td>{{ receipts_dict[rec]['final_price'] }}</td>
