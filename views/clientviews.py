@@ -101,5 +101,4 @@ def cart():
             i += 1
             item = menu_items.MenuItems.read(f'{k}')
             cart_dict[f'{i}'] = item
-        res = make_response(co)
-        return res
+        return jsonify({'data': render_template('Customer/cart_control.html', cart_dict=cart_dict)})
