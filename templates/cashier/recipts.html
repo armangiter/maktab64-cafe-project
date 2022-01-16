@@ -9,24 +9,20 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>2000</td>
-            <td>2000</td>
-            <td>12</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>2000</td>
-            <td>2000</td>
-            <td>12</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>2000</td>
-            <td>2000</td>
-            <td>12</td>
-        </tr>
+        {% for rec in receipts_dict %}
+            <tr>
+                <th scope="row">{{ category_dict[rec]['id'] }}</th>
+                <td>{{ receipts_dict[rec]['table_id'] }}</td>
+                <td>{{ receipts_dict[rec]['total_price'] }}</td>
+                <td>{{ receipts_dict[rec]['final_price'] }}</td>
+                <td>{{ receipts_dict[rec]['time_stamp'] }}</td>
+                <td>
+                    <form action="{{ url_for('receipt') }}" method="POST">
+                        <button type="submit" class="btn btn-danger" name="id_Delete" value="{{ category_dict[rec]['id'] }}">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 </div>
