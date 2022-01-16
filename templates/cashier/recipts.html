@@ -16,11 +16,7 @@
                 <td>{{ receipts_dict[rec]['total_price'] }}</td>
                 <td>{{ receipts_dict[rec]['final_price'] }}</td>
                 <td>{{ receipts_dict[rec]['time_stamp'] }}</td>
-                <td>
-                    <form action="{{ url_for('receipt') }}" method="POST">
-                        <button type="submit" class="btn btn-danger" name="id_Delete" value="{{ category_dict[rec]['id'] }}">Delete</button>
-                    </form>
-                </td>
+
             </tr>
         {% endfor %}
         </tbody>
