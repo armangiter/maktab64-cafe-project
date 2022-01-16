@@ -74,18 +74,14 @@ def categories():
         category_dict = category.CategoryModels.read_all()
         return jsonify({'data': render_template('cashier/category.html', category_dict=category_dict)})
     elif request.method == 'POST':
-        print(request.form.get('Title'))
         if request.form.get('Title') and request.form.get('Root'):
             title = request.form['Title']
             root = request.form['Root']
-            print(title)
             category.CategoryModels(title, root)
             return render_template('cashier/category.html')
         elif request.form.get('id_Delete'):
             id_delete = request.form["id_Delete"]
             category.CategoryModels.delete(id_delete)
-            print(id_delete)
-            print('delete category')
             return render_template('cashier/category.html')
 
 def about():
