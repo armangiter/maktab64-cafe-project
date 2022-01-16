@@ -88,6 +88,7 @@
                 type: 'GET',
                 success: function (res) {
                     console.log(res)
+                    $('#cart_content').html(res['data'])
                 }
             });
         })
