@@ -1,95 +1,129 @@
 <style>
-    #navbar {
-        justify-content: space-around;
+    .navbar {
+        display: flex;
+        justify-content: flex-start;
         align-items: center;
-        margin-right: 8rem;
-        margin-left: 8rem;
+        background-color: white;
+        color: black;
     }
 
-    #nav-1 .nav {
-        position: relative;
-        border: none;
+    .brand-title {
+        font-size: 1.5rem;
+        margin: .5rem;
+    }
+
+    .navbar-links ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    .navbar-links li {
         list-style: none;
-        background: #fff;
-        padding: 10px;
-        display: inline-block;
     }
 
-
-    #navbar li {
-        margin: 0px;
-    }
-
-    #navbar li a {
-        position: relative;
-        padding: 0.6em 2em;
-        font-size: 18px;
-        border: none;
-        color: #333;
-        display: inline-block;
+    .navbar-links li a {
         text-decoration: none;
-        z-index: 3;
+        color: black;
+        padding: 1rem;
+        display: block;
     }
 
-    #navbar .slide1, #navbar .slide2 {
-        position: absolute;
-        display: inline-block;
-        height: 3em;
-        border-radius: 10em;
-        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1.05);
-    }
-
-    #navbar .slide1 {
+    .navbar-links li:hover {
+        border-radius: 3rem;
         background-color: yellowgreen;
-        z-index: 2;
     }
 
-    #navbar .slide2 {
-        opacity: 0;
-        background: #fff;
-        border: 1px solid #8ab9ff;
-        z-index: 1;
+    .toggle-button {
+        margin-top: 56px;
+        position: absolute;
+        top: .75rem;
+        right: 1rem;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
     }
 
-    .squeeze {
-        transition: all 1.5s;
-        transform: scale(0.9);
+    .toggle-button .bar {
+        height: 3px;
+        width: 2rem;
+        background-color: black;
+        border-radius: 10px;
     }
 
-    *, *::before, *::after {
-        box-sizing: border-box;
+    @media (max-width: 1000px) {
+        .toggle-button {
+            display: flex;
+        }
+
+        .navbar-links {
+            display: none;
+            width: 100%;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+            border-radius: 1rem;
+        }
+
+        .navbar {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .navbar-links ul {
+            width: 100%;
+            flex-direction: column;
+        }
+
+        .navbar-links li {
+            text-align: center;
+        }
+
+        .navbar-links li a {
+            padding: .5rem 1rem;
+        }
+
+        .navbar-links.active {
+            display: flex;
+
+        }
     }
 </style>
-<div id="nav-1">
-    <div class="nav">
-        <div class="container">
-            <div class="row" id="navbar">
-                <li class="slide1"></li>
-                <li class="slide2"></li>
-                <img src="../../static/img/coffee-logo-png-7502.png" class="img-fluid footer-logo mb-3"
-                     style="width: 108px" alt="">
-                <li><a id="Home">Home</a></li>
-                <li><a id="Menu">Menu</a></li>
-                <li><a id="Team">Team</a></li>
-                <li><a id="About">About</a></li>
-                <li><a><i class="bi bi-search"></i></a></li>
-                <button type="button" class="btn btn-info btn-lg card_btn" data-toggle="modal" data-target="#myModal"><i class="bi bi-cart"></i></button>
-            </div>
-        </div>
+<nav class="navbar">
+    <div class="brand-title"><img src="../../static/img/coffee-logo-png-7502.png" class="img-fluid footer-logo mb-3"
+                                  style="width: 108px" alt="">
+        <button type="button" class="btn btn-info btn-lg card_btn" data-toggle="modal" data-target="#myModal"><i
+                class="bi bi-cart"></i></button>
+
     </div>
-</div>
+    <a href="#" class="toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </a>
+    <div class="navbar-links animate__slideInDown">
+        <ul>
+            <li><a id="Home" class="nav-item">Home</a></li>
+            <li><a id="Menu" class="nav-item">Menu</a></li>
+            <li><a id="Team" class="nav-item">Team</a></li>
+            <li><a id="About" class="nav-item">About</a></li>
+            <li><a class="nav-item"><i class="bi bi-search"></i></a></li>
+        </ul>
+    </div>
+</nav>
+
 <script src="../../static/js/jquery-3.4.1.min.js"></script>
 <script src="../../static/js/navbar.js"></script>
 <script>
     $('.card_btn').click(function () {
-    console.log('in here')
-            $.ajax({
-                url: "{{ url_for('cart') }}",
-                type: 'GET',
-                success: function (res) {
-                    console.log(res)
-                    $('#cart_content').html(res['data'])
-                }
-            });
-        })
+        console.log('in here')
+        $.ajax({
+            url: "{{ url_for('cart') }}",
+            type: 'GET',
+            success: function (res) {
+                console.log(res)
+                $('#cart_content').html(res['data'])
+            }
+        });
+    })
 </script>
