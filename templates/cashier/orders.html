@@ -15,8 +15,8 @@
                 <th scope="row">{{ order_dict[ord]['order_id'] }}</th>
                 <td>{{ order_dict[ord]['table_id'] }}</td>
                 <td>{{ order_dict[ord]['number'] }}</td>
-                <td>{{ order_dict[ord]['time_stamp'] }}</td>
                 <td>{{ order_dict[ord]['status'] }}</td>
+                <td>{{ order_dict[ord]['time_stamp'] }}</td>
                 <td>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -29,25 +29,27 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Status</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="#" method="POST">
-                                        <label for="TF">status</label>
-                                        <select id="TF" name="tarafdari">
-                                            <option value="empty">خالی</option>
-                                            <option value="other">در حال پخت</option>
-                                            <option value="full">پر</option>
+                                    <div class="form-group">
+                                       <form action="{{ url_for('orders') }}" method="POST">
+                                        <label for="TF"></label>
+                                        <select id="TF" class="form-control" name="tarafdari">
+                                            <option value="empty">empty</option>
+                                            <option value="other">other</option>
+                                            <option value="full">full</option>
                                         </select>
-                                        <input type="submit" value="ارسال">
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                            </button>
+                                            <button type="submit" class="btn btn-primary" name="status" >Save changes</button>
+                                        </div>
                                     </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
