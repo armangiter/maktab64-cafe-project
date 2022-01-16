@@ -59,7 +59,7 @@
     $('.btn-success').click(function () {
         console.log('in here')
         $.ajax({
-            url: "{{ url_for('cart') }}",
+            url: "{{ url_for('order') }}",
             type: 'GET',
             success: function (res) {
                 alert("order done")

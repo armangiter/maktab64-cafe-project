@@ -49,16 +49,9 @@ def team():
 
 
 def order():
-    if request.method == "POST":
-        menu_dict = list(menu_items.MenuItems.read_all().keys())
-        req = request.form.get
-        for i in menu_dict:
-            if req(i) != 0:
-                orders.Order(req('table'), req(str(i)))
-                order_dict = list(orders.Order.read_all().keys())
-                o = order_dict[len(order_dict) - 1]
-                order_item.OrderItem(o, i)
-        return render_template('Customer/index.html')
+    if request.method == "GET":
+        co = request.cookies.to_dict()
+    return jsonify({"data": render_template('Customer/cart_control.html')})
 
 
 def all_():
