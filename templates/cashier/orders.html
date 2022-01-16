@@ -2,6 +2,7 @@
     <table class="table table-hover create" id="login-up">
         <thead>
         <tr>
+            <th scope="col">Id</th>
             <th scope="col">Table id</th>
             <th scope="col">Number </th>
             <th scope="col">Status</th>
@@ -9,24 +10,18 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>2000</td>
-            <td>2000</td>
-            <td>12</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>2000</td>
-            <td>2000</td>
-            <td>12</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>2000</td>
-            <td>2000</td>
-            <td>12</td>
-        </tr>
+        {% for ord in order_dict %}
+            <tr>
+                <th scope="row">{{ order_dict[ord]['id'] }}</th>
+                <td>{{ order_dict[ord]['title'] }}</td>
+                <td>{{ order_dict[ord]['root'] }}</td>
+                <td>
+                    <form action="{{ url_for('category') }}" method="POST">
+                        <button type="submit" class="btn btn-danger" name="id_Delete" value="{{ order_dict[ord]['id'] }}">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 </div>
