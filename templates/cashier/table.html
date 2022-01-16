@@ -5,19 +5,16 @@
             <div class="col-xl-4 col-md-4">
                 <div class="card bg-c-blue order-card animate__animated animate__fadeInBottomRight animate__delay-1s">
                     <div class="card-block">
-                        <h6 class="m-b-20">{{ table_dict[t]['cafe_position'] }}</h6>
-                        <h2 class="text-right"><span>{{ table_dict[t]['table_number'] }}</span></h2>
+                        <h6 class="m-b-20">Cafe Position:{{ table_dict[t]['cafe_position'] }}</h6>
+                        <h2 class="text-right"><span></span>{{ table_dict[t]['status'] }}</h2>
                         {% for o in orders %}
                             {% if orders[o]['table_id']==table_dict[t]['table_number'] %}
                                 <p class="m-b-0">Completed Orders:<span
                                         class="f-right">{{ orders[o]['order_id'] }}</span></p>
                             {% endif %}
                         {% endfor %}
-
+                        <h4 class="m-b-20">Table Number:{{ table_dict[t]['table_number'] }}</h4>
                         <h4 class="m-b-20">Capacity:{{ table_dict[t]['capacity'] }}</h4>
-                        <form method="POST" class="form-group">
-                            <button class="f-right form-control">rezerv</button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -28,18 +25,16 @@
         <div class="col-xl-6 col-md-6 animate__animated animate__fadeInBottomRight animate__delay-2s">
             <div class="card bg-c-green order-card">
                 <div class="card-block">
-                    <h6 class="m-b-20">{{ table_dict[t]['cafe_position'] }}</h6>
-                    <h2 class="text-right"><span>{{ table_dict[t]['table_number'] }}</span></h2>
+                    <h6 class="m-b-20">Cafe Position:{{ table_dict[t]['cafe_position'] }}</h6>
+                    <h2 class="text-right"><span></span>{{ table_dict[t]['status'] }}</h2>
                     {% for o in orders %}
                         {% if orders[o]['table_id']==table_dict[t]['table_number'] %}
                             <p class="m-b-0">Completed Orders<span class="f-right">{{ orders[o]['order_id'] }}</span>
                             </p>
                         {% endif %}
                     {% endfor %}
+                    <h4 class="m-b-20">Table Number:{{ table_dict[t]['table_number'] }}</h4>
                     <h4 class="m-b-20">Capacity:{{ table_dict[t]['capacity'] }}</h4>
-                    <form method="POST" class="form-group">
-                        <button class="f-right form-control">rezerv</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -50,18 +45,16 @@
         <div class="col-xl-12 animate__animated animate__fadeInBottomRight animate__delay-3s">
             <div class="card bg-c-yellow order-card">
                 <div class="card-block">
-                    <h6 class="m-b-20">{{ table_dict[t]['cafe_position'] }}</h6>
-                    <h2 class="text-right"><span>{{ table_dict[t]['table_number'] }}</span></h2>
+                    <h6 class="m-b-20">Cafe Position:{{ table_dict[t]['cafe_position'] }}</h6>
+                    <h2 class="text-right"><span></span>{{ table_dict[t]['status'] }}</h2>
                     {% for o in orders %}
                         {% if orders[o]['table_id']==table_dict[t]['table_number'] %}
                             <p class="m-b-0">Completed Orders<span class="f-right">{{ orders[o]['order_id'] }}</span>
                             </p>
                         {% endif %}
                     {% endfor %}
+                    <h4 class="m-b-20">Table Number:{{ table_dict[t]['table_number'] }}</h4>
                     <h4 class="m-b-20">Capacity:{{ table_dict[t]['capacity'] }}</h4>
-                    <form method="POST" class="form-group">
-                        <button class="f-right form-control">rezerv</button>
-                    </form>
                 </div>
             </div>
         </div>
