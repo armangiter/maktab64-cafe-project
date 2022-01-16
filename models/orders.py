@@ -41,6 +41,7 @@ class Order(BaseManager):
         for i in orders:
             i: Orders
             orders_dict[i.id] = {
+                'order_id': i.id,
                 'table_id': i.table_id,
                 'number': i.number,
                 'time_stamp': i.time_stamp,
