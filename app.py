@@ -22,5 +22,6 @@ app.add_url_rule('/cafe', 'cafe', clientviews.cafe, methods=['POST', 'GET'])
 app.add_url_rule('/food', 'food', clientviews.food, methods=['POST', 'GET'])
 app.add_url_rule('/breakfast', 'breakfast', clientviews.breakfast, methods=['POST', 'GET'])
 app.add_url_rule('/table', 'table', admin.tables, methods=['GET', 'POST'])
+app.add_url_rule('/cart', 'cart', clientviews.cart, methods=['GET', 'POST'])
 if __name__ == '__main__':
     app.run()

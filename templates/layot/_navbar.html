@@ -80,3 +80,16 @@
 </div>
 <script src="../../static/js/jquery-3.4.1.min.js"></script>
 <script src="../../static/js/navbar.js"></script>
+<script>
+    $('.card_btn').click(function () {
+    console.log('in here')
+            $.ajax({
+                url: "{{ url_for('cart') }}",
+                type: 'GET',
+                success: function (res) {
+                    console.log(res)
+                    $('#cart_content').html(res['data'])
+                }
+            });
+        })
+</script>
