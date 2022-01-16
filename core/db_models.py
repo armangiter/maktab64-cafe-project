@@ -43,7 +43,7 @@ class Table(Base):
     table_number = Column('table number', Integer, unique=True)
     cafe_position = Column('cafe_position', String)
     capacity = Column('capacity', Integer, unique=True, default=2)
-
+    status = Column('status', String)
 
 class Orders(Base):
     __tablename__ = "Orders"
