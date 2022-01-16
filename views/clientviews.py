@@ -100,5 +100,6 @@ def cart():
         for k in co:
             i += 1
             item = menu_items.MenuItems.read(f'{k}')
+            item['t_price'] = item['price'] * int(co[k])
             cart_dict[f'{i}'] = item
         return jsonify({'data': render_template('Customer/cart_control.html', cart_dict=cart_dict)})
