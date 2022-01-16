@@ -13,6 +13,11 @@
                 <th scope="row">{{ category_dict[cat]['id'] }}</th>
                 <td>{{ category_dict[cat]['title'] }}</td>
                 <td>{{ category_dict[cat]['root'] }}</td>
+                <td>
+                    <form action="#" method="POST">
+                        <button type="submit" class="btn btn-danger" name="{{ category_dict[cat]['id'] }}">Delete</button>
+                    </form>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
