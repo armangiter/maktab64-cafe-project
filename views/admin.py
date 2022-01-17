@@ -82,11 +82,11 @@ def categories():
             title = request.form['Title']
             root = request.form['Root']
             category.CategoryModels(title, root)
-            return render_template('cashier/category.html')
+            return jsonify({'data': render_template('cashier/category.html')})
         elif request.form.get('id_Delete'):
             id_delete = request.form["id_Delete"]
             category.CategoryModels.delete(id_delete)
-            return render_template('cashier/category.html')
+            return jsonify({'data': render_template('cashier/category.html')})
 
 
 def about():
