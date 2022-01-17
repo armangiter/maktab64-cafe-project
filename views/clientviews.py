@@ -51,6 +51,7 @@ def team():
 def order():
     if request.method == "GET":
         co = request.cookies.to_dict()
+        print(co)
         cart_dict = {}
         total_price = 0
         i = 1
@@ -60,7 +61,7 @@ def order():
                 item = menu_items.MenuItems.read(f'{k}')
                 total_price += item['price'] * int(co[k])
                 cart_dict[f'{i}'] = item
-        return jsonify({'data': render_template('Customer/checkout.html', total_price=total_price)})
+        return render_template('Customer/checkout.html', total_price=total_price)
 
 
 def all_():
@@ -106,7 +107,7 @@ def cart():
             if co != "table":
                 i += 1
                 item = menu_items.MenuItems.read(f'{k}')
-                item['quantity']=int(co[k])
+                item['quantity'] = int(co[k])
                 total_quantity += int(co[k])
                 item['t_price'] = item['price'] * int(co[k])
                 total_price += item['t_price']
