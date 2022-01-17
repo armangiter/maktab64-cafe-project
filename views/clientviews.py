@@ -58,10 +58,13 @@ def order():
         for k in co:
             if k != "table":
                 orders.Order(table_id, co[k])
+                order_id = max(orders.Order.read_all().keys())
+                order_item.OrderItem(order_id, k)
                 i += 1
                 item = menu_items.MenuItems.read(f'{k}')
                 total_price += item['price'] * int(co[k])
                 cart_dict[f'{i}'] = item
+                reciepts.Receipt(table_id, total_price, total_price)
         return render_template('Customer/checkout.html', total_price=total_price)
 
 
