@@ -12,7 +12,7 @@ def login():
         for c in cashier_dict:
             if escape(request.form.get('phone')) == cashier_dict[c]['phone'] and \
                     escape(request.form.get('password')) == cashier_dict[c]['password']:
-                return render_template('cashier/adminpage2.html', data=c)
+                return render_template('cashier/adminpage2.html', data=cashier_dict[c])
     elif request.method == 'GET':
         return render_template('cashier/login.html')
 
