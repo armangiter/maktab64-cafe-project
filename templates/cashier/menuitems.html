@@ -122,7 +122,7 @@
                 'category': $('#Category').val(),
                 'discount': $('#Discount').val(),
                 'serv_time': $('#Serv_time').val(),
-                'st_cooking_time': $('#').val(),
+                'st_cooking_time': $('#St_cooking_time').val(),
 
 
             },
@@ -137,7 +137,7 @@
 <script>
     function spa1(id) {
         $.ajax({
-            url: "{{url_for('category')}}",
+            url: "{{url_for('menuitem')}}",
             type: 'DELETE',
             data : {
                 'id_delete':id,
