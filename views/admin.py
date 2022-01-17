@@ -60,13 +60,28 @@ def receipt():
 
 
 def menu_item():
-    print('menuitem')
-    if request.method == 'POST':
-        req = json.load(request.json())
-        menu_items.MenuItems(req('name'), req('price'), req('image'), req('description'), req('category'))
-        return jsonify({'data': render_template('cashier/menuitems.html')})
-    elif request.method == 'GET':
-        return jsonify({'data': render_template('cashier/menuitems.html')})
+    if request.method == 'GET':
+        menu_dict = menu_items.MenuItems.read_all()
+        return jsonify({'data': render_template('cashier/menuitems.html', menu_dict=menu_dict)})
+    elif request.method == 'POST':
+        if request.form.get('Name') and request.form.get('Price') and request.form.get('Image') \
+                and request.form.get('Description') and request.form.get('Category')and request.form.get('Discount') and request.form.get('Serv_time')\
+                and request.form.get('St_cooking_time'):
+
+            name = request.form['Name']
+            price = request.form['Price']
+            image = request.form['Image']
+            description = request.form['Description']
+            category = request.form['Category']
+            discount = request.form['Discount']
+            serv_time = request.form['Serv_time']
+            st_cooking_time = request.form['St_cooking_time']
+            menu_items.MenuItems(name, price, image, description, category, discount,serv_time,st_cooking_time)
+            return jsonify({'data': render_template('cashier/menuitems.html')})
+        elif request.form.get('id_Delete'):
+            id_delete = request.form["id_Delete"]
+            menu_items.MenuItems.delete(id_delete)
+            return jsonify({'data': render_template('cashier/menuitems.html.html')})
 
 
 def categories():
