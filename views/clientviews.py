@@ -106,9 +106,11 @@ def cart():
         total_price = 0
         total_quantity = 0
         i = 1
-        table_id = co['table']
+        table_id = 0
         for k in co:
-            if co != "table":
+            if k == "table":
+                table_id = co[k]
+            else:
                 i += 1
                 item = menu_items.MenuItems.read(f'{k}')
                 item['quantity'] = int(co[k])
