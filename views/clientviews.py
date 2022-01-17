@@ -62,9 +62,7 @@ def order():
             item['t_price'] = item['price'] * int(co[k])
             total_price += item['t_price']
             cart_dict[f'{i}'] = item
-        return jsonify(
-            {'data': render_template('Customer/cart_control.html', cart_dict=cart_dict, total_price=total_price,
-                                     total_quantity=total_quantity)})
+        return jsonify({'data': render_template('Customer/checkout.html')})
 
 
 def all_():
