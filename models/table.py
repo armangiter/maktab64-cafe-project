@@ -24,7 +24,7 @@ class TableModels(BaseManager):
 
     @classmethod
     def update(cls, column_name, row_id, value):
-        session.query(Table).filter(Table.id == row_id).Update({column_name: value})
+        session.query(Table).filter(Table.id == row_id).update({column_name: value})
 
     @classmethod
     def delete(cls, table_id):

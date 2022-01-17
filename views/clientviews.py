@@ -52,6 +52,7 @@ def order():
     if request.method == "GET":
         co = request.cookies.to_dict()
         table_id = co['table']
+        table.TableModels.update('status', table_id, 'full')
         cart_dict = {}
         total_price = 0
         i = 1
