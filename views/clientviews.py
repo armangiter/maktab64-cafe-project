@@ -64,7 +64,7 @@ def order():
                 item = menu_items.MenuItems.read(f'{k}')
                 total_price += item['price'] * int(co[k])
                 cart_dict[f'{i}'] = item
-                reciepts.Receipt(table_id, total_price, total_price)
+        reciepts.Receipt(table_id, total_price, total_price)
         return render_template('Customer/checkout.html', total_price=total_price)
 
 
