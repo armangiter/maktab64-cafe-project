@@ -57,6 +57,7 @@ def order():
         i = 1
         for k in co:
             if k != "table":
+                orders.Order(table_id, co[k])
                 i += 1
                 item = menu_items.MenuItems.read(f'{k}')
                 total_price += item['price'] * int(co[k])
