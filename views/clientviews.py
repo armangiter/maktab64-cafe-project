@@ -98,7 +98,11 @@ def breakfast():
 
 def cart():
     if request.method == "GET":
-        table_dict = table.TableModels.read_all()
+        tables = table.TableModels.read_all()
+        table_dict = {}
+        for i in tables:
+            if tables[i]['status'] == 'empty':
+                table_dict[i] = tables[i]
         co = request.cookies.to_dict()
         cart_dict = {}
         total_price = 0
@@ -108,7 +112,7 @@ def cart():
         for k in co:
             i += 1
             item = menu_items.MenuItems.read(f'{k}')
-            total_quantity += int(co[k])
+            total_quanxtity += int(co[k])
             item['t_price'] = item['price'] * int(co[k])
             total_price += item['t_price']
             cart_dict[f'{i}'] = item
