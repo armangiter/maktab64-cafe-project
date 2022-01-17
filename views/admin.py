@@ -68,25 +68,21 @@ def menu_item():
         menu_dict = menu_items.MenuItems.read_all()
         return jsonify({'data': render_template('cashier/menuitems.html', menu_dict=menu_dict)})
     elif request.method == 'POST':
-        if request.form.get('Name') and request.form.get('Price') and request.form.get('Image') \
-                and request.form.get('Description') and request.form.get('Category')and request.form.get('Discount') and request.form.get('Serv_time')\
-                and request.form.get('St_cooking_time'):
-
-            name = request.form['Name']
-            price = request.form['Price']
-            image = request.form['Image']
-            description = request.form['Description']
-            category = request.form['Category']
-            discount = request.form['Discount']
-            serv_time = request.form['Serv_time']
-            st_cooking_time = request.form['St_cooking_time']
-            menu_items.MenuItems(name, price, image, description, category, discount,serv_time,st_cooking_time)
-            menu_dict = menu_items.MenuItems.read_all()
-            return jsonify({'data': render_template('cashier/menuitems.html',menu_dict=menu_dict)})
-        elif request.form.get('id_Delete'):
-            id_delete = request.form["id_Delete"]
-            menu_items.MenuItems.delete(id_delete)
-            return jsonify({'data': render_template('cashier/menuitems.html.html')})
+        name = request.form['name']
+        price = request.form['price']
+        image = request.form['image']
+        description = request.form['description']
+        category = request.form['category']
+        discount = request.form['discount']
+        serv_time = request.form['serv_time']
+        st_cooking_time = request.form['st_cooking_time']
+        menu_items.MenuItems(name, price, image, description, category, discount,serv_time,st_cooking_time)
+        menu_dict = menu_items.MenuItems.read_all()
+        return jsonify({'data': render_template('cashier/menuitems.html',menu_dict=menu_dict)})
+    elif request.method == 'DELETE':
+        id_delete = request.form["id_delete"]
+        menu_items.MenuItems.delete(id_delete)
+        return jsonify({'data': render_template('cashier/menuitems.html')})
 
 
 def categories():
