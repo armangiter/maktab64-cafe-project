@@ -51,7 +51,7 @@ def team():
 def order():
     if request.method == "GET":
         co = request.cookies.to_dict()
-        print(co)
+        table_id = co['table']
         cart_dict = {}
         total_price = 0
         i = 1
