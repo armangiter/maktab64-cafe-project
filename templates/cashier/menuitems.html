@@ -10,7 +10,7 @@
                     <div class='btn btn-info' id="displaymessage" style="display:none;width:100%;margin-top:10px;"></div>
                 </div>
             </div> <br>
-   <table class="table table-hover create">
+   <table class="table table-hover create" id="login-up">
                 <thead>
                     <tr>
                            <th scope="col">ID</th>
@@ -26,21 +26,23 @@
                 </thead>
                 <tbody>
 
-                    {% for row in menu_item %}
+                    {% for row in menu_dict %}
                     <tr>
-                        <td>{{row.id}}</td>
-                        <td>{{row.name}}</td>
-                        <td>{{row.price}}</td>
-                        <td><img src="{{ row.image }}" alt="{{ row.image }}"></td>
-                        <td>{{row.description}}</td>
-                        <td>{{row.category}}</td>
-                        <td>{{row.serv_time}}</td>
-                        <td>{{row.st_cooking_time}}</td>
+                        <th scope="row">{{menu_dict[row]['id']}}</th>
+                        <td>{{menu_dict[row]['name']}}</td>
+                        <td>{{menu_dict[row]['price']}}</td>
+                        <td><img src="{{ menu_dict[row]['image'] }}" alt="{{ menu_dict[row]['image'] }}"></td>
+                        <td>{{menu_dict[row]['description']}}</td>
+                        <td>{{menu_dict[row]['category']}}</td>
+                        <td>{{menu_dict[row]['serv_time']}}</td>
+                        <td>{{menu_dict[row]['st_cooking_time']}}</td>
 
                         <td>
-                            <a class="add" title="Add" data-toggle="tooltip" id="{{row.id}}"><i class="fa fa-user-plus"></i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip" id="{{row.id}}"><i class="fa fa-pencil"></i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip" id="{{row.id}}"><i class="fa fa-trash-o"></i></a>
+                           <form action="{{ url_for('menu_item') }}" method="post">
+                               <button type="submit" class="btn btn-danger" name="id_delete"
+                                    value="{{ menu_dict[row]['id'] }}">Delete
+                               </button>
+                           </form>
                         </td>
                     </tr>
                     {% endfor %}
