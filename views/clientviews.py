@@ -101,7 +101,6 @@ def breakfast():
 
 def cart():
     if request.method == "GET":
-        table_dict = table.TableModels.read_all()
         co = request.cookies.to_dict()
         cart_dict = {}
         total_price = 0
@@ -118,4 +117,4 @@ def cart():
                 cart_dict[f'{i}'] = item
         return jsonify(
             {'data': render_template('Customer/cart_control.html', cart_dict=cart_dict, total_price=total_price,
-                                     total_quantity=total_quantity, table_dict=table_dict)})
+                                     total_quantity=total_quantity)})
