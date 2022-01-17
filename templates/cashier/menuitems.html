@@ -32,7 +32,7 @@
                         <td>{{menu_dict[row]['st_cooking_time']}}</td>
 
                         <td>
-                           <form action="{{ url_for('menu_item') }}" method="post">
+                           <form action="{{ url_for('menuitem') }}" method="post">
                                <button type="submit" class="btn btn-danger" name="id_delete"
                                     value="{{ menu_dict[row]['id'] }}">Delete
                                </button>
@@ -109,7 +109,46 @@
 
 </div>
 
+<script>
+    function spa() {
+        $.ajax({
+            url: "{{ url_for('menuitem') }}",
+            type: 'POST',
+            data: {
+                'name': $('#Name').val(),
+                'price': $('#Price').val(),
+                'image': $('#Image').val(),
+                'description': $('#Description').val(),
+                'category': $('#Category').val(),
+                'discount': $('#Discount').val(),
+                'serv_time': $('#Serv_time').val(),
+                'st_cooking_time': $('#').val(),
 
+
+            },
+                success: function (res) {
+                console.log(res)
+                $('#admin_content').html(res['data'])
+            }
+        });
+    }
+
+</script>
+<script>
+    function spa1(id) {
+        $.ajax({
+            url: "{{url_for('category')}}",
+            type: 'DELETE',
+            data : {
+                'id_delete':id,
+            },
+            success: function (res) {
+                console.log(res)
+                $('#admin_content').html(res['data'])
+            }
+        });
+    }
+</script>
 
 
 
