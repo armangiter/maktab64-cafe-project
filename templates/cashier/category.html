@@ -43,20 +43,23 @@
                                 <h2 class="modal-title">Add category</h2>
                             </div>
                             <div class="modal-body">
-                                <form action="{{ url_for('category') }}" class="create" id="login-up" method="POST">
+                                <form action="#" class="create" id="login-up">
                                     <div class="box">
                                         <i class="bi bi-bag"></i>
-                                        <input type="text" placeholder="Enter Items Title" class="input" name="Title">
+                                        <input type="text" placeholder="Enter Items Title" class="input" id="Title">
                                     </div>
                                     <div class="box">
                                         <i class="bi bi-bag"></i>
-                                        <input type="text" placeholder="Enter Items Root" class="input" name="Root">
+                                        <input type="text" placeholder="Enter Items Root" class="input" id="Root">
                                     </div>
                                     <div class="row">
-                                        <button type="submit" class="button col">Create</button>
+                                        <button type="button" class="button col" id="create" onclick="spa()" data-dismiss="modal">Create
+                                        </button>
                                     </div>
                                 </form>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-top: 1rem">Close</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                        style="margin-top: 1rem" >Close
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -66,3 +69,20 @@
     </div>
 
 </div>
+<script>
+    function spa() {
+        $.ajax({
+            url: "{{ url_for('category') }}",
+            type: 'POST',
+            data: {
+                'title': $('#Title').val(),
+                'root': $('#Root').val(),
+            },
+                success: function (res) {
+                console.log(res)
+                $('#admin_content').html(res['data'])
+            }
+        });
+    }
+
+</script>
