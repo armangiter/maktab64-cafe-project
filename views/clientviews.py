@@ -53,15 +53,13 @@ def order():
         co = request.cookies.to_dict()
         cart_dict = {}
         total_price = 0
-        total_quantity = 0
         i = 1
         for k in co:
-            i += 1
-            item = menu_items.MenuItems.read(f'{k}')
-            total_quantity += int(co[k])
-            item['t_price'] = item['price'] * int(co[k])
-            total_price += item['t_price']
-            cart_dict[f'{i}'] = item
+            if k != "table":
+                i += 1
+                item = menu_items.MenuItems.read(f'{k}')
+                total_price += item['price'] * int(co[k])
+                cart_dict[f'{i}'] = item
         return jsonify({'data': render_template('Customer/checkout.html', total_price=total_price)})
 
 
@@ -104,15 +102,15 @@ def cart():
         total_price = 0
         total_quantity = 0
         i = 1
-        print(table_dict)
         for k in co:
-            i += 1
-            item = menu_items.MenuItems.read(f'{k}')
-            item['quantity']=int(co[k])
-            total_quantity += int(co[k])
-            item['t_price'] = item['price'] * int(co[k])
-            total_price += item['t_price']
-            cart_dict[f'{i}'] = item
+            if co != "table":
+                i += 1
+                item = menu_items.MenuItems.read(f'{k}')
+                item['quantity']=int(co[k])
+                total_quantity += int(co[k])
+                item['t_price'] = item['price'] * int(co[k])
+                total_price += item['t_price']
+                cart_dict[f'{i}'] = item
         return jsonify(
             {'data': render_template('Customer/cart_control.html', cart_dict=cart_dict, total_price=total_price,
                                      total_quantity=total_quantity, table_dict=table_dict)})
