@@ -35,9 +35,9 @@
 <tr>
     <td colspan="4">
 <form action="">
-  <label for="browser">Choose your browser from the list:</label>
-  <input list="browsers" name="browser" id="browser" oninput="setCookie('table',this.value,1)">
-  <datalist id="browsers">
+  <label for="browser">Choose your table number:</label>
+  <input list="tables" name="table" id="n_table" oninput="setCookie('table',this.value,1)">
+  <datalist id="table_nums">
    {% for t in table_dict %}
        <option value="{{ table_dict[t]['table_number'] }}"></option>
       {% endfor %}
