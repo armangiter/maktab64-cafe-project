@@ -3,13 +3,6 @@
 
 
 <div class="container"><p><h1 align="center">Menu Manager</h1></p>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
-                    </div>
-                    <div class='btn btn-info' id="displaymessage" style="display:none;width:100%;margin-top:10px;"></div>
-                </div>
-            </div> <br>
    <table class="table table-hover create" id="login-up">
                 <thead>
                     <tr>
@@ -48,7 +41,16 @@
                     {% endfor %}
                 </tbody>
             </table>
+<div class="form-group">
+    <button type="button" class="btn btn-primary form-control" data-toggle="modal" data-target="exampleModal"
+            style="border-radius: 1rem">
+        Add Menu Item
+    </button>
         </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModallabel"aria-hidden="true">
+    <div class="modal-dialog" role="document"></div>
+</div>
     </div>
 
 
