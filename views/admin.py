@@ -99,6 +99,11 @@ def categories():
     elif request.method == 'GET':
         category_dict = category.CategoryModels.read_all()
         return jsonify({'data': render_template('cashier/category.html', category_dict=category_dict)})
+    elif request.method == 'DELETE':
+        id_delete = request.form["id_delete"]
+        category.CategoryModels.delete(id_delete)
+        category_dict = category.CategoryModels.read_all()
+        return jsonify({'data': render_template('cashier/category.html', category_dict=category_dict)})
 
 
 def about():

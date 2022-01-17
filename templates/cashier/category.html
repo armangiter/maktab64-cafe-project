@@ -16,9 +16,9 @@
                 <td>{{ category_dict[cat]['title'] }}</td>
                 <td>{{ category_dict[cat]['root'] }}</td>
                 <td>
-                    <form action="{{ url_for('category') }}" method="POST">
-                        <button type="submit" class="btn btn-danger" name="id_Delete"
-                                value="{{ category_dict[cat]['id'] }}">Delete
+                    <form action="#">
+                        <button type="button" class="btn btn-danger id_Delete"
+                                value="{{ category_dict[cat]['id'] }}" onclick="spa1(this.value)">Delete
                         </button>
                     </form>
                 </td>
@@ -85,4 +85,19 @@
         });
     }
 
+</script>
+<script>
+    function spa1(id) {
+        $.ajax({
+            url: "{{url_for('category')}}",
+            type: 'DELETE',
+            data : {
+                'id_delete':id,
+            },
+            success: function (res) {
+                console.log(res)
+                $('#admin_content').html(res['data'])
+            }
+        });
+    }
 </script>
