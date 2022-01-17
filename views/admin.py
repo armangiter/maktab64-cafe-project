@@ -76,9 +76,9 @@ def menu_item():
         discount = request.form['discount']
         serv_time = request.form['serv_time']
         st_cooking_time = request.form['st_cooking_time']
-        menu_items.MenuItems(name, price, image, description, category, discount,serv_time,st_cooking_time)
+        menu_items.MenuItems(name, price, image, description, category, discount, serv_time, st_cooking_time)
         menu_dict = menu_items.MenuItems.read_all()
-        return jsonify({'data': render_template('cashier/menuitems.html',menu_dict=menu_dict)})
+        return jsonify({'data': render_template('cashier/menuitems.html', menu_dict=menu_dict)})
     elif request.method == 'DELETE':
         id_delete = request.form["id_delete"]
         menu_items.MenuItems.delete(id_delete)
@@ -117,3 +117,8 @@ def tables():
         table_dict = table.TableModels.read_all()
         orders_dict = orders.Order.read_all()
         return jsonify({'data': render_template('cashier/table.html', table_dict=table_dict, orders=orders_dict)})
+
+
+def dashboard():
+    if request.method == 'GET':
+        return render_template('cashier/dashbord.html')
