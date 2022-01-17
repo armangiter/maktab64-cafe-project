@@ -48,10 +48,61 @@
     </button>
         </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-     aria-labelledby="exampleModallabel"aria-hidden="true">
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document"></div>
-</div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="container">
+                            <div class="modal-header">
+                                <h2 class="modal-title">Add Menu Item</h2>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{ url_for('menu_item') }}" class="create" id="login-up" method="POST">
+                                    <div class="box">
+                                        <i class="bi bi-bag"></i>
+                                        <input type="text" placeholder="Enter Items Title" class="input" name="Name">
+                                    </div>
+                                    <div class="box">
+                                        <i class="bi bi-bag"></i>
+                                        <input type="text" placeholder="Enter Items Root" class="input" name="Price">
+                                    </div>
+                                    <div class="box">
+                                        <i class="bi bi-bag"></i>
+                                        <input type="text" placeholder="Enter Items Root" class="input" name="Image">
+                                    </div>
+                                    <div class="box">
+                                        <i class="bi bi-bag"></i>
+                                        <input type="text" placeholder="Enter Items Root" class="input" name="Description">
+                                    </div>
+                                    <div class="box">
+                                        <i class="bi bi-bag"></i>
+                                        <input type="text" placeholder="Enter Items Root" class="input" name="Category">
+                                    </div>
+                                    <div class="box">
+                                        <i class="bi bi-bag"></i>
+                                        <input type="text" placeholder="Enter Items Root" class="input" name="Serv_time">
+                                    </div>
+                                    <div class="box">
+                                        <i class="bi bi-bag"></i>
+                                        <input type="text" placeholder="Enter Items Root" class="input" name="St_cooking_time">
+                                    </div>
+
+                                    <div class="row">
+                                        <button type="submit" class="button col">Create</button>
+                                    </div>
+                                </form>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-top: 1rem">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+</div>
 
 
 
