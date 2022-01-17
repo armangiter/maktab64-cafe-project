@@ -107,11 +107,11 @@
             <div>
                 <div class="nav__brand">
                     <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
-                    <p  class="nav__logo">{{ data['firstname'] }}</p>
+                    <p class="nav__logo">{{ data['firstname'] }}</p>
                 </div>
             </div>
             <div class="nav__list" style="margin-bottom: 25vh">
-                <a href="{{ url_for("adminpage") }}" class="nav__link">
+                <a id="Dashboard" class="nav__link">
                     <ion-icon name="home-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Dashboard</span>
                 </a>
@@ -210,6 +210,16 @@
                 success: function (res) {
                     $('#admin_content').html(res['data']);
                     console.log(res['data'])
+                }
+            });
+        })
+        $('#Dashboard').click(function () {
+            $.ajax({
+                url: "{{ url_for('Dashboard') }}",
+                type: 'GET',
+                success: function (res) {
+                    $('#admin_content').html(res);
+                    console.log(res)
                 }
             });
         })
