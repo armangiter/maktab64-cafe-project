@@ -37,8 +37,8 @@ def admin_page():
         table_dict = table.TableModels.read_all()
         receipts_dict = reciepts.Receipt.read_all()
         return render_template('cashier/adminpage2.html', category_dict=category_dict, menu_dict=menu_dict,
-                               order_dict=order_dict,
-                               order_item_dict=order_item_dict, table_dict=table_dict, receipts_dict=receipts_dict)
+                               order_dict=order_dict, order_item_dict=order_item_dict, table_dict=table_dict,
+                               receipts_dict=receipts_dict, )
     return None
 
 
