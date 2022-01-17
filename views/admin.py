@@ -77,7 +77,8 @@ def menu_item():
             serv_time = request.form['Serv_time']
             st_cooking_time = request.form['St_cooking_time']
             menu_items.MenuItems(name, price, image, description, category, discount,serv_time,st_cooking_time)
-            return jsonify({'data': render_template('cashier/menuitems.html')})
+            menu_dict = menu_items.MenuItems.read_all()
+            return jsonify({'data': render_template('cashier/menuitems.html',menu_dict=menu_dict)})
         elif request.form.get('id_Delete'):
             id_delete = request.form["id_Delete"]
             menu_items.MenuItems.delete(id_delete)
