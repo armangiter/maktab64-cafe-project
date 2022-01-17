@@ -42,7 +42,7 @@ class Table(Base):
     id = Column('id', Integer, unique=True, primary_key=True)
     table_number = Column('table number', Integer, unique=True)
     cafe_position = Column('cafe_position', String)
-    capacity = Column('capacity', Integer, unique=True, default=2)
+    capacity = Column('capacity', Integer)
     status = Column('status', String)
 
 class Orders(Base):
