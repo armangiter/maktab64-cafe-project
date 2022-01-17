@@ -106,6 +106,7 @@ def cart():
         total_price = 0
         total_quantity = 0
         i = 1
+        table_id = co['table']
         for k in co:
             if co != "table":
                 i += 1
@@ -117,4 +118,4 @@ def cart():
                 cart_dict[f'{i}'] = item
         return jsonify(
             {'data': render_template('Customer/cart_control.html', cart_dict=cart_dict, total_price=total_price,
-                                     total_quantity=total_quantity)})
+                                     total_quantity=total_quantity, table_id=table_id)})
