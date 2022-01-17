@@ -71,6 +71,9 @@
             }
         });
      })
+    function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
     $('.btn-success').click(function () {
         console.log('in here')
         $.ajax({
@@ -80,6 +83,8 @@
                 $('#cart_content').html(res)
             }
         });
-        deleteAllCookies()
+            sleep(100).then(() => {
+    deleteAllCookies()
+});
     })
 </script>
