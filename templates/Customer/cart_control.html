@@ -33,13 +33,19 @@
     <td colspan="2" class="text-right"><h3><strong>{{ total_price }}</strong></h3></td>
 </tr>
 <tr>
-{#    <td colspan="4">#}
-{#        <button type="button" class="btn btn-default">#}
-{#            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping#}
-{#        </button>#}
-{#    </td>#}
+    <td colspan="4">
+<form action="">
+  <label for="browser">Choose your table number:</label>
+  <input list="tables" name="table" id="n_table" oninput="setCookie('table',this.value,1)">
+  <datalist id="table_nums">
+   {% for t in table_dict %}
+       <option value="{{ table_dict[t]['table_number'] }}"></option>
+      {% endfor %}
+  </datalist>
+</form>
+    </td>
     <td>
-        <button onclick="deleteAllCookies()" type="submit" class="btn btn-success">
+        <button type="submit" class="btn btn-success">
             Checkout <span class="glyphicon glyphicon-play"></span>
         </button>
     </td>
