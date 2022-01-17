@@ -27,6 +27,7 @@
                         <td><img src="{{ menu_dict[row]['image'] }}" alt="{{ menu_dict[row]['image'] }}"></td>
                         <td>{{menu_dict[row]['description']}}</td>
                         <td>{{menu_dict[row]['category']}}</td>
+                        <td>{{menu_dict[row]['discount']}}</td>
                         <td>{{menu_dict[row]['serv_time']}}</td>
                         <td>{{menu_dict[row]['st_cooking_time']}}</td>
 
@@ -79,6 +80,10 @@
                                     <div class="box">
                                         <i class="bi bi-bag"></i>
                                         <input type="text" placeholder="Enter Items Category" class="input" name="Category">
+                                    </div>
+                                    <div class="box">
+                                        <i class="bi bi-bag"></i>
+                                        <input type="text" placeholder="Enter Items Discount" class="input" name="Discount">
                                     </div>
                                     <div class="box">
                                         <i class="bi bi-bag"></i>
