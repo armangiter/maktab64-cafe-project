@@ -62,7 +62,7 @@ def order():
             item['t_price'] = item['price'] * int(co[k])
             total_price += item['t_price']
             cart_dict[f'{i}'] = item
-        return jsonify({'data': render_template('Customer/checkout.html',total_price=total_price)})
+        return jsonify({'data': render_template('Customer/checkout.html', total_price=total_price)})
 
 
 def all_():
@@ -98,11 +98,13 @@ def breakfast():
 
 def cart():
     if request.method == "GET":
+        table_dict = table.TableModels.read_all()
         co = request.cookies.to_dict()
         cart_dict = {}
         total_price = 0
         total_quantity = 0
         i = 1
+        print(table_dict)
         for k in co:
             i += 1
             item = menu_items.MenuItems.read(f'{k}')
@@ -112,4 +114,4 @@ def cart():
             cart_dict[f'{i}'] = item
         return jsonify(
             {'data': render_template('Customer/cart_control.html', cart_dict=cart_dict, total_price=total_price,
-                                     total_quantity=total_quantity)})
+                                     total_quantity=total_quantity, table_dict=table_dict)})
