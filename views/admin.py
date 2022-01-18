@@ -103,7 +103,8 @@ def menu_item():
     elif request.method == 'DELETE':
         id_delete = request.form["id_delete"]
         menu_items.MenuItems.delete(id_delete)
-        return jsonify({'data': render_template('cashier/menuitems.html')})
+        menu_dict = menu_items.MenuItems.read_all()
+        return jsonify({'data': render_template('cashier/menuitems.html', menu_dict=menu_dict)})
 
 
 def categories():
