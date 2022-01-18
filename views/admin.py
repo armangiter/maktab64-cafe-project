@@ -36,6 +36,7 @@ def login():
                 return render_template('cashier/adminpage2.html', data=cashier_dict[c], top_five=top_five,
                                        top_items_v=top_items_v,
                                        top_items_k=top_items_k, total_income=total_income)
+        return render_template('cashier/login.html', wrong='wrong phone or pass')
     elif request.method == 'GET':
         return render_template('cashier/login.html')
 
