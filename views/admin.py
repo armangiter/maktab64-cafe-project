@@ -59,6 +59,7 @@ def admin_page():
 
 
 def order():
+    print('order1')
     if request.method == "GET":
         menu_dict = menu_items.MenuItems.read_all()
         order_dict = orders.Order.read_all()
@@ -66,10 +67,13 @@ def order():
         return jsonify({'data': render_template('cashier/orders.html', menu_dict=menu_dict, order_dict=order_dict,
                                                 order_item_dict=order_item_dict)})
     elif request.method == 'POST':
+        print('order')
         value_status = request.form['status']
         id_order = request.form['id_order']
+        print(value_status)
         orders.Order.update('status', id_order, value_status)
-        return render_template('cashier/orders.html')
+        order_dict = orders.Order.read_all()
+        return jsonify({'data': render_template('cashier/orders.html', order_dict=order_dict)})
 
 
 def receipt():
