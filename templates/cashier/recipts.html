@@ -9,25 +9,42 @@
             <th scope="col">Total Price</th>
             <th scope="col">Final Price</th>
             <th scope="col">Time stamp</th>
-            <th scope="col">Status </th>
+            <th scope="col">Status</th>
         </tr>
         </thead>
         <tbody>
         {% for rec in receipts_dict %}
             <tr>
                 <th scope="row">{{ receipts_dict[rec]['id'] }}</th>
-                <td>{{ receipts_dict[rec]['table_id'] }}</td>
+                <td id="table_id">{{ receipts_dict[rec]['table_id'] }}</td>
                 <td>{{ receipts_dict[rec]['total_price'] }}</td>
                 <td>{{ receipts_dict[rec]['final_price'] }}</td>
                 <td>{{ receipts_dict[rec]['time_stamp'] }}</td>
                 <td>{{ receipts_dict[rec]['status'] }}</td>
                 <td>
-                    <button type="button" class="btn btn-primary" >
-                        Payment
-                    </button>
+                    <form action="#">
+                        <button type="button" class="btn btn-primary"
+                                value="{{ receipts_dict[rec]['table_id'] }}" onclick="spa1(this.value)">Payment
+                        </button>
+                    </form>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 </div>
+<script>
+    function spa1(id) {
+        $.ajax({
+            url: "{{url_for('receipt')}}",
+            type: 'POST',
+            data: {
+                'table_id': id,
+            },
+            success: function (res) {
+                console.log(res)
+                $('#admin_content').html(res['data'])
+            }
+        });
+    }
+</script>
