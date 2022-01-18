@@ -59,7 +59,6 @@ def admin_page():
 
 
 def order():
-    print('order1')
     menu_dict = menu_items.MenuItems.read_all()
     order_dict = orders.Order.read_all()
     order_item_dict = order_item.OrderItem.read_all()
@@ -68,15 +67,15 @@ def order():
         o_i_dict[order_item_dict[i]['order_id']] = menu_dict[order_item_dict[i]['item_id']]['name']
     if request.method == "GET":
 
-        print(o_i_dict)
         return jsonify({'data': render_template('cashier/orders.html', order_dict=order_dict,
                                                 o_i_dict=o_i_dict)})
     elif request.method == 'POST':
-        print('order')
         value_status = request.form['status']
         id_order = request.form['id_order']
-        print(value_status)
-        orders.Order.update('status', id_order, value_status)
+        if value_status == 'Delete':
+            orders.Order.delete(id_order)
+        else:
+            orders.Order.update('status', id_order, value_status)
         order_dict = orders.Order.read_all()
         return jsonify({'data': render_template('cashier/orders.html', order_dict=order_dict, o_i_dict=o_i_dict)})
 
