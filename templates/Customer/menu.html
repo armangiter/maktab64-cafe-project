@@ -5,11 +5,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center marb-35">
-                            <h1 class="header-h">Menu List</h1>
-                            <p class="header-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A asperiores
-                                assumenda aut consectetur,
-                                distinctio,<br> dolor earum eos est et eveniet excepturi impedit iure nam nulla placeat
-                                provident quas recusandae soluta?</p>
+                            <h1 class="header-h" style="border: solid #735f4f 3px;padding: 1rem">Menu List</h1>
+                            <h2 class="header-p" style="color: #020202;font-size: 2rem">Choose the most delicious ones</h2>
                         </div>
                         <div class="col-md-12 text-center" id="menu-filters">
                             <ul>
@@ -27,7 +24,7 @@
                                         {% for cat in category_dict %}
                                             {% for menu in menu_dict %}
                                                 {% if menu_dict[menu]['category']==cat %}
-                                                    <div style="text-align: center;margin: 2vh">
+                                                    <div style="text-align: center;margin: 2vh" class="animate__animated animate__zoomIn animate__delay-0.6s">
                                                         <div class="flip-card">
                                                             <div class="flip-card-inner">
                                                                 <div class="flip-card-front">
@@ -43,7 +40,7 @@
 
                                                         </div>
                                                         <div style="margin-top: 1vh">
-                                                            <button class="button order_btn"
+                                                            <button class="button order_btn btn btn-warning"
                                                                     item="{{ menu_dict[menu]['id'] }}">add to cart
                                                             </button>
                                                         </div>
