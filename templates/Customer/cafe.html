@@ -5,7 +5,7 @@
                 {% if category_dict[cat]['root'] == 'cafe' %}
                     {% for menu in menu_dict %}
                         {% if menu_dict[menu]['category']==cat %}
-                            <div style="text-align: center;margin: 2vh" class="animate__animated animate__fadeInRight animate__delay-1s">
+                            <div style="text-align: center;margin: 2vh" class="animate__animated animate__zoomIn animate__delay-0.6s">
                                 <div class="flip-card">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
@@ -20,7 +20,7 @@
                                     </div>
                                 </div>
                                 <div style="margin-top: 1vh">
-                                    <button class="button order_btn btn btn-primary" item="{{ menu_dict[menu]['id'] }}">add to cart</button>
+                                    <button class="button order_btn btn btn-warning" item="{{ menu_dict[menu]['id'] }}">add to cart</button>
                                 </div>
                             </div>
                         {% endif %}
