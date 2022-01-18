@@ -129,10 +129,10 @@ def dashboard():
         top_five = []
         for i in item_order:
             name = menu_dict[item_order[i]['item_id']]['name']
-            if i in top_items:
-                ...
+            if name in top_items.keys():
+                top_five[name]+=int(order_dict[item_order[i]['order_id']]['number'])
             top_items[name] = int(order_dict[item_order[i]['order_id']]['number'])
-
+        print(top_five)
         for r in reciept_dict:
             top_five.append(reciept_dict[r]['total_price'])
         top_five.sort()
