@@ -26,7 +26,7 @@ class Receipt(BaseManager):
 
     @classmethod
     def update(cls, column_name, row_id, value):
-        session.query(Receipts).filter(Receipts.id == row_id).Update({column_name: value})
+        session.query(Receipts).filter(Receipts.table_id == row_id).update({column_name: value})
         session.commit()
 
     @classmethod
@@ -39,7 +39,8 @@ class Receipt(BaseManager):
                 'table_id': i.table_id,
                 'total_price': i.total_price,
                 'final_price': i.final_price,
-                'time_stamp': i.time_stamp
+                'time_stamp': i.time_stamp,
+                'status': i.status,
             }
         return receipts_dict
 

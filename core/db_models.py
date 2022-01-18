@@ -45,6 +45,7 @@ class Table(Base):
     capacity = Column('capacity', Integer)
     status = Column('status', String)
 
+
 class Orders(Base):
     __tablename__ = "Orders"
     id = Column('id', Integer, unique=True, primary_key=True)
@@ -61,6 +62,7 @@ class Receipts(Base):
     total_price = Column('total_price', Integer, default=0)
     final_price = Column('final_price', Integer, default=0)
     time_stamp = Column('time_stamp', DateTime)
+    status = Column('status', String, default="Unpaid")
 
 
 class Order_items(Base):
