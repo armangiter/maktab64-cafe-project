@@ -128,6 +128,7 @@ def dashboard():
         order_dict = orders.Order.read_all()
         top_items = {}
         top_five = []
+        total_income = 0
         for i in item_order:
             name = menu_dict[item_order[i]['item_id']]['name']
             if name in top_items:
@@ -137,9 +138,10 @@ def dashboard():
         top_items = dict(Counter(top_items).most_common(5))
         for r in reciept_dict:
             top_five.append(reciept_dict[r]['total_price'])
+            total_income += reciept_dict[r]['final_price']
         top_five.sort()
         top_five = top_five[-1:-6:-1]
         top_items_v = list(top_items.values())
         top_items_k = list(top_items.keys())
         return render_template('cashier/dashbord.html', top_five=top_five, top_items_v=top_items_v,
-                               top_items_k=top_items_k)
+                               top_items_k=top_items_k,total_income=total_income)
