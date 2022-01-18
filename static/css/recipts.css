@@ -1,0 +1,10 @@
+.create {
+    margin-top: 3rem;
+    bottom: 1rem;
+    width: 100%;
+    background-color: var(--first-color-lighten);
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(35, 0, 77, .2);
+}

@@ -1,0 +1,83 @@
+{% for i in cart_dict %}
+    <tr>
+    <td class="col-sm-8 col-md-6">
+        <div class="media">
+            <a class="thumbnail pull-left" href="#"> <img class="media-object"
+                                                          src="{{ cart_dict[i]['image'] }}"
+                                                          style="width: 30px; height: 30px;">
+            </a>
+            <div class="media-body" style="padding-left:10px;">
+                <h4 class="media-heading"><a href="#"></a></h4>
+                <h5 class="media-heading"> {{ cart_dict[i]['name'] }} <a href="#"></a></h5>
+                <span></span><span class="text-success"><strong></strong></span>
+            </div>
+        </div>
+    </td>
+    <td class="col-sm-1 col-md-1" style="text-align: center">
+        <input type="number" oninput="setCookie({{ cart_dict[i]['id'] }},this.value,1)" class="form-control item_num" value="{{ cart_dict[i]['quantity'] }}">
+    </td>
+    <td class="col-sm-1 col-md-1 text-center"><strong> {{ cart_dict[i]['price'] }} </strong></td>
+    <td class="col-sm-1 col-md-1 text-center"><strong>{{ cart_dict[i]['t_price'] }}</strong></td>
+    <td class="col-sm-1 col-md-1">
+        <button type="submit" onclick="eraseCookie({{ cart_dict[i]['id'] }})" class="btn btn-danger kheili">
+            <span class="glyphicon glyphicon-remove"></span> Remove
+        </button></td>
+</tr>
+{% endfor %}
+<tr>
+    <td colspan="4"><h5>Total Quantity</h5></td>
+    <td class="text-right"><h5><strong>{{ total_quantity }}</strong></h5></td>
+</tr>
+<tr>
+    <td colspan="3"><h3>Total</h3></td>
+    <td colspan="2" class="text-right"><h3><strong>{{ total_price }}</strong></h3></td>
+</tr>
+<tr>
+    <td colspan="4">
+  <label for="browser">Choose your table number:</label>
+  <input list="tables" name="table" id="n_table" oninput="setCookie('table',this.value,1)" value="{{ table_id }}">
+    </td>
+    <td>
+        <button type="submit" class="btn btn-success">
+            Checkout <span class="glyphicon glyphicon-play"></span>
+        </button>
+    </td>
+</tr>
+<script>
+    $('.kheili').click(function () {
+        console.log('in here')
+        $.ajax({
+            url: "{{ url_for('cart') }}",
+            type: 'GET',
+            success: function (res) {
+                $('#cart_content').html(res['data'])
+            }
+        });
+    })
+    $('.item_num').click(function () {
+        console.log('in here')
+        $.ajax({
+            url: "{{ url_for('cart') }}",
+            type: 'GET',
+            success: function (res) {
+                $('#cart_content').html(res['data'])
+            }
+        });
+     })
+    function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+    $('.btn-success').click(function () {
+        console.log('in here')
+        $.ajax({
+            url: "{{ url_for('order') }}",
+            type: 'GET',
+            success: function (res) {
+                $('#cart_content').html(res)
+            }
+        });
+            sleep(100).then(() => {
+    deleteAllCookies()
+});
+    })
+</script>

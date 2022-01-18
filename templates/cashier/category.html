@@ -1,0 +1,103 @@
+<h4>Categories</h4>
+<hr>
+<div class="container">
+    <table class="table table-hover create" id="login-up">
+        <thead>
+        <tr>
+            <th scope="col">Number</th>
+            <th scope="col">Title</th>
+            <th scope="col">Root</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for cat in category_dict %}
+            <tr>
+                <th scope="row">{{ category_dict[cat]['id'] }}</th>
+                <td>{{ category_dict[cat]['title'] }}</td>
+                <td>{{ category_dict[cat]['root'] }}</td>
+                <td>
+                    <form action="#">
+                        <button type="button" class="btn btn-danger id_Delete"
+                                value="{{ category_dict[cat]['id'] }}" onclick="spa1(this.value)">Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="form-group">
+        <button type="button" class="btn btn-primary form-control" data-toggle="modal" data-target="#exampleModal"
+                style="border-radius: 1rem">
+            Add Category
+        </button>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="container">
+                            <div class="modal-header">
+                                <h2 class="modal-title">Add category</h2>
+                            </div>
+                            <div class="modal-body">
+                                <form action="#" class="create" id="login-up">
+                                    <div class="box">
+                                        <i class="bi bi-bag"></i>
+                                        <input type="text" placeholder="Enter Items Title" class="input" id="Title">
+                                    </div>
+                                    <div class="box">
+                                        <i class="bi bi-bag"></i>
+                                        <input type="text" placeholder="Enter Items Root" class="input" id="Root">
+                                    </div>
+                                    <div class="row">
+                                        <button type="button" class="button col" id="create" onclick="spa()" data-dismiss="modal">Create
+                                        </button>
+                                    </div>
+                                </form>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                        style="margin-top: 1rem" >Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    function spa() {
+        $.ajax({
+            url: "{{ url_for('category') }}",
+            type: 'POST',
+            data: {
+                'title': $('#Title').val(),
+                'root': $('#Root').val(),
+            },
+                success: function (res) {
+                console.log(res)
+                $('#admin_content').html(res['data'])
+            }
+        });
+    }
+
+</script>
+<script>
+    function spa1(id) {
+        $.ajax({
+            url: "{{url_for('category')}}",
+            type: 'DELETE',
+            data : {
+                'id_delete':id,
+            },
+            success: function (res) {
+                console.log(res)
+                $('#admin_content').html(res['data'])
+            }
+        });
+    }
+</script>

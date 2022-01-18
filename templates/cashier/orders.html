@@ -1,0 +1,89 @@
+<h4>Orders</h4>
+<hr>
+<div class="container">
+    <table class="table table-hover create" id="login-up">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Table id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Number</th>
+            <th scope="col">Status</th>
+            <th scope="col">Time stamp</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for ord in order_dict %}
+            <tr>
+            <th scope="row">{{ order_dict[ord]['order_id'] }}</th>
+            <td>{{ order_dict[ord]['table_id'] }}</td>
+            <td>{{ o_i_dict[order_dict[ord]['order_id']] }}</td>
+            <td>{{ order_dict[ord]['number'] }}</td>
+            <td>{{ order_dict[ord]['status'] }}</td>
+            <td>{{ order_dict[ord]['time_stamp'] }}</td>
+            <td>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    value="{{ order_dict[ord]['order_id'] }}" onclick="id_selector(this.value)">
+                status
+            </button>
+        {% endfor %}
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Status</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <form action="#">
+                                <label for="TF"></label>
+                                <select id="TF" class="form-control">
+                                    <option value="Not served">Not served</option>
+                                    <option value="Served">Served</option>
+                                </select>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                    </button>
+                                    <button type="button" data-dismiss="modal" class="btn btn-primary id_order"
+                                            onclick="spa()">Save changes
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    let _id = 0
+    function id_selector(id) {
+        _id = id
+    }
+    function spa() {
+        $.ajax({
+            url: "{{ url_for('orders')|safe }}",
+            type: 'POST',
+            data: {
+                'status': $('#TF').val(),
+                'id_order': _id
+            },
+            success: function (res) {
+                console.log(res)
+                $('#admin_content').html(res['data'])
+            }
+        });
+    }
+
+</script>
