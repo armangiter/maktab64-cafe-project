@@ -135,13 +135,11 @@ def dashboard():
             else:
                 top_items[name] = int(order_dict[item_order[i]['order_id']]['number'])
         top_items = dict(Counter(top_items).most_common(5))
-        print(top_items)
         for r in reciept_dict:
             top_five.append(reciept_dict[r]['total_price'])
         top_five.sort()
         top_five = top_five[-1:-6:-1]
         top_items_v = list(top_items.values())
         top_items_k = list(top_items.keys())
-        print(top_items_k, top_items_v)
         return render_template('cashier/dashbord.html', top_five=top_five, top_items_v=top_items_v,
                                top_items_k=top_items_k)
