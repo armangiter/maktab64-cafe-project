@@ -11,10 +11,9 @@
                 <div class="col-xl-3 col-lg-5 col-md-6 col-sm-9 col-xs-7">
                     <canvas id="myChart1"
                             style="width:30rem;height: 30rem; padding: .5rem"></canvas>
-
                     <script>
-                        var xValues = {{ top_items.keys }};
-                        var yValues = {{ top_items.values }};
+                        var xValues = {{ top_items_k|safe }};
+                        var yValues = {{ top_items_v|safe }};
                         var barColors = ["red", "green", "blue", "orange", "brown"];
 
                         new Chart("myChart1", {
@@ -30,7 +29,7 @@
                                 legend: {display: false},
                                 title: {
                                     display: true,
-                                    text: "World Wine Production 2018"
+                                    text: "top popular menu item"
                                 }
                             }
                         });
@@ -42,7 +41,7 @@
 
                     <script>
                         var xValues = ["first", "second", "third", "fourth", "fifth"];
-                        var yValues = {{ top_five }};
+                        var yValues = {{ top_five|safe }};
                         var barColors = [
                             "#fa060a",
                             "#086cee",
@@ -63,7 +62,7 @@
                             options: {
                                 title: {
                                     display: true,
-                                    text: "World Wide Wine Production 2018"
+                                    text: "top 5 most orders cost"
                                 }
                             }
                         });

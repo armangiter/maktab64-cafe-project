@@ -140,4 +140,8 @@ def dashboard():
             top_five.append(reciept_dict[r]['total_price'])
         top_five.sort()
         top_five = top_five[-1:-6:-1]
-        return render_template('cashier/dashbord.html', top_five=top_five, top_items=top_items)
+        top_items_v = list(top_items.values())
+        top_items_k = list(top_items.keys())
+        print(top_items_k, top_items_v)
+        return render_template('cashier/dashbord.html', top_five=top_five, top_items_v=top_items_v,
+                               top_items_k=top_items_k)
