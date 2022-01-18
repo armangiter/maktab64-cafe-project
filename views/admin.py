@@ -122,7 +122,15 @@ def tables():
 def dashboard():
     if request.method == 'GET':
         reciept_dict = reciepts.Receipt.read_all()
+        item_order = order_item.OrderItem.read_all()
+        order_dict = orders.Order.read_all()
+        top_items = {}
         top_five = []
+        for i, o in item_order,order_dict:
+            if i in top_items:
+                ...
+            top_items[i] = item_order
+
         for r in reciept_dict:
             top_five.append(reciept_dict[r]['total_price'])
         top_five.sort()
