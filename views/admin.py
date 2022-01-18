@@ -123,13 +123,15 @@ def dashboard():
     if request.method == 'GET':
         reciept_dict = reciepts.Receipt.read_all()
         item_order = order_item.OrderItem.read_all()
+        menu_dict = menu_items.MenuItems.read_all()
         order_dict = orders.Order.read_all()
         top_items = {}
         top_five = []
-        for i, o in item_order,order_dict:
+        for i in item_order:
+            name = menu_dict[item_order[i]['item_id']]['name']
             if i in top_items:
                 ...
-            top_items[i] = item_order
+            top_items[name] = int(order_dict[item_order[i]['order_id']]['number'])
 
         for r in reciept_dict:
             top_five.append(reciept_dict[r]['total_price'])
