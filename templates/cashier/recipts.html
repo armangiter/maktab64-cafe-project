@@ -9,6 +9,7 @@
             <th scope="col">Total Price</th>
             <th scope="col">Final Price</th>
             <th scope="col">Time stamp</th>
+            <th scope="col">Status </th>
         </tr>
         </thead>
         <tbody>
@@ -19,7 +20,12 @@
                 <td>{{ receipts_dict[rec]['total_price'] }}</td>
                 <td>{{ receipts_dict[rec]['final_price'] }}</td>
                 <td>{{ receipts_dict[rec]['time_stamp'] }}</td>
-
+                <td>{{ receipts_dict[rec]['status'] }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" >
+                        Payment
+                    </button>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
