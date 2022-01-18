@@ -38,16 +38,16 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="form-group">
-                                       <form action="{{ url_for('orders') }}" method="POST">
+                                       <form action="#">
                                         <label for="TF"></label>
-                                        <select id="TF" class="form-control" name="status">
-                                            <option value="Not served">Not served</option>
-                                            <option value="Served">Served</option>
+                                        <select id="TF" class="form-control">
+                                            <option  value="Not served">Not served</option>
+                                            <option  value="Served">Served</option>
                                         </select>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
                                             </button>
-                                            <button type="submit" class="btn btn-primary" name="id_order" value="{{ order_dict[ord]['order_id'] }}">Save changes</button>
+                                            <button type="button" class="btn btn-primary id_order" value="{{ order_dict[ord]['table_id'] }}" onclick="spa(this.value)">Save changes</button>
                                         </div>
                                     </form>
                                     </div>
@@ -61,3 +61,20 @@
         </tbody>
     </table>
 </div>
+<script>
+    function spa(id) {
+        $.ajax({
+            url: "{{ url_for('order')|safe }}",
+            type: 'POST',
+            data: {
+                'status': $('#TF').val(),
+                'id_order': id
+            },
+                success: function (res) {
+                console.log(res)
+                $('#admin_content').html(res['data'])
+            }
+        });
+    }
+
+</script>
