@@ -64,7 +64,7 @@
 <script>
     function spa(id) {
         $.ajax({
-            url: "{{ url_for('order')|safe }}",
+            url: "{{ url_for('orders')|safe }}",
             type: 'POST',
             data: {
                 'status': $('#TF').val(),
