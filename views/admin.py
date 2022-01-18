@@ -57,10 +57,15 @@ def order():
 
 
 def receipt():
-    if request.method == 'GET':
+    if request.method == 'POST':
+        status = 'Paid'
+        table_id = request.form['table_id']
+        reciepts.Receipt.update('status', table_id, status)
         receipts_dict = reciepts.Receipt.read_all()
         return jsonify({'data': render_template('cashier/recipts.html', receipts_dict=receipts_dict)})
-    return None
+    elif request.method == 'GET':
+        receipts_dict = reciepts.Receipt.read_all()
+        return jsonify({'data': render_template('cashier/recipts.html', receipts_dict=receipts_dict)})
 
 
 def menu_item():
