@@ -13,7 +13,7 @@ class Order(BaseManager):
         self.create(self.table_id, self.number, self.status, self.time_stamp)
 
     @classmethod
-    def create(cls, table_id, number, time_stamp, status):
+    def create(cls, table_id, number, status, time_stamp):
         new_row = Orders(table_id=table_id, number=number,
                          status=status, time_stamp=time_stamp)
         session.add(new_row)
@@ -41,6 +41,7 @@ class Order(BaseManager):
         for i in orders:
             i: Orders
             orders_dict[i.id] = {
+                'order_id': i.id,
                 'table_id': i.table_id,
                 'number': i.number,
                 'time_stamp': i.time_stamp,

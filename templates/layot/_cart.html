@@ -10,7 +10,7 @@
                         <p>
                         <h2>Shopping Cart</h2></p>
                         <div class="col-sm-12">
-                            <p><a id="btnEmpty" class="btn btn-danger">Empty Cart</a></p>
+                            <p><button type="submit" onclick="deleteAllCookies()" id="btnEmpty" class="btn btn-danger">Empty Cart</button></p>
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
@@ -21,52 +21,7 @@
                                     <th></th>
                                 </tr>
                                 </thead>
-                                <tbody>
-
-                                <tr>
-                                    <td class="col-sm-8 col-md-6">
-                                        <div class="media">
-                                            <a class="thumbnail pull-left" href="#"> <img class="media-object"
-                                                                                          src=""
-                                                                                          style="width: 30px; height: 30px;">
-                                            </a>
-                                            <div class="media-body" style="padding-left:10px;">
-                                                <h4 class="media-heading"><a href="#"></a></h4>
-                                                <h5 class="media-heading"> by <a href="#"></a></h5>
-                                                <span>Status: </span><span class="text-success"><strong></strong></span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="col-sm-1 col-md-1" style="text-align: center">
-                                        <input type="email" class="form-control" value="1">
-                                    </td>
-                                    <td class="col-sm-1 col-md-1 text-center"><strong> price </strong></td>
-                                    <td class="col-sm-1 col-md-1 text-center"><strong>item_price</strong></td>
-                                    <td class="col-sm-1 col-md-1">
-                                        <a class="btn btn-danger">
-                                            <span class="glyphicon glyphicon-remove"></span> Remove
-                                        </a></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4"><h5>Total Quantity</h5></td>
-                                    <td class="text-right"><h5><strong>all_total_quantity</strong></h5></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3"><h3>Total</h3></td>
-                                    <td colspan="2" class="text-right"><h3><strong>$all_total_price</strong></h3></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4">
-                                        <button type="button" class="btn btn-default">
-                                            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success">
-                                            Checkout <span class="glyphicon glyphicon-play"></span>
-                                        </button>
-                                    </td>
-                                </tr>
+                                <tbody id="cart_content">
                                 </tbody>
                             </table>
                         </div>
@@ -79,4 +34,18 @@
         </div>
     </div>
 </div>
-<script src="../../static/js/cart.js"></script>
+<script src="../../static/js/cart.js">
+</script>
+<script>
+    $('#btnEmpty').click(function () {
+        console.log('in here')
+        $.ajax({
+            url: "{{ url_for('cart') }}",
+            type: 'GET',
+            success: function (res) {
+                console.log(res)
+                $('#cart_content').html(res['data'])
+            }
+        });
+    })
+</script>

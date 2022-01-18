@@ -37,6 +37,7 @@ class CategoryModels(BaseManager):
         for i in categories:
             i: Category
             categories_dict[i.id] = {
+                'id': i.id,
                 'title': i.title,
                 'root': i.root
             }

@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
-engine = create_engine('postgresql://postgres:123456@localhost/postgres')
+engine = create_engine('postgresql://postgres:Ja55969655@localhost/postgres')
 session = sessionmaker(bind=engine)()
 
 
@@ -42,7 +42,8 @@ class Table(Base):
     id = Column('id', Integer, unique=True, primary_key=True)
     table_number = Column('table number', Integer, unique=True)
     cafe_position = Column('cafe_position', String)
-    capacity = Column('capacity', Integer, unique=True, default=2)
+    capacity = Column('capacity', Integer)
+    status = Column('status', String)
 
 
 class Orders(Base):
@@ -61,6 +62,7 @@ class Receipts(Base):
     total_price = Column('total_price', Integer, default=0)
     final_price = Column('final_price', Integer, default=0)
     time_stamp = Column('time_stamp', DateTime)
+    status = Column('status', String, default="Unpaid")
 
 
 class Order_items(Base):

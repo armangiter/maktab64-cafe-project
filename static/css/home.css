@@ -89,3 +89,13 @@
     background-color: transparent;
     box-shadow: 0 0 0 2px white;
 }
+#hero img {
+    width:14rem;
+    animation: imgRotate 50s linear infinite;
+}
+
+@keyframes imgRotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}

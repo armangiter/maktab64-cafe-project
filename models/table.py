@@ -24,7 +24,7 @@ class TableModels(BaseManager):
 
     @classmethod
     def update(cls, column_name, row_id, value):
-        session.query(Table).filter(Table.id == row_id).Update({column_name: value})
+        session.query(Table).filter(Table.id == row_id).update({column_name: value})
 
     @classmethod
     def delete(cls, table_id):
@@ -40,6 +40,7 @@ class TableModels(BaseManager):
             table_dict[i.id] = {
                 'table_number': i.table_number,
                 'cafe_position': i.cafe_position,
-                'capacity': i.capacity
+                'capacity': i.capacity,
+                'status': i.status
             }
         return table_dict

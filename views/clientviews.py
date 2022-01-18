@@ -1,4 +1,4 @@
-from flask import render_template, request, render_template_string, jsonify
+from flask import render_template, request, render_template_string, jsonify, make_response
 from models import cashier, category, menu_items, order_item, orders, table, reciepts
 
 base_variables = {
@@ -49,16 +49,24 @@ def team():
 
 
 def order():
-    if request.method == "POST":
-        menu_dict = list(menu_items.MenuItems.read_all().keys())
-        req = request.form.get
-        for i in menu_dict:
-            if req(i) != 0:
-                orders.Order(req('table'), req(str(i)))
-                order_dict = list(orders.Order.read_all().keys())
-                o = order_dict[len(order_dict) - 1]
-                order_item.OrderItem(o, i)
-        return render_template('Customer/index.html')
+    if request.method == "GET":
+        co = request.cookies.to_dict()
+        table_id = co['table']
+        table.TableModels.update('status', table_id, 'full')
+        cart_dict = {}
+        total_price = 0
+        i = 1
+        for k in co:
+            if k != "table":
+                orders.Order(table_id, co[k])
+                order_id = max(orders.Order.read_all().keys())
+                order_item.OrderItem(order_id, k)
+                i += 1
+                item = menu_items.MenuItems.read(f'{k}')
+                total_price += item['price'] * int(co[k])
+                cart_dict[f'{i}'] = item
+        reciepts.Receipt(table_id, total_price, total_price)
+        return render_template('Customer/checkout.html', total_price=total_price)
 
 
 def all_():
@@ -90,3 +98,27 @@ def breakfast():
         menu_dict = menu_items.MenuItems.read_all()
         return jsonify(
             {'data': render_template('Customer/breakfast.html', category_dict=category_dict, menu_dict=menu_dict)})
+
+
+def cart():
+    if request.method == "GET":
+        co = request.cookies.to_dict()
+        cart_dict = {}
+        total_price = 0
+        total_quantity = 0
+        i = 1
+        table_id = 0
+        for k in co:
+            if k == "table":
+                table_id = co[k]
+            else:
+                i += 1
+                item = menu_items.MenuItems.read(f'{k}')
+                item['quantity'] = int(co[k])
+                total_quantity += int(co[k])
+                item['t_price'] = item['price'] * int(co[k])
+                total_price += item['t_price']
+                cart_dict[f'{i}'] = item
+        return jsonify(
+            {'data': render_template('Customer/cart_control.html', cart_dict=cart_dict, total_price=total_price,
+                                     total_quantity=total_quantity, table_id=table_id)})
