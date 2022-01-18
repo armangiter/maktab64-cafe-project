@@ -7,13 +7,35 @@ from collections import Counter
 
 
 def login():
-    print("login")
+    reciept_dict = reciepts.Receipt.read_all()
+    item_order = order_item.OrderItem.read_all()
+    menu_dict = menu_items.MenuItems.read_all()
+    order_dict = orders.Order.read_all()
+    top_items = {}
+    top_five = []
+    total_income = 0
+    for i in item_order:
+        name = menu_dict[item_order[i]['item_id']]['name']
+        if name in top_items:
+            top_items[name] += int(order_dict[item_order[i]['order_id']]['number'])
+        else:
+            top_items[name] = int(order_dict[item_order[i]['order_id']]['number'])
+    top_items = dict(Counter(top_items).most_common(5))
+    for r in reciept_dict:
+        top_five.append(reciept_dict[r]['total_price'])
+        total_income += reciept_dict[r]['final_price']
+    top_five.sort()
+    top_five = top_five[-1:-6:-1]
+    top_items_v = list(top_items.values())
+    top_items_k = list(top_items.keys())
     if request.method == "POST":
         cashier_dict = cashier.CashierModels.read_all()
         for c in cashier_dict:
             if escape(request.form.get('phone')) == cashier_dict[c]['phone'] and \
                     escape(request.form.get('password')) == cashier_dict[c]['password']:
-                return render_template('cashier/adminpage2.html', data=cashier_dict[c])
+                return render_template('cashier/adminpage2.html', data=cashier_dict[c], top_five=top_five,
+                                       top_items_v=top_items_v,
+                                       top_items_k=top_items_k, total_income=total_income)
     elif request.method == 'GET':
         return render_template('cashier/login.html')
 
@@ -31,15 +53,7 @@ def register():
 
 def admin_page():
     if request.method == 'GET':
-        category_dict = category.CategoryModels.read_all()
-        menu_dict = menu_items.MenuItems.read_all()
-        order_dict = orders.Order.read_all()
-        order_item_dict = order_item.OrderItem.read_all()
-        table_dict = table.TableModels.read_all()
-        receipts_dict = reciepts.Receipt.read_all()
-        return render_template('cashier/adminpage2.html', category_dict=category_dict, menu_dict=menu_dict,
-                               order_dict=order_dict, order_item_dict=order_item_dict, table_dict=table_dict,
-                               receipts_dict=receipts_dict, )
+        return render_template('cashier/adminpage2.html')
     return None
 
 
@@ -144,4 +158,4 @@ def dashboard():
         top_items_v = list(top_items.values())
         top_items_k = list(top_items.keys())
         return render_template('cashier/dashbord.html', top_five=top_five, top_items_v=top_items_v,
-                               top_items_k=top_items_k,total_income=total_income)
+                               top_items_k=top_items_k, total_income=total_income)
