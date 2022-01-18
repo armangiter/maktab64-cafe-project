@@ -3,6 +3,7 @@ from flask import Flask
 from flask import redirect, url_for, request, render_template, escape, render_template_string, Response, jsonify
 from models import cashier, category, menu_items, order_item, orders, table, reciepts
 import json
+from collections import Counter
 
 
 def login():
@@ -133,9 +134,10 @@ def dashboard():
                 top_items[name] += int(order_dict[item_order[i]['order_id']]['number'])
             else:
                 top_items[name] = int(order_dict[item_order[i]['order_id']]['number'])
+        top_items = dict(Counter(top_items).most_common(5))
         print(top_items)
         for r in reciept_dict:
             top_five.append(reciept_dict[r]['total_price'])
         top_five.sort()
         top_five = top_five[-1:-6:-1]
-        return render_template('cashier/dashbord.html', top_five=top_five)
+        return render_template('cashier/dashbord.html', top_five=top_five, top_items=top_items)
