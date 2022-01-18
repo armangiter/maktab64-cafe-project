@@ -18,11 +18,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
-
 {% endblock %}
 {% block body %}
     <div id="box">
         {% include "layot/_navbar.html" %}
+        <hr style="margin: 1rem">
         {% include "layot/_cart.html" %}
         <div id="spa_content">
             <div class="row" id="body">
@@ -57,11 +57,13 @@
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-12 col-sm-12">
-                    <h4 style="color: #9C1A1C">About</h4>
-                    <h5>Welcome to my cafe</h5>
+                    <h5 style="color: #9C1A1C">Welcome to my cafe</h5>
                     <p>
                         we serve the richest coffee in the city!.
                         Sometimes having coffee with your best friend is all the therapy you need.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias at exercitationem labore
+                        laudantium possimus. Alias assumenda autem ex ipsam iure, modi quae quibusdam quidem reiciendis
+                        repellat repudiandae totam voluptates voluptatibus!
                     </p>
                     <h2>Special Recipe</h2>
                     <div class="row" id="special-recipe">
@@ -113,8 +115,13 @@
                     </div>
                 </div>
             </section>
+            <div class="row" style="justify-content: center;margin-top: 2rem">
+                <div class="col-lg-6 text-center text-lg-end overflow-hidden" id="hero">
+                    <img class="img-fluid" src="/static/img/hero.png" alt="">
+                </div>
+            </div>
         </div>
-
+        <hr style="margin: 1rem">
         {% include "layot/_footer.html" %}
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
