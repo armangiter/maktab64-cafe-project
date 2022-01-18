@@ -5,7 +5,7 @@ from core.manager import BaseManager
 
 class Receipt(BaseManager):
 
-    def __init__(self, table_id, total_price, final_price, status, time_stamp=datetime.now()):
+    def __init__(self, table_id, total_price, final_price, status='Unpaid', time_stamp=datetime.now()):
         self.table_id = table_id
         self.total_price = total_price
         self.final_price = final_price
