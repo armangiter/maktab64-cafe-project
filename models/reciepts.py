@@ -39,7 +39,8 @@ class Receipt(BaseManager):
                 'table_id': i.table_id,
                 'total_price': i.total_price,
                 'final_price': i.final_price,
-                'time_stamp': i.time_stamp
+                'time_stamp': i.time_stamp,
+                'status': i.status,
             }
         return receipts_dict
 
