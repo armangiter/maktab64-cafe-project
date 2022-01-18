@@ -121,10 +121,10 @@ def tables():
 
 def dashboard():
     if request.method == 'GET':
-        reciept_dict = reciepts.Receipt.read_all()f
+        reciept_dict = reciepts.Receipt.read_all()
         top_five = []
         for r in reciept_dict:
             top_five.append(reciept_dict[r]['total_price'])
         top_five.sort()
-        print(top_five)
-        return render_template('cashier/dashbord.html')
+        top_five = top_five[-1:-6:-1]
+        return render_template('cashier/dashbord.html', top_five=top_five)
