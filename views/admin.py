@@ -66,30 +66,46 @@ def order():
     for i in order_item_dict:
         o_i_dict[order_item_dict[i]['order_id']] = menu_dict[order_item_dict[i]['item_id']]['name']
     if request.method == "GET":
-
-        return jsonify({'data': render_template('cashier/orders.html', order_dict=order_dict,
+        available = {}
+        for i in order_dict:
+            if order_dict[i]['status'] != 'delete':
+                available[i] = order_dict[i]
+        return jsonify({'data': render_template('cashier/orders.html', order_dict=available,
                                                 o_i_dict=o_i_dict)})
     elif request.method == 'POST':
         value_status = request.form['status']
         id_order = request.form['id_order']
         if value_status == 'Delete':
-            orders.Order.delete(id_order)
+            orders.Order.update('status', id_order, 'delete')
         else:
             orders.Order.update('status', id_order, value_status)
         order_dict = orders.Order.read_all()
-        return jsonify({'data': render_template('cashier/orders.html', order_dict=order_dict, o_i_dict=o_i_dict)})
+        available = {}
+        for i in order_dict:
+            if order_dict[i]['status'] != 'delete':
+                available[i] = order_dict[i]
+        return jsonify({'data': render_template('cashier/orders.html', order_dict=available, o_i_dict=o_i_dict)})
 
 
 def receipt():
     if request.method == 'POST':
         status = 'Paid'
         table_id = request.form['table_id']
+        table.TableModels.update('status', table_id, 'empty')
         reciepts.Receipt.update('status', table_id, status)
         receipts_dict = reciepts.Receipt.read_all()
-        return jsonify({'data': render_template('cashier/recipts.html', receipts_dict=receipts_dict)})
+        unpaid = {}
+        for i in receipts_dict:
+            if receipts_dict[i]['status'] != 'Paid':
+                unpaid[i] = receipts_dict[i]
+        return jsonify({'data': render_template('cashier/recipts.html', receipts_dict=unpaid)})
     elif request.method == 'GET':
         receipts_dict = reciepts.Receipt.read_all()
-        return jsonify({'data': render_template('cashier/recipts.html', receipts_dict=receipts_dict)})
+        unpaid = {}
+        for i in receipts_dict:
+            if receipts_dict[i]['status'] != 'Paid':
+                unpaid[i] = receipts_dict[i]
+        return jsonify({'data': render_template('cashier/recipts.html', receipts_dict=unpaid)})
 
 
 def menu_item():
@@ -146,7 +162,11 @@ def tables():
     if request.method == 'GET':
         table_dict = table.TableModels.read_all()
         orders_dict = orders.Order.read_all()
-        return jsonify({'data': render_template('cashier/table.html', table_dict=table_dict, orders=orders_dict)})
+        ok = {}
+        for o in orders_dict:
+            if orders_dict[o]['status'] != 'delete':
+                ok[o] = orders_dict[o]
+        return jsonify({'data': render_template('cashier/table.html', table_dict=table_dict, orders=ok)})
 
 
 def dashboard():
