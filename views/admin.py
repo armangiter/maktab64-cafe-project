@@ -162,7 +162,11 @@ def tables():
     if request.method == 'GET':
         table_dict = table.TableModels.read_all()
         orders_dict = orders.Order.read_all()
-        return jsonify({'data': render_template('cashier/table.html', table_dict=table_dict, orders=orders_dict)})
+        ok = {}
+        for o in orders_dict:
+            if orders_dict[o]['status'] != 'delete':
+                ok[o] = orders_dict[o]
+        return jsonify({'data': render_template('cashier/table.html', table_dict=table_dict, orders=ok)})
 
 
 def dashboard():
