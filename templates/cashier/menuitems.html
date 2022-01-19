@@ -4,6 +4,7 @@
 
 <div class="container"><p><h1 align="center">Menu Manager</h1></p>
    <table class="table table-hover create" id="login-up">
+   <div class="row">
                 <thead>
                     <tr>
                            <th scope="col">ID</th>
@@ -13,8 +14,6 @@
                           <th scope="col">Description</th>
                           <th scope="col">Category</th>
                           <th scope="col">Discount</th>
-                            <th scope="col">serv_time</th>
-                            <th scope="col">st_cooking_time</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,8 +27,6 @@
                         <td>{{menu_dict[row]['description']}}</td>
                         <td>{{menu_dict[row]['category']}}</td>
                         <td>{{menu_dict[row]['discount']}}</td>
-                        <td>{{menu_dict[row]['serv_time']}}</td>
-                        <td>{{menu_dict[row]['st_cooking_time']}}</td>
 
                         <td>
                            <form action="#" >
@@ -41,7 +38,9 @@
                     </tr>
                     {% endfor %}
                 </tbody>
+   </div>
             </table>
+
 <div class="form-group">
     <button type="button" class="btn btn-primary form-control" data-toggle="modal" data-target="#exampleModal"
             style="border-radius: 1rem">
